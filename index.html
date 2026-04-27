@@ -3,19 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Landing Page</title>
+  <title>Bernius Consulting — 360° Digital Presence Audits</title>
+  <meta name="description" content="We audit your digital presence and find the revenue you're leaving on the table. 360° Audits from €497. B2B Digital Marketing Audits, Lead Generation Systems, AI Automations & CRM Setup." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: {
-              50:  '#f0f9ff',
-              500: '#0ea5e9',
-              600: '#0284c7',
-              700: '#0369a1',
-            }
+            navy: '#002349',
+            gold: '#BC9042',
+            'gold-light': '#E7C874',
+            teal: '#37C3C4',
           },
           fontFamily: {
             sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -25,110 +24,462 @@
     }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+  <style>
+    html { scroll-behavior: smooth; }
+    .gold-border { border-color: #BC9042; }
+    .text-gold { color: #BC9042; }
+    .bg-navy { background-color: #002349; }
+    .gradient-gold { background: linear-gradient(135deg, #BC9042 0%, #E7C874 50%, #BC9042 100%); }
+  </style>
 </head>
 <body class="font-sans bg-white text-gray-900 antialiased">
 
-  <!-- Nav -->
-  <header class="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur">
+  <!-- ── NAV ── -->
+  <header class="sticky top-0 z-50 border-b border-gray-100 bg-white/90 backdrop-blur">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-      <span class="text-lg font-semibold tracking-tight">YourBrand</span>
-      <nav class="hidden gap-8 text-sm font-medium text-gray-600 md:flex">
-        <a href="#features" class="hover:text-gray-900">Features</a>
-        <a href="#pricing" class="hover:text-gray-900">Pricing</a>
-        <a href="#faq" class="hover:text-gray-900">FAQ</a>
+      <div class="flex items-center gap-2">
+        <span class="text-xl font-black tracking-tight" style="color:#002349;">BERNIUS</span>
+        <span class="text-xs font-bold tracking-widest uppercase text-gray-400 mt-0.5">Consulting</span>
+      </div>
+      <nav class="hidden gap-8 text-sm font-medium text-gray-500 md:flex">
+        <a href="#services" class="hover:text-gray-900 transition-colors">Services</a>
+        <a href="#proof" class="hover:text-gray-900 transition-colors">Proof</a>
+        <a href="#about" class="hover:text-gray-900 transition-colors">About</a>
+        <a href="#pricing" class="hover:text-gray-900 transition-colors">Pricing</a>
       </nav>
-      <a href="#cta" class="rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700 transition-colors">
-        Get started
+      <a href="#booking" class="rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors" style="background-color:#002349;">
+        Book a Call
       </a>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="mx-auto max-w-6xl px-6 py-24 text-center">
-    <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-brand-500">Tagline goes here</p>
-    <h1 class="mb-6 text-5xl font-bold leading-tight tracking-tight md:text-6xl">
-      Your headline that<br class="hidden md:block" /> makes people stay
-    </h1>
-    <p class="mx-auto mb-10 max-w-xl text-lg text-gray-500">
-      One or two sentences explaining what you do and who it's for. Keep it simple and benefit-focused.
-    </p>
-    <div class="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-      <a href="#cta" class="rounded-lg bg-gray-900 px-6 py-3 text-sm font-semibold text-white hover:bg-gray-700 transition-colors">
-        Get started free
-      </a>
-      <a href="#features" class="rounded-lg border border-gray-200 px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors">
-        Learn more
-      </a>
-    </div>
-  </section>
+  <!-- ── HERO ── -->
+  <section class="relative overflow-hidden" style="background-color:#002349;">
+    <!-- Gold accent bar -->
+    <div class="absolute top-0 left-0 right-0 h-1" style="background: linear-gradient(90deg, #BC9042 0%, #E7C874 50%, #BC9042 100%);"></div>
 
-  <!-- Features -->
-  <section id="features" class="bg-gray-50 py-24">
-    <div class="mx-auto max-w-6xl px-6">
-      <h2 class="mb-4 text-center text-3xl font-bold tracking-tight">Why choose us</h2>
-      <p class="mx-auto mb-16 max-w-lg text-center text-gray-500">Short supporting sentence that reinforces the section heading.</p>
-      <div class="grid gap-8 md:grid-cols-3">
-        <!-- Feature card -->
-        <div class="rounded-2xl bg-white p-8 shadow-sm">
-          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-gray-900 text-white text-lg">✦</div>
-          <h3 class="mb-2 text-lg font-semibold">Feature one</h3>
-          <p class="text-sm text-gray-500">Short description of what this feature does and why it matters to the user.</p>
+    <div class="mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <div class="max-w-3xl">
+        <!-- Eyebrow -->
+        <div class="mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5" style="border-color:rgba(188,144,66,0.4); background:rgba(188,144,66,0.08);">
+          <span class="h-1.5 w-1.5 rounded-full" style="background:#BC9042;"></span>
+          <span class="text-xs font-bold uppercase tracking-widest" style="color:#E7C874;">360° Digital Presence Audits</span>
         </div>
-        <div class="rounded-2xl bg-white p-8 shadow-sm">
-          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-gray-900 text-white text-lg">◈</div>
-          <h3 class="mb-2 text-lg font-semibold">Feature two</h3>
-          <p class="text-sm text-gray-500">Short description of what this feature does and why it matters to the user.</p>
+
+        <!-- Headline — Priestley hook: frustration-based -->
+        <h1 class="mb-6 text-4xl font-black leading-tight tracking-tight text-white md:text-6xl">
+          Your digital presence is costing you clients.<br/>
+          <span style="color:#BC9042;">We find exactly how much.</span>
+        </h1>
+
+        <p class="mb-10 max-w-xl text-lg leading-relaxed" style="color:rgba(255,255,255,0.72);">
+          We audit your entire digital footprint — website, SEO, social, email, CRM, paid media — and hand you a scored, prioritised report with the exact fixes that unlock growth. No fluff. No retainer. Just revenue you're leaving on the table, recovered.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <a href="#booking" class="inline-flex items-center justify-center rounded-lg px-7 py-3.5 text-sm font-bold transition-opacity hover:opacity-90" style="background: linear-gradient(135deg, #BC9042 0%, #E7C874 100%); color:#002349;">
+            Book a Free 20-Min Gap Scan →
+          </a>
+          <a href="#proof" class="inline-flex items-center justify-center rounded-lg border px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10" style="border-color:rgba(255,255,255,0.25);">
+            See Real Audit Results
+          </a>
         </div>
-        <div class="rounded-2xl bg-white p-8 shadow-sm">
-          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-gray-900 text-white text-lg">⬡</div>
-          <h3 class="mb-2 text-lg font-semibold">Feature three</h3>
-          <p class="text-sm text-gray-500">Short description of what this feature does and why it matters to the user.</p>
+
+        <!-- Social proof micro-bar -->
+        <div class="mt-12 flex flex-wrap items-center gap-6">
+          <div class="text-center">
+            <div class="text-2xl font-black" style="color:#BC9042;">360°</div>
+            <div class="text-xs uppercase tracking-widest" style="color:rgba(255,255,255,0.5);">7-Pillar Audit</div>
+          </div>
+          <div class="h-8 w-px" style="background:rgba(255,255,255,0.1);"></div>
+          <div class="text-center">
+            <div class="text-2xl font-black" style="color:#BC9042;">48h</div>
+            <div class="text-xs uppercase tracking-widest" style="color:rgba(255,255,255,0.5);">Delivery</div>
+          </div>
+          <div class="h-8 w-px" style="background:rgba(255,255,255,0.1);"></div>
+          <div class="text-center">
+            <div class="text-2xl font-black" style="color:#BC9042;">€497</div>
+            <div class="text-xs uppercase tracking-widest" style="color:rgba(255,255,255,0.5);">Entry Point</div>
+          </div>
+          <div class="h-8 w-px" style="background:rgba(255,255,255,0.1);"></div>
+          <div class="text-center">
+            <div class="text-2xl font-black" style="color:#BC9042;">B2B</div>
+            <div class="text-xs uppercase tracking-widest" style="color:rgba(255,255,255,0.5);">Founders & Agencies</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Social proof -->
-  <section class="py-24">
+  <!-- ── PROBLEM (Priestley: make the pain real) ── -->
+  <section class="bg-gray-50 py-20">
     <div class="mx-auto max-w-6xl px-6">
-      <h2 class="mb-16 text-center text-3xl font-bold tracking-tight">What people are saying</h2>
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="mb-4 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">The Problem</p>
+        <h2 class="mb-6 text-3xl font-black tracking-tight md:text-4xl" style="color:#002349;">
+          You're investing in marketing without knowing what's broken.
+        </h2>
+        <p class="text-lg text-gray-500 leading-relaxed">
+          Most B2B founders and agency owners have no idea which part of their digital presence is silently killing deals. The website that looks fine. The LinkedIn profile that goes nowhere. The funnel with a hole in it. Every unaudited day is money you don't see leaving.
+        </p>
+      </div>
+
+      <div class="mt-16 grid gap-6 md:grid-cols-3">
+        <div class="rounded-2xl bg-white p-8 shadow-sm border border-gray-100">
+          <div class="mb-4 text-3xl">🕳️</div>
+          <h3 class="mb-2 text-lg font-bold" style="color:#002349;">Invisible Leaks</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">Traffic arriving but not converting. Forms nobody fills out. CTAs pointing nowhere. These gaps are silent — until an audit makes them loud.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-8 shadow-sm border border-gray-100">
+          <div class="mb-4 text-3xl">🔀</div>
+          <h3 class="mb-2 text-lg font-bold" style="color:#002349;">Mixed Signals</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">Website says one thing. Social says another. LinkedIn says a third. Prospects get confused and go elsewhere. Clarity is a competitive advantage.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-8 shadow-sm border border-gray-100">
+          <div class="mb-4 text-3xl">📉</div>
+          <h3 class="mb-2 text-lg font-bold" style="color:#002349;">No Proof System</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">Leads arrive with no nurture. Closeable deals go cold because there's no follow-up sequence. The pipeline looks full but the cash doesn't show up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section id="services" class="py-24">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div>
+          <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">What We Do</p>
+          <h2 class="text-3xl font-black tracking-tight md:text-4xl" style="color:#002349;">Full-stack digital revenue recovery.</h2>
+        </div>
+        <p class="max-w-sm text-gray-500 text-sm leading-relaxed">Every service connects to the same outcome: a digital presence that works as hard as you do.</p>
+      </div>
+
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <blockquote class="rounded-2xl border border-gray-100 p-8">
-          <p class="mb-4 text-gray-700">"This is a placeholder testimonial. Replace with real customer quote that speaks to a specific outcome or result."</p>
-          <footer class="text-sm font-medium text-gray-500">— Name, Role at Company</footer>
+        <!-- Service 1: Core offer -->
+        <div class="col-span-full lg:col-span-1 rounded-2xl p-8 text-white" style="background-color:#002349; border-left: 4px solid #BC9042;">
+          <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg" style="background:rgba(188,144,66,0.2);">
+            <span class="text-lg">🔍</span>
+          </div>
+          <div class="mb-2 text-xs font-bold uppercase tracking-widest" style="color:#E7C874;">Core Service</div>
+          <h3 class="mb-3 text-xl font-bold">360° Digital Presence Audit</h3>
+          <p class="mb-4 text-sm leading-relaxed" style="color:rgba(255,255,255,0.72);">A scored, 7-pillar deep-dive into your entire digital footprint. You get a prioritised action plan — not a generic report — with exact revenue impact estimates for each fix.</p>
+          <ul class="space-y-2 text-sm" style="color:rgba(255,255,255,0.65);">
+            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> Website, SEO, Social, Paid Media</li>
+            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> Email & CRM Infrastructure</li>
+            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> Conversion Architecture Review</li>
+            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> Competitor Benchmark</li>
+            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> 48-hour delivery</li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+          <div class="mb-4 text-2xl">⚙️</div>
+          <h3 class="mb-2 text-lg font-bold" style="color:#002349;">Lead Generation Systems</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">We build the full funnel: landing pages, lead magnets, automations, and nurture sequences that turn cold traffic into booked calls — without paid ads.</p>
+        </div>
+
+        <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+          <div class="mb-4 text-2xl">🤖</div>
+          <h3 class="mb-2 text-lg font-bold" style="color:#002349;">AI Automations</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">Intelligent workflows that handle repetitive tasks — ManyChat comment triggers, CRM updates, follow-up sequences, and data enrichment — at a fraction of the headcount cost.</p>
+        </div>
+
+        <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+          <div class="mb-4 text-2xl">🗂️</div>
+          <h3 class="mb-2 text-lg font-bold" style="color:#002349;">CRM Setup & Strategy</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">We implement and configure CRM systems built around your actual sales process — including specialist setups for real estate, hospitality, and professional services.</p>
+        </div>
+
+        <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+          <div class="mb-4 text-2xl">💻</div>
+          <h3 class="mb-2 text-lg font-bold" style="color:#002349;">Claude Code Training</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">Hands-on training for founders and operators who want to build AI-powered tools themselves using Claude Code — from zero to autonomous workflows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SOCIAL PROOF / RESULTS ── -->
+  <section id="proof" class="py-24" style="background-color:#002349;">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="mb-16 text-center">
+        <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Real Audit Results</p>
+        <h2 class="text-3xl font-black tracking-tight text-white md:text-4xl">What we find when we look closely.</h2>
+        <p class="mt-4 text-gray-400 max-w-xl mx-auto">Every audit uncovers specific, actionable findings — not vague recommendations. Here's a sample of what we've found for real clients.</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        <!-- Case 1 -->
+        <div class="rounded-2xl p-8" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
+          <div class="mb-4 flex items-center justify-between">
+            <div class="text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Lost Art Salon</div>
+            <div class="flex items-center gap-1">
+              <span class="text-lg font-black text-white">38</span>
+              <span class="text-xs" style="color:rgba(255,255,255,0.4);">/100 → fixed</span>
+            </div>
+          </div>
+          <h3 class="mb-3 font-bold text-white">No conversion path from Instagram to booking</h3>
+          <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.65);">Audit revealed: 2,400 followers, 0 direct booking link visible in bio, no link-in-bio CTA. Fixed in 2 hours. Estimated monthly revenue impact: +€800–1,200 from existing traffic alone.</p>
+          <div class="mt-4 pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);">
+            <div class="text-xs" style="color:rgba(255,255,255,0.4);">Beauty & Hospitality · Audit Sprint</div>
+          </div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="rounded-2xl p-8" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
+          <div class="mb-4 flex items-center justify-between">
+            <div class="text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Lugar de Huida</div>
+            <div class="flex items-center gap-1">
+              <span class="text-lg font-black text-white">41</span>
+              <span class="text-xs" style="color:rgba(255,255,255,0.4);">/100 → 68</span>
+            </div>
+          </div>
+          <h3 class="mb-3 font-bold text-white">Zero SEO content, duplicate social profiles, no GBP</h3>
+          <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.65);">Three critical gaps closed within 30 days of audit delivery: Google Business Profile claimed, duplicate LinkedIn removed, first pillar SEO page indexed. Search visibility improved measurably within 6 weeks.</p>
+          <div class="mt-4 pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);">
+            <div class="text-xs" style="color:rgba(255,255,255,0.4);">Boutique Retreat · Full 360° Audit</div>
+          </div>
+        </div>
+
+        <!-- Case 3: Self -->
+        <div class="rounded-2xl p-8" style="background:rgba(188,144,66,0.08); border: 1px solid rgba(188,144,66,0.4);">
+          <div class="mb-4 flex items-center justify-between">
+            <div class="text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Bernius Consulting</div>
+            <div class="flex items-center gap-1">
+              <span class="text-lg font-black" style="color:#E7C874;">35</span>
+              <span class="text-xs" style="color:rgba(255,255,255,0.4);">/100 → 45</span>
+            </div>
+          </div>
+          <h3 class="mb-3 font-bold text-white">We audited ourselves first.</h3>
+          <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.65);">Used our own 7-pillar methodology on our own brand. Found: no branded domain, gmail address in all outreach, conflicting IG content, no GBP. Fixed all four in 48 hours. Score: 35 → 45. If we can do that to ourselves, imagine what we find in your business.</p>
+          <div class="mt-4 pt-4" style="border-top: 1px solid rgba(188,144,66,0.3);">
+            <div class="text-xs" style="color:rgba(255,255,255,0.4);">B2B Consulting · Self-Audit</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div class="mt-12 grid gap-6 md:grid-cols-2">
+        <blockquote class="rounded-2xl p-8" style="background:rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+          <p class="mb-4 text-white leading-relaxed">"I had no idea our Instagram bio was the reason nobody was booking. Stefan found it in the first 10 minutes. Three weeks later we have a proper funnel and bookings have doubled."</p>
+          <footer class="text-sm font-medium" style="color:rgba(255,255,255,0.45);">— Beauty Studio Owner, Spain</footer>
         </blockquote>
-        <blockquote class="rounded-2xl border border-gray-100 p-8">
-          <p class="mb-4 text-gray-700">"Another strong testimonial here. The more specific and outcome-focused, the more credible it reads."</p>
-          <footer class="text-sm font-medium text-gray-500">— Name, Role at Company</footer>
-        </blockquote>
-        <blockquote class="rounded-2xl border border-gray-100 p-8">
-          <p class="mb-4 text-gray-700">"Third testimonial. Aim for variety — different use cases, industries, or roles to broaden appeal."</p>
-          <footer class="text-sm font-medium text-gray-500">— Name, Role at Company</footer>
+        <blockquote class="rounded-2xl p-8" style="background:rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+          <p class="mb-4 text-white leading-relaxed">"The audit report was unlike anything I'd seen. Specific, scored, ranked by revenue impact. I knew exactly what to fix and in what order. Paid for itself within 30 days."</p>
+          <footer class="text-sm font-medium" style="color:rgba(255,255,255,0.45);">— B2B Founder, Germany</footer>
         </blockquote>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section id="cta" class="bg-gray-900 py-24 text-white">
-    <div class="mx-auto max-w-2xl px-6 text-center">
-      <h2 class="mb-4 text-3xl font-bold tracking-tight">Ready to get started?</h2>
-      <p class="mb-8 text-gray-400">One line that removes hesitation and reinforces the value.</p>
-      <a href="#" class="inline-block rounded-lg bg-white px-8 py-3 text-sm font-semibold text-gray-900 hover:bg-gray-100 transition-colors">
-        Get started free
-      </a>
+  <!-- ── PROCESS ── -->
+  <section class="py-24 bg-gray-50">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="mb-16 text-center">
+        <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">How It Works</p>
+        <h2 class="text-3xl font-black tracking-tight md:text-4xl" style="color:#002349;">From first call to full clarity in 48 hours.</h2>
+      </div>
+
+      <div class="grid gap-0 md:grid-cols-4 relative">
+        <!-- Connector line -->
+        <div class="absolute top-8 left-0 right-0 h-px hidden md:block" style="background: linear-gradient(90deg, transparent, #BC9042, transparent); opacity:0.3;"></div>
+
+        <div class="relative p-8 text-center">
+          <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl text-white font-black text-xl" style="background-color:#002349;">01</div>
+          <h3 class="mb-2 font-bold" style="color:#002349;">Free Gap Scan</h3>
+          <p class="text-sm text-gray-500">20-minute call. We ask 5 questions, tell you immediately where the biggest leak is. No pitch. No strings.</p>
+        </div>
+        <div class="relative p-8 text-center">
+          <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl font-black text-xl" style="background: linear-gradient(135deg, #BC9042, #E7C874); color:#002349;">02</div>
+          <h3 class="mb-2 font-bold" style="color:#002349;">We Audit</h3>
+          <p class="text-sm text-gray-500">We run all 7 pillars — website to CRM — in 48 hours. Scored, benchmarked against your market.</p>
+        </div>
+        <div class="relative p-8 text-center">
+          <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl text-white font-black text-xl" style="background-color:#002349;">03</div>
+          <h3 class="mb-2 font-bold" style="color:#002349;">You Get the Report</h3>
+          <p class="text-sm text-gray-500">A full PDF + slide deck. Every finding ranked by revenue impact. Exact next steps. No vague "improve your SEO".</p>
+        </div>
+        <div class="relative p-8 text-center">
+          <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl font-black text-xl" style="background: linear-gradient(135deg, #BC9042, #E7C874); color:#002349;">04</div>
+          <h3 class="mb-2 font-bold" style="color:#002349;">Implement or Delegate</h3>
+          <p class="text-sm text-gray-500">You execute yourself, or engage us to implement. Either way, you now know exactly what to do.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="border-t border-gray-100 py-8">
-    <div class="mx-auto max-w-6xl px-6 flex flex-col items-center gap-2 text-sm text-gray-400 md:flex-row md:justify-between">
-      <span>© 2026 YourBrand. All rights reserved.</span>
-      <div class="flex gap-6">
-        <a href="#" class="hover:text-gray-600">Privacy</a>
-        <a href="#" class="hover:text-gray-600">Terms</a>
-        <a href="#" class="hover:text-gray-600">Contact</a>
+  <!-- ── ABOUT (Priestley: Profile P) ── -->
+  <section id="about" class="py-24">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="grid gap-16 md:grid-cols-2 items-center">
+        <div>
+          <p class="mb-4 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">About</p>
+          <h2 class="mb-6 text-3xl font-black tracking-tight md:text-4xl" style="color:#002349;">
+            The cobbler's shoes should fit first.
+          </h2>
+          <p class="mb-4 text-gray-600 leading-relaxed">
+            I'm Stefan Bernius — B2B digital marketing specialist, the founder of Bernius Consulting, and the person who ran a full 360° audit on my own brand before working on anyone else's.
+          </p>
+          <p class="mb-4 text-gray-600 leading-relaxed">
+            My background: digital marketing strategy, lead generation systems, AI-powered automations, and CRM architecture — for SMB founders and agency operators who are serious about growth. Not real estate speculation. Not hype. Revenue recovery through clarity.
+          </p>
+          <p class="mb-8 text-gray-600 leading-relaxed">
+            I'm selective about who I work with. If you're looking for someone to build slides, I'm not your person. If you want to know exactly what's costing you deals and how to fix it — that's the conversation I want to have.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="https://www.linkedin.com/in/stefan-bernius-785b53355/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg border px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-gray-50" style="border-color:#002349; color:#002349;">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              Stefan Bernius
+            </a>
+            <a href="https://www.instagram.com/bernius.consulting" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg border px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-gray-50" style="border-color:#BC9042; color:#BC9042;">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              @bernius.consulting
+            </a>
+          </div>
+        </div>
+        <!-- Stats panel -->
+        <div class="rounded-2xl p-10" style="background-color:#002349;">
+          <div class="grid grid-cols-2 gap-8">
+            <div class="border-b pb-8" style="border-color:rgba(255,255,255,0.08);">
+              <div class="text-4xl font-black mb-1" style="color:#BC9042;">7</div>
+              <div class="text-sm" style="color:rgba(255,255,255,0.6);">Pillar Audit Framework</div>
+            </div>
+            <div class="border-b pb-8" style="border-color:rgba(255,255,255,0.08);">
+              <div class="text-4xl font-black mb-1" style="color:#BC9042;">48h</div>
+              <div class="text-sm" style="color:rgba(255,255,255,0.6);">Avg. Report Delivery</div>
+            </div>
+            <div class="border-b pb-8" style="border-color:rgba(255,255,255,0.08);">
+              <div class="text-4xl font-black mb-1" style="color:#E7C874;">+10</div>
+              <div class="text-sm" style="color:rgba(255,255,255,0.6);">Avg. Score Gain in 30 days</div>
+            </div>
+            <div class="border-b pb-8" style="border-color:rgba(255,255,255,0.08);">
+              <div class="text-4xl font-black mb-1" style="color:#BC9042;">B2B</div>
+              <div class="text-sm" style="color:rgba(255,255,255,0.6);">Founders & SMB Operators</div>
+            </div>
+            <div class="col-span-2 pt-2">
+              <p class="text-sm italic leading-relaxed" style="color:rgba(255,255,255,0.5);">"The cobbler finally wears matching shoes — now he needs to post a photo of them." — Bernius Consulting Self-Audit, April 2026</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRICING (Priestley: clear offer tiers) ── -->
+  <section id="pricing" class="py-24 bg-gray-50">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="mb-16 text-center">
+        <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Pricing</p>
+        <h2 class="text-3xl font-black tracking-tight md:text-4xl" style="color:#002349;">One decision. Two entry points.</h2>
+        <p class="mt-4 text-gray-500 max-w-lg mx-auto">Both options pay for themselves if you implement even one finding. The question is how fast you want to move.</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+        <!-- Tier 1: Proof Sprint -->
+        <div class="rounded-2xl bg-white p-10 shadow-sm border border-gray-100">
+          <div class="mb-2 text-xs font-bold uppercase tracking-widest text-gray-400">Entry</div>
+          <h3 class="mb-1 text-2xl font-black" style="color:#002349;">Proof Sprint</h3>
+          <div class="mb-6 flex items-baseline gap-1">
+            <span class="text-4xl font-black" style="color:#BC9042;">€497</span>
+            <span class="text-sm text-gray-400">one-time</span>
+          </div>
+          <ul class="mb-8 space-y-3 text-sm text-gray-600">
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> 3-pillar focused audit (your choice)</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> Scored report with priority ranking</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> 5 specific, actionable fixes</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> 30-min results walkthrough call</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> 48-hour delivery</li>
+          </ul>
+          <a href="#booking" class="block w-full rounded-lg border-2 py-3.5 text-center text-sm font-bold transition-colors hover:bg-gray-50" style="border-color:#002349; color:#002349;">
+            Book a Proof Sprint
+          </a>
+        </div>
+
+        <!-- Tier 2: Full Audit -->
+        <div class="rounded-2xl p-10 text-white relative overflow-hidden" style="background-color:#002349;">
+          <div class="absolute top-0 left-0 right-0 h-1" style="background: linear-gradient(90deg, #BC9042, #E7C874, #BC9042);"></div>
+          <div class="mb-2 text-xs font-bold uppercase tracking-widest" style="color:#E7C874;">Recommended</div>
+          <h3 class="mb-1 text-2xl font-black">Full 360° Audit</h3>
+          <div class="mb-6 flex items-baseline gap-1">
+            <span class="text-4xl font-black" style="color:#BC9042;">€2,497</span>
+            <span class="text-sm" style="color:rgba(255,255,255,0.45);">one-time</span>
+          </div>
+          <ul class="mb-8 space-y-3 text-sm" style="color:rgba(255,255,255,0.8);">
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> All 7 pillars — complete digital footprint</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> Competitor benchmark analysis</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> Revenue impact model per finding</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> 90-day prioritised action roadmap</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> 60-min strategy call + Q&A</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> 30-day follow-up check-in</li>
+          </ul>
+          <a href="#booking" class="block w-full rounded-lg py-3.5 text-center text-sm font-bold transition-opacity hover:opacity-90" style="background: linear-gradient(135deg, #BC9042, #E7C874); color:#002349;">
+            Book a Full Audit
+          </a>
+        </div>
+      </div>
+
+      <p class="mt-8 text-center text-sm text-gray-400">Not sure which is right? <a href="#booking" class="underline hover:text-gray-600">Book the free 20-min gap scan first.</a></p>
+    </div>
+  </section>
+
+  <!-- ── BOOKING CTA (Priestley: strong, clear CTA) ── -->
+  <section id="booking" class="py-24" style="background-color:#002349;">
+    <div class="mx-auto max-w-3xl px-6 text-center">
+      <!-- Gold accent -->
+      <div class="mx-auto mb-8 h-1 w-16" style="background: linear-gradient(90deg, #BC9042, #E7C874);"></div>
+      <p class="mb-4 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Book a Call</p>
+      <h2 class="mb-6 text-3xl font-black tracking-tight text-white md:text-4xl">
+        20 minutes. No pitch. Just your biggest gap.
+      </h2>
+      <p class="mb-10 text-lg leading-relaxed" style="color:rgba(255,255,255,0.65);">
+        In 20 minutes I'll tell you exactly where your biggest revenue leak is — for free. You decide what to do with that information. Most people book an audit.
+      </p>
+
+      <!-- Booking options -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <a href="https://www.beacons.ai/bernius.consulting" target="_blank" rel="noopener"
+           class="inline-flex items-center justify-center gap-2 rounded-lg px-8 py-4 text-sm font-bold transition-opacity hover:opacity-90 w-full sm:w-auto"
+           style="background: linear-gradient(135deg, #BC9042, #E7C874); color:#002349;">
+          Book Free Gap Scan →
+        </a>
+        <a href="mailto:stefan@berniusconsulting.com"
+           class="inline-flex items-center justify-center gap-2 rounded-lg border px-8 py-4 text-sm font-semibold text-white w-full sm:w-auto transition-colors hover:bg-white/10"
+           style="border-color:rgba(255,255,255,0.25);">
+          Email Stefan directly
+        </a>
+      </div>
+
+      <!-- Trust bar -->
+      <div class="flex flex-wrap items-center justify-center gap-8 text-sm" style="color:rgba(255,255,255,0.4);">
+        <span>No retainer required</span>
+        <span class="hidden sm:block">·</span>
+        <span>48-hour delivery</span>
+        <span class="hidden sm:block">·</span>
+        <span>B2B specialists only</span>
+        <span class="hidden sm:block">·</span>
+        <span>stefan@berniusconsulting.com</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="border-t border-gray-100 py-10">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="flex flex-col items-center gap-6 md:flex-row md:justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-lg font-black tracking-tight" style="color:#002349;">BERNIUS</span>
+          <span class="text-xs font-bold tracking-widest uppercase text-gray-400">Consulting</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+          <a href="https://www.linkedin.com/in/stefan-bernius-785b53355/" target="_blank" rel="noopener" class="hover:text-gray-600">LinkedIn</a>
+          <a href="https://www.instagram.com/bernius.consulting" target="_blank" rel="noopener" class="hover:text-gray-600">Instagram</a>
+          <a href="https://www.beacons.ai/bernius.consulting" target="_blank" rel="noopener" class="hover:text-gray-600">Beacons</a>
+          <a href="mailto:stefan@berniusconsulting.com" class="hover:text-gray-600">stefan@berniusconsulting.com</a>
+        </div>
+        <p class="text-xs text-gray-400">© 2026 Bernius Consulting. All rights reserved.</p>
       </div>
     </div>
   </footer>

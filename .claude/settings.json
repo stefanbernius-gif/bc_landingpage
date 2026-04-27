@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(open \"/Users/stefanbernius/Library/CloudStorage/OneDrive-Personal/Beruflich/00 Bernius_Consulting/02 AI Tools/Claude Landingpages/bernius-consulting.html\")",
+      "Bash(gh auth *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git branch *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(mv index.html index-starter.html)",
+      "Bash(mv bernius-consulting.html index.html)"
+    ]
+  }
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#f0f9ff',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body class="font-sans bg-white text-gray-900 antialiased">
+
+  <!-- Nav -->
+  <header class="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <span class="text-lg font-semibold tracking-tight">YourBrand</span>
+      <nav class="hidden gap-8 text-sm font-medium text-gray-600 md:flex">
+        <a href="#features" class="hover:text-gray-900">Features</a>
+        <a href="#pricing" class="hover:text-gray-900">Pricing</a>
+        <a href="#faq" class="hover:text-gray-900">FAQ</a>
+      </nav>
+      <a href="#cta" class="rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700 transition-colors">
+        Get started
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-6 py-24 text-center">
+    <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-brand-500">Tagline goes here</p>
+    <h1 class="mb-6 text-5xl font-bold leading-tight tracking-tight md:text-6xl">
+      Your headline that<br class="hidden md:block" /> makes people stay
+    </h1>
+    <p class="mx-auto mb-10 max-w-xl text-lg text-gray-500">
+      One or two sentences explaining what you do and who it's for. Keep it simple and benefit-focused.
+    </p>
+    <div class="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+      <a href="#cta" class="rounded-lg bg-gray-900 px-6 py-3 text-sm font-semibold text-white hover:bg-gray-700 transition-colors">
+        Get started free
+      </a>
+      <a href="#features" class="rounded-lg border border-gray-200 px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors">
+        Learn more
+      </a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="bg-gray-50 py-24">
+    <div class="mx-auto max-w-6xl px-6">
+      <h2 class="mb-4 text-center text-3xl font-bold tracking-tight">Why choose us</h2>
+      <p class="mx-auto mb-16 max-w-lg text-center text-gray-500">Short supporting sentence that reinforces the section heading.</p>
+      <div class="grid gap-8 md:grid-cols-3">
+        <!-- Feature card -->
+        <div class="rounded-2xl bg-white p-8 shadow-sm">
+          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-gray-900 text-white text-lg">✦</div>
+          <h3 class="mb-2 text-lg font-semibold">Feature one</h3>
+          <p class="text-sm text-gray-500">Short description of what this feature does and why it matters to the user.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-8 shadow-sm">
+          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-gray-900 text-white text-lg">◈</div>
+          <h3 class="mb-2 text-lg font-semibold">Feature two</h3>
+          <p class="text-sm text-gray-500">Short description of what this feature does and why it matters to the user.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-8 shadow-sm">
+          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-gray-900 text-white text-lg">⬡</div>
+          <h3 class="mb-2 text-lg font-semibold">Feature three</h3>
+          <p class="text-sm text-gray-500">Short description of what this feature does and why it matters to the user.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social proof -->
+  <section class="py-24">
+    <div class="mx-auto max-w-6xl px-6">
+      <h2 class="mb-16 text-center text-3xl font-bold tracking-tight">What people are saying</h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <blockquote class="rounded-2xl border border-gray-100 p-8">
+          <p class="mb-4 text-gray-700">"This is a placeholder testimonial. Replace with real customer quote that speaks to a specific outcome or result."</p>
+          <footer class="text-sm font-medium text-gray-500">— Name, Role at Company</footer>
+        </blockquote>
+        <blockquote class="rounded-2xl border border-gray-100 p-8">
+          <p class="mb-4 text-gray-700">"Another strong testimonial here. The more specific and outcome-focused, the more credible it reads."</p>
+          <footer class="text-sm font-medium text-gray-500">— Name, Role at Company</footer>
+        </blockquote>
+        <blockquote class="rounded-2xl border border-gray-100 p-8">
+          <p class="mb-4 text-gray-700">"Third testimonial. Aim for variety — different use cases, industries, or roles to broaden appeal."</p>
+          <footer class="text-sm font-medium text-gray-500">— Name, Role at Company</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="bg-gray-900 py-24 text-white">
+    <div class="mx-auto max-w-2xl px-6 text-center">
+      <h2 class="mb-4 text-3xl font-bold tracking-tight">Ready to get started?</h2>
+      <p class="mb-8 text-gray-400">One line that removes hesitation and reinforces the value.</p>
+      <a href="#" class="inline-block rounded-lg bg-white px-8 py-3 text-sm font-semibold text-gray-900 hover:bg-gray-100 transition-colors">
+        Get started free
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-100 py-8">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col items-center gap-2 text-sm text-gray-400 md:flex-row md:justify-between">
+      <span>© 2026 YourBrand. All rights reserved.</span>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-gray-600">Privacy</a>
+        <a href="#" class="hover:text-gray-600">Terms</a>
+        <a href="#" class="hover:text-gray-600">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
