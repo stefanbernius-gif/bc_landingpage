@@ -205,8 +205,6 @@
 
     /* ── Score rings ── */
     /* ── Typewriter ── */
-    .typewriter-cursor::after { content: '|'; animation: blink 0.75s step-end infinite; color: #BC9042; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
     /* ── Mobile touch feedback ── */
     @media (hover: none) {
@@ -980,58 +978,6 @@
     });
   }, { threshold: 0.5 });
   heroStats.forEach(el => heroObserver.observe(el));
-
-  // ── Typewriter effect on hero headline ──
-  const h1 = document.querySelector('h1.hero-headline');
-  if (h1) {
-    const lines = [
-      'Your digital presence is costing you clients.',
-      'We find exactly how much.'
-    ];
-    const colors = [null, '#BC9042'];
-    h1.innerHTML = '';
-    let lineIndex = 0, charIndex = 0, isDeleting = false;
-
-    const span1 = document.createElement('span');
-    span1.className = 'typewriter-cursor';
-    h1.appendChild(span1);
-
-    function type() {
-      const currentLine = lines[lineIndex];
-      if (!isDeleting) {
-        span1.textContent = currentLine.slice(0, charIndex + 1);
-        span1.style.color = colors[lineIndex] || '';
-        charIndex++;
-        if (charIndex === currentLine.length) {
-          if (lineIndex < lines.length - 1) {
-            span1.classList.remove('typewriter-cursor');
-            h1.appendChild(document.createElement('br'));
-            const span2 = document.createElement('span');
-            span2.className = 'typewriter-cursor';
-            span2.style.color = colors[lineIndex + 1] || '';
-            h1.appendChild(span2);
-            lineIndex++;
-            charIndex = 0;
-            setTimeout(() => { typeNext(span2); }, 300);
-            return;
-          }
-          span1.classList.remove('typewriter-cursor');
-          return;
-        }
-      }
-      setTimeout(type, 38);
-    }
-
-    function typeNext(el) {
-      const currentLine = lines[lineIndex];
-      el.textContent = currentLine.slice(0, charIndex + 1);
-      charIndex++;
-      if (charIndex < currentLine.length) setTimeout(() => typeNext(el), 38);
-      else el.classList.remove('typewriter-cursor');
-    }
-
-    setTimeout(type, 400);
-  }
 
   // ── Score bars ──
   const barObserver = new IntersectionObserver((entries) => {
