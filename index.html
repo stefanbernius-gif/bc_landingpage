@@ -200,6 +200,45 @@
       transition: transform 0.25s cubic-bezier(.4,0,.2,1), box-shadow 0.25s;
     }
     .pricing-card:hover { transform: translateY(-5px); }
+
+    /* ── Score rings ── */
+    .score-ring { transform: rotate(-90deg); }
+    .score-ring-track { fill: none; stroke: rgba(255,255,255,0.08); stroke-width: 3; }
+    .score-ring-fill { fill: none; stroke: #BC9042; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset 1.4s cubic-bezier(.4,0,.2,1); }
+    .score-ring-fill.animated { stroke-dashoffset: var(--dash-offset); }
+
+    /* ── Mobile touch feedback ── */
+    @media (hover: none) {
+      .service-card:active { transform: scale(0.98); transition: transform 0.1s; }
+      .proof-card:active { transform: scale(0.98); transition: transform 0.1s; }
+      .pricing-card:active { transform: scale(0.98); transition: transform 0.1s; }
+    }
+
+    /* ── Button press feedback ── */
+    a[href]:active { opacity: 0.85; transform: scale(0.98); }
+
+    /* ── Nav active state ── */
+    header { transition: box-shadow 0.3s; }
+    header.scrolled { box-shadow: 0 4px 24px rgba(0,35,73,0.10); }
+
+    /* ── Smooth focus ring ── */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid #BC9042;
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    /* ── Gold cursor trail on hero ── */
+    .hero-cursor-dot {
+      position: fixed;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #BC9042;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.1s;
+      z-index: 9999;
+    }
   </style>
 </head>
 <body class="font-sans bg-white text-gray-900 antialiased">
@@ -339,9 +378,15 @@
 
         <!-- Case 1: Lost Art Salon -->
         <div class="proof-card rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
-          <div class="mb-2 flex items-center justify-between">
+          <div class="mb-4 flex items-center justify-between">
             <div class="text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Lost Art Salon</div>
-            <span class="text-sm font-black text-white">54<span style="color:rgba(255,255,255,0.35); font-weight:400;">/100</span></span>
+            <div class="relative flex items-center justify-center" style="width:52px;height:52px;">
+              <svg width="52" height="52" class="score-ring" viewBox="0 0 36 36">
+                <circle class="score-ring-track" cx="18" cy="18" r="15.9"/>
+                <circle class="score-ring-fill" cx="18" cy="18" r="15.9" style="--dash-offset:46;"/>
+              </svg>
+              <span class="absolute text-sm font-black text-white">54</span>
+            </div>
           </div>
           <div class="mb-3 text-xs" style="color:rgba(255,255,255,0.4);">San Francisco · Fine Art Gallery</div>
           <h3 class="mb-3 font-bold text-white leading-snug">91K followers. 5,300 monthly visits. 88% branded keywords only.</h3>
@@ -349,13 +394,27 @@
           <div class="mt-4 pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);">
             <div class="text-xs" style="color:rgba(255,255,255,0.4);">Fine Art Gallery · Full Marketing Audit</div>
           </div>
+          <div class="mt-3">
+            <div class="flex justify-between text-xs mb-1" style="color:rgba(255,255,255,0.3);">
+              <span>Score</span><span>54/100</span>
+            </div>
+            <div class="h-1 w-full rounded-full" style="background:rgba(255,255,255,0.08);">
+              <div class="h-1 rounded-full score-bar" style="width:0%; background:linear-gradient(90deg,#BC9042,#E7C874); transition: width 1.4s cubic-bezier(.4,0,.2,1);"></div>
+            </div>
+          </div>
         </div>
 
         <!-- Case 2: Lugar de Huida -->
         <div class="proof-card rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
-          <div class="mb-2 flex items-center justify-between">
+          <div class="mb-4 flex items-center justify-between">
             <div class="text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Lugar de Huida</div>
-            <span class="text-sm font-black text-white">41<span style="color:rgba(255,255,255,0.35); font-weight:400;">/100</span></span>
+            <div class="relative flex items-center justify-center" style="width:52px;height:52px;">
+              <svg width="52" height="52" class="score-ring" viewBox="0 0 36 36">
+                <circle class="score-ring-track" cx="18" cy="18" r="15.9"/>
+                <circle class="score-ring-fill" cx="18" cy="18" r="15.9" style="--dash-offset:59;"/>
+              </svg>
+              <span class="absolute text-sm font-black text-white">41</span>
+            </div>
           </div>
           <div class="mb-3 text-xs" style="color:rgba(255,255,255,0.4);">Mexico · Artisan Retail</div>
           <h3 class="mb-3 font-bold text-white leading-snug">220K social followers. $500/month in revenue.</h3>
@@ -363,13 +422,27 @@
           <div class="mt-4 pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);">
             <div class="text-xs" style="color:rgba(255,255,255,0.4);">Artisan Retail · Strategy Brief</div>
           </div>
+          <div class="mt-3">
+            <div class="flex justify-between text-xs mb-1" style="color:rgba(255,255,255,0.3);">
+              <span>Score</span><span>41/100</span>
+            </div>
+            <div class="h-1 w-full rounded-full" style="background:rgba(255,255,255,0.08);">
+              <div class="h-1 rounded-full score-bar" style="width:0%; background:linear-gradient(90deg,#BC9042,#E7C874); transition: width 1.4s cubic-bezier(.4,0,.2,1);"></div>
+            </div>
+          </div>
         </div>
 
         <!-- Case 3: Balam Group -->
         <div class="proof-card rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
-          <div class="mb-2 flex items-center justify-between">
+          <div class="mb-4 flex items-center justify-between">
             <div class="text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Balam Group</div>
-            <span class="text-sm font-black text-white">49<span style="color:rgba(255,255,255,0.35); font-weight:400;">/100</span></span>
+            <div class="relative flex items-center justify-center" style="width:52px;height:52px;">
+              <svg width="52" height="52" class="score-ring" viewBox="0 0 36 36">
+                <circle class="score-ring-track" cx="18" cy="18" r="15.9"/>
+                <circle class="score-ring-fill" cx="18" cy="18" r="15.9" style="--dash-offset:51;"/>
+              </svg>
+              <span class="absolute text-sm font-black text-white">49</span>
+            </div>
           </div>
           <div class="mb-3 text-xs" style="color:rgba(255,255,255,0.4);">Mérida · Real Estate</div>
           <h3 class="mb-3 font-bold text-white leading-snug">7,000 monthly visitors. 89.8% bounce rate. 10-second sessions.</h3>
@@ -377,19 +450,41 @@
           <div class="mt-4 pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);">
             <div class="text-xs" style="color:rgba(255,255,255,0.4);">Real Estate · Full Marketing Audit</div>
           </div>
+          <div class="mt-3">
+            <div class="flex justify-between text-xs mb-1" style="color:rgba(255,255,255,0.3);">
+              <span>Score</span><span>49/100</span>
+            </div>
+            <div class="h-1 w-full rounded-full" style="background:rgba(255,255,255,0.08);">
+              <div class="h-1 rounded-full score-bar" style="width:0%; background:linear-gradient(90deg,#BC9042,#E7C874); transition: width 1.4s cubic-bezier(.4,0,.2,1);"></div>
+            </div>
+          </div>
         </div>
 
         <!-- Case 4: Waldorf Astoria SMA -->
         <div class="proof-card rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
-          <div class="mb-2 flex items-center justify-between">
+          <div class="mb-4 flex items-center justify-between">
             <div class="text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Waldorf Astoria SMA</div>
-            <span class="text-sm font-black text-white">44<span style="color:rgba(255,255,255,0.35); font-weight:400;">/100</span></span>
+            <div class="relative flex items-center justify-center" style="width:52px;height:52px;">
+              <svg width="52" height="52" class="score-ring" viewBox="0 0 36 36">
+                <circle class="score-ring-track" cx="18" cy="18" r="15.9"/>
+                <circle class="score-ring-fill" cx="18" cy="18" r="15.9" style="--dash-offset:56;"/>
+              </svg>
+              <span class="absolute text-sm font-black text-white">44</span>
+            </div>
           </div>
           <div class="mb-3 text-xs" style="color:rgba(255,255,255,0.4);">San Miguel de Allende · Luxury Real Estate</div>
           <h3 class="mb-3 font-bold text-white leading-snug">$2.2M product. 888 Instagram followers. Unverified on both platforms.</h3>
           <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.65);">All 4 active Meta ads expiring simultaneously with no replacements ready. Zero lead forms despite running conversion campaigns. No awareness-stage content. Comparable Waldorf properties (Beverly Hills: 80K, Las Vegas: 40K followers) — a 99% credibility gap at the $2.2M price point.</p>
           <div class="mt-4 pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);">
             <div class="text-xs" style="color:rgba(255,255,255,0.4);">Luxury Real Estate · Ads Diagnostic</div>
+          </div>
+          <div class="mt-3">
+            <div class="flex justify-between text-xs mb-1" style="color:rgba(255,255,255,0.3);">
+              <span>Score</span><span>44/100</span>
+            </div>
+            <div class="h-1 w-full rounded-full" style="background:rgba(255,255,255,0.08);">
+              <div class="h-1 rounded-full score-bar" style="width:0%; background:linear-gradient(90deg,#BC9042,#E7C874); transition: width 1.4s cubic-bezier(.4,0,.2,1);"></div>
+            </div>
           </div>
         </div>
 
@@ -892,6 +987,58 @@
     });
   }, { threshold: 0.5 });
   heroStats.forEach(el => heroObserver.observe(el));
+
+  // ── Score rings ──
+  const ringObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.score-ring-fill').forEach(r => r.classList.add('animated'));
+        ringObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.proof-card').forEach(c => ringObserver.observe(c));
+
+  // ── Score bars ──
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.score-bar').forEach(b => {
+          const w = b.parentElement.previousElementSibling?.querySelector('span:last-child')?.textContent?.match(/\d+/)?.[0];
+          if (w) b.style.width = w + '%';
+        });
+        barObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.proof-card').forEach(c => barObserver.observe(c));
+
+  // ── Scrolled nav shadow ──
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // ── Gold cursor dot on hero ──
+  const heroDot = document.createElement('div');
+  heroDot.className = 'hero-cursor-dot';
+  document.body.appendChild(heroDot);
+  const heroSection = document.querySelector('section');
+  heroSection.addEventListener('mousemove', e => {
+    heroDot.style.opacity = '0.7';
+    heroDot.style.left = e.clientX - 3 + 'px';
+    heroDot.style.top = e.clientY - 3 + 'px';
+  });
+  heroSection.addEventListener('mouseleave', () => { heroDot.style.opacity = '0'; });
+
+  // ── Smooth scroll progress bar ──
+  const progressBar = document.createElement('div');
+  progressBar.style.cssText = 'position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#BC9042,#E7C874);z-index:9999;width:0%;transition:width 0.1s;pointer-events:none;';
+  document.body.appendChild(progressBar);
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    progressBar.style.width = pct + '%';
+  });
 </script>
 
 </body>
