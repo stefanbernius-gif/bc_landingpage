@@ -91,6 +91,115 @@
     .text-gold { color: #BC9042; }
     .bg-navy { background-color: #002349; }
     .gradient-gold { background: linear-gradient(135deg, #BC9042 0%, #E7C874 50%, #BC9042 100%); }
+
+    /* ── Scroll reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(.4,0,.2,1), transform 0.65s cubic-bezier(.4,0,.2,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+    .reveal-delay-6 { transition-delay: 0.6s; }
+
+    /* ── Hero headline entrance ── */
+    .hero-headline {
+      animation: heroFadeUp 0.9s cubic-bezier(.4,0,.2,1) both;
+    }
+    .hero-sub {
+      animation: heroFadeUp 0.9s 0.2s cubic-bezier(.4,0,.2,1) both;
+    }
+    .hero-cta {
+      animation: heroFadeUp 0.9s 0.35s cubic-bezier(.4,0,.2,1) both;
+    }
+    .hero-stats {
+      animation: heroFadeUp 0.9s 0.5s cubic-bezier(.4,0,.2,1) both;
+    }
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Service card hover lift ── */
+    .service-card {
+      transition: transform 0.25s cubic-bezier(.4,0,.2,1), box-shadow 0.25s cubic-bezier(.4,0,.2,1);
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,35,73,0.12);
+    }
+
+    /* ── Proof card hover ── */
+    .proof-card {
+      transition: transform 0.25s cubic-bezier(.4,0,.2,1), border-color 0.25s;
+    }
+    .proof-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(188,144,66,0.6) !important;
+    }
+
+    /* ── Score counter ── */
+    .score-num { display: inline-block; }
+
+    /* ── Gold shimmer on primary buttons ── */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+      animation: shimmer 2.8s infinite;
+    }
+    @keyframes shimmer {
+      0%   { left: -100%; }
+      60%  { left: 150%; }
+      100% { left: 150%; }
+    }
+
+    /* ── Process step number pulse on hover ── */
+    .process-step:hover .step-num {
+      transform: scale(1.1);
+      transition: transform 0.2s cubic-bezier(.4,0,.2,1);
+    }
+    .step-num { transition: transform 0.2s cubic-bezier(.4,0,.2,1); }
+
+    /* ── Nav link underline slide ── */
+    nav a {
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1.5px;
+      background: #BC9042;
+      transition: width 0.25s cubic-bezier(.4,0,.2,1);
+    }
+    nav a:hover::after { width: 100%; }
+
+    /* ── Floating CTA pulse ring ── */
+    #floating-cta {
+      animation: floatPulse 2.5s infinite;
+    }
+    @keyframes floatPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(188,144,66,0.4), 0 8px 24px rgba(0,0,0,0.2); }
+      50%       { box-shadow: 0 0 0 8px rgba(188,144,66,0), 0 8px 24px rgba(0,0,0,0.2); }
+    }
+
+    /* ── Pricing card hover ── */
+    .pricing-card {
+      transition: transform 0.25s cubic-bezier(.4,0,.2,1), box-shadow 0.25s;
+    }
+    .pricing-card:hover { transform: translateY(-5px); }
   </style>
 </head>
 <body class="font-sans bg-white text-gray-900 antialiased">
@@ -129,18 +238,18 @@
         </div>
 
         <!-- Headline — Priestley hook: frustration-based -->
-        <h1 class="mb-6 text-4xl font-black leading-tight tracking-tight text-white md:text-6xl">
+        <h1 class="hero-headline mb-6 text-4xl font-black leading-tight tracking-tight text-white md:text-6xl">
           Your digital presence is costing you clients.<br/>
           <span style="color:#BC9042;">We find exactly how much.</span>
         </h1>
 
-        <p class="mb-10 max-w-xl text-lg leading-relaxed" style="color:rgba(255,255,255,0.72);">
+        <p class="hero-sub mb-10 max-w-xl text-lg leading-relaxed" style="color:rgba(255,255,255,0.72);">
           We audit your entire digital footprint — website, SEO, social, email, CRM, paid media — and hand you a scored, prioritised report with the exact fixes that unlock growth. No fluff. No retainer. Just revenue you're leaving on the table, recovered.
         </p>
 
         <!-- CTAs -->
-        <div class="flex flex-col gap-3 sm:flex-row">
-          <a href="https://tinyurl.com/PreAuditQuiz" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg px-7 py-3.5 text-sm font-bold transition-opacity hover:opacity-90" style="background: linear-gradient(135deg, #BC9042 0%, #E7C874 100%); color:#002349;">
+        <div class="hero-cta flex flex-col gap-3 sm:flex-row">
+          <a href="https://tinyurl.com/PreAuditQuiz" target="_blank" rel="noopener" class="shimmer-btn inline-flex items-center justify-center rounded-lg px-7 py-3.5 text-sm font-bold transition-opacity hover:opacity-90" style="background: linear-gradient(135deg, #BC9042 0%, #E7C874 100%); color:#002349;">
             5-Minute Quiz →
           </a>
           <a href="https://1drv.ms/u/c/80c0eec2e780a7ed/IQDmv7T5cAuWTqfwwZCVMgfgATmKFpg9DcfxCWddJitv15s?e=M0tpWf" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg border px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10" style="border-color:rgba(255,255,255,0.25);">
@@ -149,7 +258,7 @@
         </div>
 
         <!-- Social proof micro-bar -->
-        <div class="mt-12 flex flex-wrap items-center gap-6">
+        <div class="hero-stats mt-12 flex flex-wrap items-center gap-6">
           <div class="text-center">
             <div class="text-2xl font-black" style="color:#BC9042;">360°</div>
             <div class="text-xs uppercase tracking-widest" style="color:rgba(255,255,255,0.5);">7-Pillar Audit</div>
@@ -229,7 +338,7 @@
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
 
         <!-- Case 1: Lost Art Salon -->
-        <div class="rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
+        <div class="proof-card rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
           <div class="mb-2 flex items-center justify-between">
             <div class="text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Lost Art Salon</div>
             <span class="text-sm font-black text-white">54<span style="color:rgba(255,255,255,0.35); font-weight:400;">/100</span></span>
@@ -243,7 +352,7 @@
         </div>
 
         <!-- Case 2: Lugar de Huida -->
-        <div class="rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
+        <div class="proof-card rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
           <div class="mb-2 flex items-center justify-between">
             <div class="text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Lugar de Huida</div>
             <span class="text-sm font-black text-white">41<span style="color:rgba(255,255,255,0.35); font-weight:400;">/100</span></span>
@@ -257,7 +366,7 @@
         </div>
 
         <!-- Case 3: Balam Group -->
-        <div class="rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
+        <div class="proof-card rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
           <div class="mb-2 flex items-center justify-between">
             <div class="text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Balam Group</div>
             <span class="text-sm font-black text-white">49<span style="color:rgba(255,255,255,0.35); font-weight:400;">/100</span></span>
@@ -271,7 +380,7 @@
         </div>
 
         <!-- Case 4: Waldorf Astoria SMA -->
-        <div class="rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
+        <div class="proof-card rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
           <div class="mb-2 flex items-center justify-between">
             <div class="text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Waldorf Astoria SMA</div>
             <span class="text-sm font-black text-white">44<span style="color:rgba(255,255,255,0.35); font-weight:400;">/100</span></span>
@@ -318,7 +427,7 @@
 
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <!-- Service 1: Core offer -->
-        <div class="col-span-full lg:col-span-1 rounded-2xl p-8 text-white" style="background-color:#002349; border-left: 4px solid #BC9042;">
+        <div class="service-card col-span-full lg:col-span-1 rounded-2xl p-8 text-white" style="background-color:#002349; border-left: 4px solid #BC9042;">
           <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg" style="background:rgba(188,144,66,0.2);">
             <span class="text-lg">🔍</span>
           </div>
@@ -339,7 +448,7 @@
           </a>
         </div>
 
-        <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+        <div class="service-card rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
           <div class="mb-4"><svg class="h-7 w-7" style="color:#BC9042;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
           <h3 class="mb-2 text-lg font-bold" style="color:#002349;">B2B Lead Generation Systems</h3>
           <p class="mb-4 text-sm text-gray-500 leading-relaxed">We build the full funnel: landing pages, lead magnets, automations, and nurture sequences that turn cold traffic into booked calls — without paid ads.</p>
@@ -357,7 +466,7 @@
           </ul>
         </div>
 
-        <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+        <div class="service-card rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
           <div class="mb-4"><svg class="h-7 w-7" style="color:#BC9042;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
           <div class="flex items-center gap-2 mb-2">
             <h3 class="text-lg font-bold" style="color:#002349;">AI Automation for Small Business</h3>
@@ -381,7 +490,7 @@
           </ul>
         </div>
 
-        <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+        <div class="service-card rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
           <div class="mb-4"><svg class="h-7 w-7" style="color:#BC9042;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg></div>
           <div class="flex items-center gap-2 mb-2">
             <h3 class="text-lg font-bold" style="color:#002349;">CRM Setup Consultant — HubSpot Strategy</h3>
@@ -404,7 +513,7 @@
           </ul>
         </div>
 
-        <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+        <div class="service-card rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
           <div class="mb-4"><svg class="h-7 w-7" style="color:#BC9042;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"/></svg></div>
           <h3 class="mb-2 text-lg font-bold" style="color:#002349;">Social Media Growth</h3>
           <p class="mb-4 text-sm text-gray-500 leading-relaxed">We turn your social channels into a growth engine — more reach, more inbound, more revenue. Strategy, content, and distribution handled end-to-end.</p>
@@ -422,7 +531,7 @@
           </ul>
         </div>
 
-        <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+        <div class="service-card rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
           <div class="mb-4"><svg class="h-7 w-7" style="color:#BC9042;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div>
           <h3 class="mb-2 text-lg font-bold" style="color:#002349;">Claude Code Training for Teams & Founders</h3>
           <p class="mb-3 text-sm text-gray-500 leading-relaxed">Hands-on training for founders and operators who want to build AI-powered tools themselves using Claude Code — from zero to autonomous workflows.</p>
@@ -453,14 +562,14 @@
         <!-- Connector line -->
         <div class="absolute top-8 left-0 right-0 h-px hidden md:block" style="background: linear-gradient(90deg, transparent, #BC9042, transparent); opacity:0.3;"></div>
 
-        <div class="relative p-8 text-center">
-          <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl text-white font-black text-xl" style="background-color:#002349;">01</div>
+        <div class="process-step relative p-8 text-center">
+          <div class="step-num mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl text-white font-black text-xl" style="background-color:#002349;">01</div>
           <h3 class="mb-2 font-bold" style="color:#002349;">Free Gap Scan</h3>
           <p class="mb-3 text-sm text-gray-500">20-minute call. We ask 5 questions, tell you immediately where the biggest leak is. No pitch. No strings.</p>
           <a href="https://tinyurl.com/PreAuditQuiz" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sm font-semibold transition-opacity hover:opacity-70" style="color:#BC9042;">Start with the Quiz <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
         </div>
         <div class="relative p-8 text-center">
-          <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl font-black text-xl" style="background: linear-gradient(135deg, #BC9042, #E7C874); color:#002349;">02</div>
+          <div class="step-num mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl font-black text-xl" style="background: linear-gradient(135deg, #BC9042, #E7C874); color:#002349;">02</div>
           <h3 class="mb-2 font-bold" style="color:#002349;">We Audit</h3>
           <p class="text-sm text-gray-500">We run all 7 pillars — website to CRM — in 48 hours. Scored, benchmarked against your market.</p>
         </div>
@@ -470,7 +579,7 @@
           <p class="text-sm text-gray-500">A full PDF + slide deck. Every finding ranked by revenue impact. Exact next steps. No vague "improve your SEO".</p>
         </div>
         <div class="relative p-8 text-center">
-          <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl font-black text-xl" style="background: linear-gradient(135deg, #BC9042, #E7C874); color:#002349;">04</div>
+          <div class="step-num mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl font-black text-xl" style="background: linear-gradient(135deg, #BC9042, #E7C874); color:#002349;">04</div>
           <h3 class="mb-2 font-bold" style="color:#002349;">Implement or Delegate</h3>
           <p class="text-sm text-gray-500">You execute yourself, or engage us to implement. Either way, you now know exactly what to do.</p>
         </div>
@@ -572,7 +681,7 @@
 
       <div class="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
         <!-- Tier 1: Proof Sprint -->
-        <div class="rounded-2xl bg-white p-12 shadow-sm border border-gray-100">
+        <div class="pricing-card rounded-2xl bg-white p-12 shadow-sm border border-gray-100">
           <div class="mb-2 text-xs font-bold uppercase tracking-widest text-gray-400">Entry</div>
           <h3 class="mb-1 text-2xl font-black" style="color:#002349;">Proof Sprint</h3>
           <div class="mb-6 flex items-baseline gap-1">
@@ -592,7 +701,7 @@
         </div>
 
         <!-- Tier 2: Full Audit -->
-        <div class="rounded-2xl p-12 text-white relative overflow-hidden" style="background-color:#002349; box-shadow: 0 0 0 3px #BC9042;">
+        <div class="pricing-card rounded-2xl p-12 text-white relative overflow-hidden" style="background-color:#002349; box-shadow: 0 0 0 3px #BC9042;">
           <div class="absolute top-0 left-0 right-0 h-1" style="background: linear-gradient(90deg, #BC9042, #E7C874, #BC9042);"></div>
           <div class="mb-2 text-xs font-bold uppercase tracking-widest" style="color:#E7C874;">Most Popular</div>
           <h3 class="mb-1 text-2xl font-black">Full 360° Audit</h3>
@@ -691,11 +800,98 @@
   Book a Call →
 </a>
 <script>
+  // ── Floating CTA ──
   const btn = document.getElementById('floating-cta');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 400) { btn.classList.remove('hidden'); btn.classList.add('inline-flex'); }
     else { btn.classList.add('hidden'); btn.classList.remove('inline-flex'); }
   });
+
+  // ── Scroll reveal ──
+  const revealEls = document.querySelectorAll('section, .service-card, .proof-card, .pricing-card');
+  revealEls.forEach((el, i) => {
+    el.classList.add('reveal');
+    if (i % 6 > 0) el.classList.add(`reveal-delay-${i % 6}`);
+  });
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ── Score counter animation ──
+  function animateCount(el, target, duration) {
+    let start = 0;
+    const step = timestamp => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      el.textContent = Math.floor(progress * target);
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    };
+    requestAnimationFrame(step);
+  }
+
+  const scoreObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const el = e.target;
+        const target = parseInt(el.dataset.score);
+        animateCount(el, target, 1200);
+        scoreObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  // Tag score numbers in proof cards
+  document.querySelectorAll('.proof-card').forEach(card => {
+    const scoreEl = card.querySelector('.text-sm.font-black');
+    if (scoreEl) {
+      const match = scoreEl.textContent.match(/(\d+)/);
+      if (match) {
+        const num = match[1];
+        const span = document.createElement('span');
+        span.className = 'score-num';
+        span.dataset.score = num;
+        span.textContent = num;
+        scoreEl.innerHTML = '';
+        scoreEl.appendChild(span);
+        const suffix = document.createElement('span');
+        suffix.style.color = 'rgba(255,255,255,0.35)';
+        suffix.style.fontWeight = '400';
+        suffix.textContent = '/100';
+        scoreEl.appendChild(suffix);
+        scoreObserver.observe(span);
+      }
+    }
+  });
+
+  // ── Hero stat counters ──
+  const heroStats = document.querySelectorAll('.hero-stats .text-2xl.font-black');
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const el = e.target;
+        const text = el.textContent.trim();
+        const match = text.match(/^(\d+)/);
+        if (match) {
+          const prefix = '';
+          const suffix = text.replace(/^\d+/, '');
+          const target = parseInt(match[1]);
+          let start = null;
+          const step = ts => {
+            if (!start) start = ts;
+            const p = Math.min((ts - start) / 1000, 1);
+            el.textContent = Math.floor(p * target) + suffix;
+            if (p < 1) requestAnimationFrame(step);
+            else el.textContent = target + suffix;
+          };
+          requestAnimationFrame(step);
+        }
+        heroObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  heroStats.forEach(el => heroObserver.observe(el));
 </script>
 
 </body>
