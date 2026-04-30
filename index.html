@@ -14,13 +14,13 @@
   <meta property="og:url" content="https://berniusconsulting.com/" />
   <meta property="og:title" content="B2B Digital Marketing Audit | Bernius Consulting" />
   <meta property="og:description" content="Scored 360° digital presence audit — SEO, CRM, lead gen & AI automations. Results in 48h. From $497." />
-  <meta property="og:image" content="https://berniusconsulting.com/web-app-manifest-512x512.png" />
+  <meta property="og:image" content="https://berniusconsulting.com/web-app-manifest-192x192.png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="B2B Digital Marketing Audit | Bernius Consulting" />
   <meta name="twitter:description" content="Scored 360° digital presence audit — SEO, CRM, lead gen & AI automations. Results in 48h. From $497." />
-  <meta name="twitter:image" content="https://berniusconsulting.com/web-app-manifest-512x512.png" />
+  <meta name="twitter:image" content="https://berniusconsulting.com/web-app-manifest-192x192.png" />
 
   <!-- Schema: LocalBusiness + Person -->
   <script type="application/ld+json">
@@ -55,6 +55,13 @@
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
         "author": { "@type": "Person", "name": "Videomapping Queretaro" },
         "reviewBody": "Expert. Your best option for auditing your company and spotting flaws in your services."
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": { "@type": "ProfessionalService", "name": "Bernius Consulting" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Galerie Kai Erdmann" },
+        "reviewBody": "Before the ProofSprint, we had no clue that timing Instagram posts mattered. Now we schedule them right, and views plus engagement shot way up."
       },
       {
         "@type": "Person",
@@ -98,6 +105,8 @@
     html { scroll-behavior: smooth; }
     .gold-border { border-color: #BC9042; }
     .text-gold { color: #BC9042; }
+    /* Gold text on white/light backgrounds — darkened for WCAG AA contrast */
+    .text-gold-accessible { color: #7A5C1E; }
     .bg-navy { background-color: #002349; }
     .gradient-gold { background: linear-gradient(135deg, #BC9042 0%, #E7C874 50%, #BC9042 100%); }
 
@@ -154,7 +163,7 @@
     /* ── Score counter ── */
     .score-num { display: inline-block; }
 
-    /* ── Gold shimmer on primary buttons ── */
+    /* ── Gold shimmer on primary buttons — single fire on load ── */
     .shimmer-btn {
       position: relative;
       overflow: hidden;
@@ -166,11 +175,10 @@
       width: 60%;
       height: 100%;
       background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
-      animation: shimmer 2.8s infinite;
+      animation: shimmer 1.4s 0.6s cubic-bezier(.4,0,.2,1) both;
     }
     @keyframes shimmer {
       0%   { left: -100%; }
-      60%  { left: 150%; }
       100% { left: 150%; }
     }
 
@@ -189,19 +197,24 @@
       content: '';
       position: absolute;
       bottom: -2px; left: 0;
-      width: 0; height: 1.5px;
+      width: 100%; height: 1.5px;
       background: #BC9042;
-      transition: width 0.25s cubic-bezier(.4,0,.2,1);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s cubic-bezier(.4,0,.2,1);
     }
-    nav a:hover::after { width: 100%; }
+    nav a:hover::after { transform: scaleX(1); }
 
-    /* ── Floating CTA pulse ring ── */
+    /* ── Floating CTA — single pulse on appearance, then rests ── */
     #floating-cta {
-      animation: floatPulse 2.5s infinite;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    #floating-cta.pulse-once {
+      animation: floatPulse 0.6s cubic-bezier(.4,0,.2,1) both;
     }
     @keyframes floatPulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(188,144,66,0.4), 0 8px 24px rgba(0,0,0,0.2); }
-      50%       { box-shadow: 0 0 0 8px rgba(188,144,66,0), 0 8px 24px rgba(0,0,0,0.2); }
+      0%   { box-shadow: 0 0 0 0 rgba(188,144,66,0.5), 0 8px 24px rgba(0,0,0,0.2); }
+      100% { box-shadow: 0 0 0 10px rgba(188,144,66,0), 0 8px 24px rgba(0,0,0,0.2); }
     }
 
     /* ── Pricing card hover ── */
@@ -234,17 +247,6 @@
       border-radius: 6px;
     }
 
-    /* ── Gold cursor trail on hero ── */
-    .hero-cursor-dot {
-      position: fixed;
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: #BC9042;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s, transform 0.1s;
-      z-index: 9999;
-    }
   </style>
 </head>
 <body class="font-sans bg-white text-gray-900 antialiased">
@@ -263,8 +265,8 @@
         <a href="#about" class="hover:text-gray-900 transition-colors">About</a>
         <a href="#pricing" class="hover:text-gray-900 transition-colors">Pricing</a>
       </nav>
-      <a href="#booking" class="rounded-lg px-4 py-2 text-sm font-semibold text-white transition-colors" style="background-color:#002349;">
-        Book a Free Gap Call
+      <a href="#booking" class="rounded-lg border px-4 py-2 text-sm font-semibold transition-colors hover:bg-gray-50" style="border-color:#002349; color:#002349;">
+        Book a Call
       </a>
     </div>
   </header>
@@ -293,18 +295,19 @@
         </h1>
 
         <p class="hero-sub mb-10 max-w-xl text-lg leading-relaxed" style="color:rgba(255,255,255,0.72);">
-          We audit your entire digital footprint — website, SEO, social, email, CRM, paid media — and hand you a scored, prioritised report with exact revenue impact estimates per finding. No fluff. No retainer. Just revenue you're leaving on the table, recovered.
+          We audit your entire digital footprint — website, SEO, social, email, CRM, paid media — and hand you a scored, prioritised report with exact revenue impact estimates per finding. No fluff. No retainer. Just the revenue you've been leaving on the table.
         </p>
 
         <!-- CTAs -->
-        <div class="hero-cta flex flex-col gap-3 sm:flex-row">
+        <div class="hero-cta flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href="https://tinyurl.com/PreAuditQuiz" target="_blank" rel="noopener" class="shimmer-btn inline-flex items-center justify-center rounded-lg px-7 py-3.5 text-sm font-bold transition-opacity hover:opacity-90" style="background: linear-gradient(135deg, #BC9042 0%, #E7C874 100%); color:#002349;">
-            Find My Biggest Gap →
+            Find My Biggest Gap — Free Quiz →
           </a>
-          <a href="https://1drv.ms/u/c/80c0eec2e780a7ed/IQDmv7T5cAuWTqfwwZCVMgfgATmKFpg9DcfxCWddJitv15s?e=M0tpWf" target="_blank" rel="noopener" class="text-sm font-semibold transition-opacity hover:opacity-70 underline underline-offset-4 self-center" style="color:rgba(255,255,255,0.6);">
-            See an Example Audit
+          <a href="#booking" class="inline-flex items-center justify-center rounded-lg border px-7 py-3.5 text-sm font-semibold transition-opacity hover:opacity-80" style="border-color:rgba(255,255,255,0.3); color:rgba(255,255,255,0.85);">
+            Already know your gap? Book a call
           </a>
         </div>
+        <p class="mt-4 text-xs" style="color:rgba(255,255,255,0.4);">Not sure where to start? Take the 5-min quiz first. Ready to talk? Book directly.</p>
 
         <!-- Social proof micro-bar -->
         <div class="hero-stats mt-12 flex flex-wrap items-center gap-6">
@@ -336,7 +339,7 @@
   <section class="bg-gray-50 py-24">
     <div class="mx-auto max-w-6xl px-6">
       <div class="mx-auto max-w-2xl text-center">
-        <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">The Problem</p>
+        <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#7A5C1E;">The Problem</p>
         <h2 class="mb-6 text-3xl font-black tracking-tight md:text-4xl" style="color:#002349;">
           You're investing in marketing without knowing what's broken.
         </h2>
@@ -363,7 +366,7 @@
         </div>
       </div>
       <div class="mt-12 text-center">
-        <a href="https://tinyurl.com/PreAuditQuiz" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sm font-semibold transition-opacity hover:opacity-70" style="color:#BC9042;">Find out which of these is hurting you most → <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        <a href="https://tinyurl.com/PreAuditQuiz" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sm font-semibold transition-opacity hover:opacity-70" style="color:#7A5C1E;">Find out which of these is hurting you most → <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
       </div>
     </div>
   </section>
@@ -396,7 +399,7 @@
               <span>Score</span><span>54/100</span>
             </div>
             <div class="h-1 w-full rounded-full" style="background:rgba(255,255,255,0.08);">
-              <div class="h-1 rounded-full score-bar" style="width:0%; background:linear-gradient(90deg,#BC9042,#E7C874); transition: width 1.4s cubic-bezier(.4,0,.2,1);"></div>
+              <div class="h-1 rounded-full score-bar" data-width="54" style="transform:scaleX(0); transform-origin:left; background:linear-gradient(90deg,#BC9042,#E7C874); transition: transform 1.4s cubic-bezier(.4,0,.2,1);"></div>
             </div>
           </div>
         </div>
@@ -418,7 +421,7 @@
               <span>Score</span><span>41/100</span>
             </div>
             <div class="h-1 w-full rounded-full" style="background:rgba(255,255,255,0.08);">
-              <div class="h-1 rounded-full score-bar" style="width:0%; background:linear-gradient(90deg,#BC9042,#E7C874); transition: width 1.4s cubic-bezier(.4,0,.2,1);"></div>
+              <div class="h-1 rounded-full score-bar" data-width="41" style="transform:scaleX(0); transform-origin:left; background:linear-gradient(90deg,#BC9042,#E7C874); transition: transform 1.4s cubic-bezier(.4,0,.2,1);"></div>
             </div>
           </div>
         </div>
@@ -440,7 +443,7 @@
               <span>Score</span><span>49/100</span>
             </div>
             <div class="h-1 w-full rounded-full" style="background:rgba(255,255,255,0.08);">
-              <div class="h-1 rounded-full score-bar" style="width:0%; background:linear-gradient(90deg,#BC9042,#E7C874); transition: width 1.4s cubic-bezier(.4,0,.2,1);"></div>
+              <div class="h-1 rounded-full score-bar" data-width="49" style="transform:scaleX(0); transform-origin:left; background:linear-gradient(90deg,#BC9042,#E7C874); transition: transform 1.4s cubic-bezier(.4,0,.2,1);"></div>
             </div>
           </div>
         </div>
@@ -462,27 +465,11 @@
               <span>Score</span><span>44/100</span>
             </div>
             <div class="h-1 w-full rounded-full" style="background:rgba(255,255,255,0.08);">
-              <div class="h-1 rounded-full score-bar" style="width:0%; background:linear-gradient(90deg,#BC9042,#E7C874); transition: width 1.4s cubic-bezier(.4,0,.2,1);"></div>
+              <div class="h-1 rounded-full score-bar" data-width="44" style="transform:scaleX(0); transform-origin:left; background:linear-gradient(90deg,#BC9042,#E7C874); transition: transform 1.4s cubic-bezier(.4,0,.2,1);"></div>
             </div>
           </div>
         </div>
 
-      </div>
-
-      <!-- Self-audit callout -->
-      <div class="mt-8 rounded-2xl p-8" style="background:rgba(188,144,66,0.08); border: 1px solid rgba(188,144,66,0.4);">
-        <div class="flex flex-col md:flex-row md:items-center gap-6">
-          <div class="flex-1">
-            <div class="mb-2 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Bernius Consulting · Self-Audit · April 2026</div>
-            <h3 class="mb-2 text-lg font-bold text-white">We audited ourselves first. Score: 65/100.</h3>
-            <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.65);">We started at 35/100: IG bio said "Real Estate Experts 🇲🇽", no standalone domain, zero search visibility, $0 paid media. We ran every pillar on ourselves using our own framework — and went from 35 → 65 in 18 days. That's the same methodology we apply to clients. <em style="color:rgba(255,255,255,0.45);">"The cobbler finally wears matching shoes."</em></p>
-          </div>
-          <div class="grid grid-cols-3 gap-6 text-center flex-shrink-0">
-            <div><div class="text-2xl font-black" style="color:#E7C874;">65</div><div class="text-xs mt-1" style="color:rgba(255,255,255,0.45);">Overall Score</div></div>
-            <div><div class="text-2xl font-black" style="color:#E7C874;">+30</div><div class="text-xs mt-1" style="color:rgba(255,255,255,0.45);">Score Gain</div></div>
-            <div><div class="text-2xl font-black" style="color:#E7C874;">18d</div><div class="text-xs mt-1" style="color:rgba(255,255,255,0.45);">Timeline</div></div>
-          </div>
-        </div>
       </div>
 
       <div class="mt-12 text-center">
@@ -496,7 +483,7 @@
     <div class="mx-auto max-w-6xl px-6">
       <div class="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div>
-          <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">What We Do</p>
+          <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#7A5C1E;">What We Do</p>
           <h2 class="text-3xl font-black tracking-tight md:text-4xl" style="color:#002349;">B2B digital marketing services — audit, automate, grow.</h2>
         </div>
         <p class="max-w-sm text-gray-500 text-sm leading-relaxed">Every service connects to the same outcome: a digital presence that works as hard as you do.</p>
@@ -504,19 +491,43 @@
 
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <!-- Service 1: Core offer -->
-        <div class="service-card col-span-full lg:col-span-1 rounded-2xl p-8 text-white" style="background-color:#002349; border-left: 4px solid #BC9042;">
+        <div class="service-card col-span-full lg:col-span-1 rounded-2xl p-8 text-white" style="background-color:#002349; border-top: 3px solid #BC9042;">
           <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg" style="background:rgba(188,144,66,0.2);">
             <span class="text-lg">🔍</span>
           </div>
           <div class="mb-2 text-xs font-bold uppercase tracking-widest" style="color:#E7C874;">Core Service</div>
           <h3 class="mb-3 text-xl font-bold">360° Digital Presence Audit</h3>
-          <p class="mb-4 text-sm leading-relaxed" style="color:rgba(255,255,255,0.72);">A scored, 7-pillar deep-dive into your entire digital footprint. You get a prioritised action plan — not a generic report — with exact revenue impact estimates for each fix.</p>
+          <p class="mb-5 text-sm leading-relaxed" style="color:rgba(255,255,255,0.72);">A scored deep-dive across 7 pillars — 28+ sub-checks each scored 0–100. You get a prioritised action plan with exact revenue impact estimates per finding, not a generic report.</p>
+
+          <!-- 7 pillars grid -->
+          <div class="mb-5 grid grid-cols-2 gap-2">
+            <div class="flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-semibold" style="background:rgba(255,255,255,0.07);">
+              <span style="color:#BC9042;">01</span><span style="color:rgba(255,255,255,0.8);">Website & UX</span>
+            </div>
+            <div class="flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-semibold" style="background:rgba(255,255,255,0.07);">
+              <span style="color:#BC9042;">02</span><span style="color:rgba(255,255,255,0.8);">SEO & Search</span>
+            </div>
+            <div class="flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-semibold" style="background:rgba(255,255,255,0.07);">
+              <span style="color:#BC9042;">03</span><span style="color:rgba(255,255,255,0.8);">Social Media</span>
+            </div>
+            <div class="flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-semibold" style="background:rgba(255,255,255,0.07);">
+              <span style="color:#BC9042;">04</span><span style="color:rgba(255,255,255,0.8);">Email & CRM</span>
+            </div>
+            <div class="flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-semibold" style="background:rgba(255,255,255,0.07);">
+              <span style="color:#BC9042;">05</span><span style="color:rgba(255,255,255,0.8);">Paid Media</span>
+            </div>
+            <div class="flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-semibold" style="background:rgba(255,255,255,0.07);">
+              <span style="color:#BC9042;">06</span><span style="color:rgba(255,255,255,0.8);">Conversion Architecture</span>
+            </div>
+            <div class="col-span-2 flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-semibold" style="background:rgba(255,255,255,0.07);">
+              <span style="color:#BC9042;">07</span><span style="color:rgba(255,255,255,0.8);">Brand & Positioning</span>
+            </div>
+          </div>
+
           <ul class="mb-6 space-y-2 text-sm" style="color:rgba(255,255,255,0.65);">
-            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> Website, SEO, Social, Paid Media</li>
-            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> Email & CRM Infrastructure</li>
-            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> Conversion Architecture Review</li>
-            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> Competitor Benchmark</li>
+            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> Competitor benchmark included</li>
             <li class="flex gap-2"><span style="color:#BC9042;">✓</span> 48-hour delivery</li>
+            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> Full refund if we don't find $8K/month</li>
           </ul>
           <a href="https://onedrive.live.com/?cid=80c0eec2e780a7ed&id=80C0EEC2E780A7ED%21s1d69a23fa29443e79b51e6a0d4c6d03f&resid=80C0EEC2E780A7ED%21s1d69a23fa29443e79b51e6a0d4c6d03f&ithint=file%2Cpdf&e=ODMCam&migratedtospo=true&redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy84MGMwZWVjMmU3ODBhN2VkL0lRQV9vbWtkbEtMblE1dFI1cURVeHRBX0FiMkJKOW12bW41YmdGTnlkRlJQbV9vP2U9T0RNQ2Ft&v=validatepermission" target="_blank" rel="noopener"
              class="inline-flex items-center gap-2 text-sm font-semibold transition-opacity hover:opacity-70" style="color:#E7C874;">
@@ -530,16 +541,16 @@
           <h3 class="mb-2 text-lg font-bold" style="color:#002349;">B2B Lead Generation Systems</h3>
           <p class="mb-4 text-sm text-gray-500 leading-relaxed">We build the full funnel: landing pages, lead magnets, automations, and nurture sequences that turn cold traffic into booked calls — without paid ads.</p>
           <ul class="space-y-1.5 text-sm text-gray-500">
-            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> Prospecting with Apollo</li>
-            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> Data enrichment & verification</li>
-            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> Domain & inbox setup (SPF, DKIM, DMARC)</li>
-            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> Email & domain pre-warming</li>
-            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> AI-personalised email sequencer</li>
-            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> A/B testing subject lines & CTAs</li>
-            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> Reply handling & inbox management</li>
-            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> Deliverability monitoring & blacklist checks</li>
-            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> All leads fed into CRM</li>
-            <li class="flex gap-2"><span style="color:#BC9042;">✓</span> Campaign reporting (opens, replies, meetings)</li>
+            <li class="flex gap-2"><span style="color:#7A5C1E;">✓</span> Prospecting with Apollo</li>
+            <li class="flex gap-2"><span style="color:#7A5C1E;">✓</span> Data enrichment & verification</li>
+            <li class="flex gap-2"><span style="color:#7A5C1E;">✓</span> Domain & inbox setup (SPF, DKIM, DMARC)</li>
+            <li class="flex gap-2"><span style="color:#7A5C1E;">✓</span> Email & domain pre-warming</li>
+            <li class="flex gap-2"><span style="color:#7A5C1E;">✓</span> AI-personalised email sequencer</li>
+            <li class="flex gap-2"><span style="color:#7A5C1E;">✓</span> A/B testing subject lines & CTAs</li>
+            <li class="flex gap-2"><span style="color:#7A5C1E;">✓</span> Reply handling & inbox management</li>
+            <li class="flex gap-2"><span style="color:#7A5C1E;">✓</span> Deliverability monitoring & blacklist checks</li>
+            <li class="flex gap-2"><span style="color:#7A5C1E;">✓</span> All leads fed into CRM</li>
+            <li class="flex gap-2"><span style="color:#7A5C1E;">✓</span> Campaign reporting (opens, replies, meetings)</li>
           </ul>
         </div>
 
@@ -548,13 +559,13 @@
           <h3 class="mb-2 text-lg font-bold" style="color:#002349;">Claude Code Training for Teams & Founders</h3>
           <p class="mb-3 text-sm text-gray-500 leading-relaxed">Hands-on training for founders and operators who want to build AI-powered tools themselves using Claude Code — from zero to autonomous workflows.</p>
           <ul class="mb-4 space-y-1.5 text-sm text-gray-500">
-            <li class="flex items-start gap-2"><span style="color:#BC9042;" class="mt-0.5 shrink-0">✓</span> Live online · 4 days · 2 hours/day (Tuesdays & Thursdays, CDMX time)</li>
-            <li class="flex items-start gap-2"><span style="color:#BC9042;" class="mt-0.5 shrink-0">✓</span> Zero coding experience required — beginner-safe</li>
-            <li class="flex items-start gap-2"><span style="color:#BC9042;" class="mt-0.5 shrink-0">✓</span> Set up Claude Code correctly from day one (CLI, API keys, CLAUDE.md, MCPs)</li>
-            <li class="flex items-start gap-2"><span style="color:#BC9042;" class="mt-0.5 shrink-0">✓</span> Build repeatable workflows for research, lead generation, and execution</li>
-            <li class="flex items-start gap-2"><span style="color:#BC9042;" class="mt-0.5 shrink-0">✓</span> Leave with a starter landing page, onboarding workflow & resource pack</li>
-            <li class="flex items-start gap-2"><span style="color:#BC9042;" class="mt-0.5 shrink-0">✓</span> Certificate of Completion by Bernius Consulting</li>
-            <li class="flex items-start gap-2"><span style="color:#BC9042;" class="mt-0.5 shrink-0">✓</span> Max 6 seats · $150 USD per person · Team training available</li>
+            <li class="flex items-start gap-2"><span style="color:#7A5C1E;" class="mt-0.5 shrink-0">✓</span> Live online · 4 days · 2 hours/day (Tuesdays & Thursdays, CDMX time)</li>
+            <li class="flex items-start gap-2"><span style="color:#7A5C1E;" class="mt-0.5 shrink-0">✓</span> Zero coding experience required — beginner-safe</li>
+            <li class="flex items-start gap-2"><span style="color:#7A5C1E;" class="mt-0.5 shrink-0">✓</span> Set up Claude Code correctly from day one (CLI, API keys, CLAUDE.md, MCPs)</li>
+            <li class="flex items-start gap-2"><span style="color:#7A5C1E;" class="mt-0.5 shrink-0">✓</span> Build repeatable workflows for research, lead generation, and execution</li>
+            <li class="flex items-start gap-2"><span style="color:#7A5C1E;" class="mt-0.5 shrink-0">✓</span> Leave with a starter landing page, onboarding workflow & resource pack</li>
+            <li class="flex items-start gap-2"><span style="color:#7A5C1E;" class="mt-0.5 shrink-0">✓</span> Certificate of Completion by Bernius Consulting</li>
+            <li class="flex items-start gap-2"><span style="color:#7A5C1E;" class="mt-0.5 shrink-0">✓</span> Max 6 seats · $150 USD per person · Team training available</li>
           </ul>
           <a href="https://tinyurl.com/Claude-Code-Workshop-Flyer" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sm font-semibold transition-colors hover:opacity-70" style="color:#BC9042;">Download & Book <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
         </div>
@@ -566,7 +577,7 @@
   <section class="py-24 bg-gray-50">
     <div class="mx-auto max-w-6xl px-6">
       <div class="mb-16 text-center">
-        <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">How It Works</p>
+        <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#7A5C1E;">How It Works</p>
         <h2 class="text-3xl font-black tracking-tight md:text-4xl" style="color:#002349;">From first call to full clarity in 48 hours.</h2>
       </div>
 
@@ -581,7 +592,7 @@
           <a href="https://tinyurl.com/PreAuditQuiz" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sm font-semibold transition-opacity hover:opacity-70" style="color:#BC9042;">Start with the Quiz <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
         </div>
         <div class="relative p-8 text-center">
-          <div class="step-num mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl font-black text-xl" style="background: linear-gradient(135deg, #BC9042, #E7C874); color:#002349;">02</div>
+          <div class="step-num mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl text-white font-black text-xl" style="background-color:#002349;">02</div>
           <h3 class="mb-2 font-bold" style="color:#002349;">We Audit</h3>
           <p class="text-sm text-gray-500">We run all 7 pillars — website to CRM — in 48 hours. Scored, benchmarked against your market.</p>
         </div>
@@ -591,7 +602,7 @@
           <p class="text-sm text-gray-500">A full PDF + slide deck. Every finding ranked by revenue impact. Exact next steps. No vague "improve your SEO".</p>
         </div>
         <div class="relative p-8 text-center">
-          <div class="step-num mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl font-black text-xl" style="background: linear-gradient(135deg, #BC9042, #E7C874); color:#002349;">04</div>
+          <div class="step-num mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl text-white font-black text-xl" style="background-color:#002349;">04</div>
           <h3 class="mb-2 font-bold" style="color:#002349;">Implement or Delegate</h3>
           <p class="text-sm text-gray-500">You execute yourself, or engage us to implement. Either way, you now know exactly what to do.</p>
         </div>
@@ -604,7 +615,7 @@
     <div class="mx-auto max-w-6xl px-6">
       <div class="grid gap-16 md:grid-cols-2 items-center">
         <div>
-          <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">About</p>
+          <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#7A5C1E;">About</p>
           <h2 class="mb-6 text-3xl font-black tracking-tight md:text-4xl" style="color:#002349;">
             The cobbler's shoes should fit first.
           </h2>
@@ -648,7 +659,7 @@
               <div class="text-sm" style="color:rgba(255,255,255,0.6);">Founders & SMB Operators</div>
             </div>
             <div class="col-span-2 pt-2">
-              <p class="text-sm italic leading-relaxed" style="color:rgba(255,255,255,0.5);">"The cobbler finally wears matching shoes — now he needs to post a photo of them." — Bernius Consulting Self-Audit, April 2026</p>
+              <p class="text-sm italic leading-relaxed" style="color:rgba(255,255,255,0.5);">"We applied every pillar to ourselves before offering it to anyone else." — Bernius Consulting Self-Audit, April 2026</p>
             </div>
           </div>
         </div>
@@ -659,7 +670,7 @@
   <!-- ── QUIZ / ONBOARDING ── -->
   <section id="quiz" class="py-24 bg-gray-50">
     <div class="mx-auto max-w-4xl px-6 text-center">
-      <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Start Here</p>
+      <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#7A5C1E;">Start Here</p>
       <h2 class="mb-4 text-3xl font-black tracking-tight md:text-4xl" style="color:#002349;">
         Not sure where your biggest gap is?<br/>Take the Pre-Audit Quiz.
       </h2>
@@ -686,7 +697,7 @@
   <section class="py-20 bg-white">
     <div class="mx-auto max-w-5xl px-6">
       <div class="mb-12 text-center">
-        <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Who It's For</p>
+        <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#7A5C1E;">Who It's For</p>
         <h2 class="text-3xl font-black tracking-tight md:text-4xl" style="color:#002349;">Built for businesses where $8K/month matters.</h2>
         <p class="mt-4 text-gray-500 max-w-xl mx-auto">Revenue $150K–$2M/year. Existing digital presence. A decision-maker who acts on data — not committee sign-off.</p>
       </div>
@@ -718,11 +729,88 @@
     </div>
   </section>
 
+  <!-- ── SOCIAL PROOF (moved before pricing) ── -->
+  <section class="py-20 bg-white">
+    <div class="mx-auto max-w-4xl px-6">
+      <div class="mb-10 text-center">
+        <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#7A5C1E;">What Clients Say</p>
+        <h2 class="text-3xl font-black tracking-tight md:text-4xl" style="color:#002349;">Trusted by founders who act on data.</h2>
+        <p class="mt-3 text-sm text-gray-400">12 audits completed · 100% found &gt;$8K/month in recoverable revenue</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-3">
+
+        <!-- Client review 1 -->
+        <div class="reveal rounded-2xl border border-gray-100 bg-gray-50 p-8 text-left shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="mb-4 flex gap-1">
+              <svg class="h-4 w-4" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <blockquote class="mb-6 text-base font-semibold leading-relaxed" style="color:#002349;">
+              "Expert. Your best option for auditing your company and spotting flaws in your services."
+            </blockquote>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="flex h-9 w-9 items-center justify-center rounded-full text-sm font-black text-white" style="background:#002349;">V</div>
+            <div>
+              <p class="text-sm font-bold" style="color:#002349;">Videomapping Queretaro</p>
+              <p class="text-xs text-gray-400">Local Guide · Google Review</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Client review 2 -->
+        <div class="reveal rounded-2xl border border-gray-100 bg-gray-50 p-8 text-left shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="mb-4 flex gap-1">
+              <svg class="h-4 w-4" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <blockquote class="mb-6 text-base font-semibold leading-relaxed" style="color:#002349;">
+              "Before the ProofSprint, we had no clue that timing Instagram posts mattered. Now we schedule them right, and views plus engagement shot way up."
+            </blockquote>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="flex h-9 w-9 items-center justify-center rounded-full text-sm font-black text-white" style="background:#002349;">G</div>
+            <div>
+              <p class="text-sm font-bold" style="color:#002349;">Galerie Kai Erdmann</p>
+              <p class="text-xs text-gray-400">Local Guide · Google Review</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Self-audit proof card -->
+        <div class="reveal rounded-2xl p-8 text-left flex flex-col justify-between" style="background-color:#002349;">
+          <div>
+            <div class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Bernius Consulting · Self-Audit · April 2026</div>
+            <blockquote class="mb-5 text-lg font-semibold leading-relaxed text-white">
+              "We ran our own framework on ourselves before working on anyone else's. 35 → 65 in 18 days."
+            </blockquote>
+            <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.6);">Starting score: 35/100. IG bio said "Real Estate Experts", no standalone domain, zero search visibility. We ran every pillar on ourselves — same framework, same scoring, same revenue impact model.</p>
+          </div>
+          <div class="mt-6 flex gap-6 pt-5" style="border-top:1px solid rgba(255,255,255,0.1);">
+            <div><div class="text-2xl font-black" style="color:#BC9042;">+30</div><div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.45);">Score gain</div></div>
+            <div><div class="text-2xl font-black" style="color:#BC9042;">18d</div><div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.45);">Timeline</div></div>
+            <div><div class="text-2xl font-black" style="color:#BC9042;">65</div><div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.45);">Final score</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ── PRICING (Priestley: clear offer tiers) ── -->
   <section id="pricing" class="py-24 bg-white">
     <div class="mx-auto max-w-6xl px-6">
       <div class="mb-16 text-center">
-        <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Pricing</p>
+        <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#7A5C1E;">Pricing</p>
         <h2 class="text-3xl font-black tracking-tight md:text-4xl" style="color:#002349;">One decision. Two entry points.</h2>
         <p class="mt-4 text-gray-500 max-w-lg mx-auto">Both options pay for themselves if you implement even one finding. The question is how fast you want to move.</p>
       </div>
@@ -733,16 +821,16 @@
           <div class="mb-2 text-xs font-bold uppercase tracking-widest text-gray-400">Entry</div>
           <h3 class="mb-1 text-2xl font-bold" style="color:#002349;">Proof Sprint</h3>
           <div class="mb-6 flex items-baseline gap-1">
-            <span class="text-4xl font-black" style="color:#BC9042;">$497</span>
+            <span class="text-4xl font-black" style="color:#7A5C1E;">$497</span>
             <span class="text-sm text-gray-400">one-time</span>
           </div>
           <ul class="mb-6 space-y-3 text-sm text-gray-600">
-            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> 1-pillar deep audit — 4 sub-checks scored 0–100</li>
-            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> USD gap estimate per finding</li>
-            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> 3 prioritised quick wins to act on this week</li>
-            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> Personal Loom walkthrough (10–12 min)</li>
-            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> Gap estimates for remaining 6 pillars</li>
-            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> 24-hour delivery</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> 1-pillar deep audit — 4 sub-checks scored 0–100</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> USD gap estimate per finding</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> 3 prioritised quick wins to act on this week</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> Personal Loom walkthrough (10–12 min)</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> Gap estimates for remaining 6 pillars</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> 24-hour delivery</li>
           </ul>
           <p class="mb-4 rounded-lg px-4 py-3 text-sm font-semibold text-center" style="background:#f0faf4; color:#1A7A4A;">$497 fully credited toward the Full Audit — valid 30 days</p>
           <a href="#booking" class="block w-full rounded-lg border-2 py-3.5 text-center text-sm font-bold transition-colors hover:bg-gray-50" style="border-color:#002349; color:#002349;">
@@ -778,47 +866,16 @@
         </div>
       </div>
 
-      <p class="mt-6 text-center text-xs font-semibold uppercase tracking-widest" style="color:#BC9042;">Currently taking 2 audits per week — <a href="#booking" class="underline hover:opacity-70">check availability</a></p>
+      <p class="mt-6 text-center text-xs font-semibold uppercase tracking-widest" style="color:#7A5C1E;">Currently taking 2 audits per week — <a href="#booking" class="underline hover:opacity-70">check availability</a></p>
       <p class="mt-3 text-center text-sm text-gray-400">Not sure which is right? <a href="#booking" class="underline hover:text-gray-600">Book the free 20-min gap scan first.</a></p>
     </div>
   </section>
 
-  <!-- ── CLIENT REVIEW ── -->
-  <section class="py-20 bg-white">
-    <div class="mx-auto max-w-3xl px-6 text-center">
-      <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">Client Reviews</p>
-      <h2 class="mb-12 text-3xl font-black tracking-tight md:text-4xl" style="color:#002349;">What clients say</h2>
-
-      <div class="reveal relative rounded-2xl border border-gray-100 bg-gray-50 p-10 text-left shadow-sm">
-        <!-- Stars -->
-        <div class="mb-4 flex gap-1">
-          <svg class="h-5 w-5" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="h-5 w-5" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="h-5 w-5" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="h-5 w-5" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="h-5 w-5" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <!-- Quote -->
-        <blockquote class="mb-6 text-xl font-semibold leading-relaxed" style="color:#002349;">
-          "Expert. Your best option for auditing your company and spotting flaws in your services."
-        </blockquote>
-        <!-- Reviewer -->
-        <div class="flex items-center gap-3">
-          <div class="flex h-10 w-10 items-center justify-center rounded-full text-sm font-black text-white" style="background:#002349;">V</div>
-          <div>
-            <p class="text-sm font-bold" style="color:#002349;">Videomapping Queretaro</p>
-            <p class="text-xs text-gray-400">Local Guide · Google Review</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ── FAQ ── -->
-  <section class="py-20 bg-gray-50">
+  <section id="faq" class="py-20 bg-gray-50">
     <div class="mx-auto max-w-3xl px-6">
       <div class="mb-12 text-center">
-        <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#BC9042;">FAQ</p>
+        <p class="mb-3 text-xs font-bold uppercase tracking-widest" style="color:#7A5C1E;">FAQ</p>
         <h2 class="text-3xl font-black tracking-tight md:text-4xl" style="color:#002349;">Questions we get before every audit</h2>
       </div>
 
@@ -827,7 +884,7 @@
         <details class="group rounded-xl border border-gray-200 bg-white px-6 py-5 cursor-pointer">
           <summary class="flex items-center justify-between font-bold text-base list-none" style="color:#002349;">
             How is this different from running an SEO tool or a free audit myself?
-            <svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 ml-4" style="color:#BC9042;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            <svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 ml-4" style="color:#7A5C1E;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
           </summary>
           <p class="mt-4 text-sm text-gray-500 leading-relaxed">SEO tools scan one channel. Our 360° audit covers 7 pillars simultaneously — website, SEO, social, email, CRM, paid media, and brand positioning — and scores them against each other. More importantly, we give you a revenue impact model: not just "your site speed is slow" but "this is costing you an estimated X leads per month." No tool does that.</p>
         </details>
@@ -835,7 +892,7 @@
         <details class="group rounded-xl border border-gray-200 bg-white px-6 py-5 cursor-pointer">
           <summary class="flex items-center justify-between font-bold text-base list-none" style="color:#002349;">
             What if I already work with a marketing agency?
-            <svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 ml-4" style="color:#BC9042;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            <svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 ml-4" style="color:#7A5C1E;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
           </summary>
           <p class="mt-4 text-sm text-gray-500 leading-relaxed">Most of our clients have agencies. The audit gives you an independent, scored view of what's working and what isn't — so you can have informed conversations with your agency instead of taking their word for it. Several clients have used the report to hold their agencies accountable or renegotiate their contracts.</p>
         </details>
@@ -843,7 +900,7 @@
         <details class="group rounded-xl border border-gray-200 bg-white px-6 py-5 cursor-pointer">
           <summary class="flex items-center justify-between font-bold text-base list-none" style="color:#002349;">
             Do I need to give you access to my accounts?
-            <svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 ml-4" style="color:#BC9042;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            <svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 ml-4" style="color:#7A5C1E;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
           </summary>
           <p class="mt-4 text-sm text-gray-500 leading-relaxed">For the Proof Sprint, no — we audit from the outside, the same way a prospect or competitor would see you. For the Full 360° Audit, we may request read-only access to Google Analytics, Search Console, or your CRM to get accurate traffic and conversion data. You control what you share, and we only need view permissions — never admin access.</p>
         </details>
@@ -851,7 +908,7 @@
         <details class="group rounded-xl border border-gray-200 bg-white px-6 py-5 cursor-pointer">
           <summary class="flex items-center justify-between font-bold text-base list-none" style="color:#002349;">
             What happens after I receive the report?
-            <svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 ml-4" style="color:#BC9042;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            <svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 ml-4" style="color:#7A5C1E;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
           </summary>
           <p class="mt-4 text-sm text-gray-500 leading-relaxed">You get a 30-minute (Proof Sprint) or 60-minute (Full Audit) walkthrough call where we go through the findings together. After that, you can implement the fixes yourself — the report tells you exactly what to do and in what order. Most Full Audit clients choose to continue working with us on implementation: SEO content, automation builds, CRM setup, or ongoing monitoring. We scope that on the call based on what your audit actually found. There's no pressure — you decide what's right for your situation.</p>
         </details>
@@ -859,7 +916,7 @@
         <details class="group rounded-xl border border-gray-200 bg-white px-6 py-5 cursor-pointer">
           <summary class="flex items-center justify-between font-bold text-base list-none" style="color:#002349;">
             Is the $497 Proof Sprint worth it if I'm a small business?
-            <svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 ml-4" style="color:#BC9042;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            <svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 ml-4" style="color:#7A5C1E;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
           </summary>
           <p class="mt-4 text-sm text-gray-500 leading-relaxed">The Proof Sprint is designed exactly for that: one focused pillar, scored 0–100, with USD gap estimates and a personal Loom walkthrough — delivered in 24 hours. If even one finding converts a single additional client, it pays for itself many times over. And if you decide to go all-in with the Full Audit within 30 days, the $497 is fully credited — you only pay the $2,000 difference.</p>
         </details>
@@ -867,7 +924,7 @@
         <details class="group rounded-xl border border-gray-200 bg-white px-6 py-5 cursor-pointer">
           <summary class="flex items-center justify-between font-bold text-base list-none" style="color:#002349;">
             How long does the Full 360° Audit take?
-            <svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 ml-4" style="color:#BC9042;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+            <svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 ml-4" style="color:#7A5C1E;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
           </summary>
           <p class="mt-4 text-sm text-gray-500 leading-relaxed">48 hours from receipt of your completed pre-audit questionnaire. You'll receive a scored PDF report, a prioritised action roadmap, and a revenue impact model. We then schedule your 60-minute strategy call within the following 48 hours.</p>
         </details>
@@ -958,7 +1015,7 @@
 
       <!-- Trust + legal bar -->
       <div class="border-t border-gray-200 pt-6 flex flex-col items-center gap-3 md:flex-row md:justify-between">
-        <p class="text-xs text-gray-400">© 2026 Bernius Consulting. All rights reserved.</p>
+        <p class="text-xs text-gray-400">© 2026 Bernius Consulting. All rights reserved. · <a href="/privacy" class="hover:text-gray-600">Privacy Policy</a></p>
         <div class="flex flex-wrap justify-center gap-4 text-xs text-gray-400">
           <span>HubSpot Certified</span>
           <span>·</span>
@@ -977,16 +1034,27 @@
 
 <a href="https://calendly.com/stefan-bernius/video-call" target="_blank" rel="noopener"
    id="floating-cta"
-   class="fixed bottom-6 right-6 z-50 hidden items-center gap-2 rounded-full px-6 py-3 text-sm font-bold shadow-xl transition-all hover:opacity-90"
+   class="fixed bottom-6 right-6 z-50 hidden items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold shadow-xl transition-all hover:opacity-90"
    style="background: linear-gradient(135deg, #BC9042, #E7C874); color:#002349;">
   Book a Call →
 </a>
 <script>
-  // ── Floating CTA ──
+  // ── Floating CTA — show once, single pulse ──
   const btn = document.getElementById('floating-cta');
+  let btnShown = false;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) { btn.classList.remove('hidden'); btn.classList.add('inline-flex'); }
-    else { btn.classList.add('hidden'); btn.classList.remove('inline-flex'); }
+    if (window.scrollY > 400) {
+      btn.classList.remove('hidden');
+      btn.classList.add('inline-flex');
+      if (!btnShown) {
+        btnShown = true;
+        btn.classList.add('pulse-once');
+        btn.addEventListener('animationend', () => btn.classList.remove('pulse-once'), { once: true });
+      }
+    } else {
+      btn.classList.add('hidden');
+      btn.classList.remove('inline-flex');
+    }
   });
 
   // ── Scroll reveal ──
@@ -1080,8 +1148,8 @@
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.querySelectorAll('.score-bar').forEach(b => {
-          const w = b.parentElement.previousElementSibling?.querySelector('span:last-child')?.textContent?.match(/\d+/)?.[0];
-          if (w) b.style.width = w + '%';
+          const w = parseFloat(b.dataset.width);
+          if (w) b.style.transform = `scaleX(${w / 100})`;
         });
         barObserver.unobserve(e.target);
       }
@@ -1095,26 +1163,6 @@
     header.classList.toggle('scrolled', window.scrollY > 10);
   });
 
-  // ── Gold cursor dot on hero ──
-  const heroDot = document.createElement('div');
-  heroDot.className = 'hero-cursor-dot';
-  document.body.appendChild(heroDot);
-  const heroSection = document.querySelector('section');
-  heroSection.addEventListener('mousemove', e => {
-    heroDot.style.opacity = '0.7';
-    heroDot.style.left = e.clientX - 3 + 'px';
-    heroDot.style.top = e.clientY - 3 + 'px';
-  });
-  heroSection.addEventListener('mouseleave', () => { heroDot.style.opacity = '0'; });
-
-  // ── Smooth scroll progress bar ──
-  const progressBar = document.createElement('div');
-  progressBar.style.cssText = 'position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#BC9042,#E7C874);z-index:9999;width:0%;transition:width 0.1s;pointer-events:none;';
-  document.body.appendChild(progressBar);
-  window.addEventListener('scroll', () => {
-    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-    progressBar.style.width = pct + '%';
-  });
 </script>
 
 <!-- Cookie banner -->
