@@ -14,13 +14,13 @@
   <meta property="og:url" content="https://berniusconsulting.com/" />
   <meta property="og:title" content="B2B Digital Marketing Audit | Bernius Consulting" />
   <meta property="og:description" content="Scored 360° digital presence audit — SEO, CRM, lead gen & AI automations. Results in 48h. From $497." />
-  <meta property="og:image" content="https://berniusconsulting.com/web-app-manifest-192x192.png" />
+  <meta property="og:image" content="https://berniusconsulting.com/assets/og-image.jpg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="B2B Digital Marketing Audit | Bernius Consulting" />
   <meta name="twitter:description" content="Scored 360° digital presence audit — SEO, CRM, lead gen & AI automations. Results in 48h. From $497." />
-  <meta name="twitter:image" content="https://berniusconsulting.com/web-app-manifest-192x192.png" />
+  <meta name="twitter:image" content="https://berniusconsulting.com/assets/og-image.jpg" />
 
   <!-- Schema: LocalBusiness + Person -->
   <script type="application/ld+json">
@@ -368,6 +368,16 @@
     @media (max-width: 639px) {
       .pricing-card { padding: 2rem; }
       .proof-card { padding: 1.25rem; }
+    }
+
+    /* ── Reduced motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
     }
 
   </style>
@@ -1203,8 +1213,10 @@
   });
 
   // ── Scroll reveal ──
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealEls = document.querySelectorAll('section, .service-card, .proof-card, .pricing-card');
   revealEls.forEach((el, i) => {
+    if (reducedMotion) { el.classList.add('reveal', 'visible'); return; }
     el.classList.add('reveal');
     if (i % 6 > 0) el.classList.add(`reveal-delay-${i % 6}`);
   });
