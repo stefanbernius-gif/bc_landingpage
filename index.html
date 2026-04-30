@@ -331,27 +331,88 @@
       border-radius: 6px;
     }
 
+    /* ── Mobile nav drawer ── */
+    #mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(.4,0,.2,1), opacity 0.25s;
+      opacity: 0;
+    }
+    #mobile-menu.open {
+      max-height: 400px;
+      opacity: 1;
+    }
+    /* Hamburger lines */
+    .ham-line {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: #002349;
+      transition: transform 0.25s cubic-bezier(.4,0,.2,1), opacity 0.2s;
+      transform-origin: center;
+    }
+    #menu-btn.open .ham-line:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    #menu-btn.open .ham-line:nth-child(2) { opacity: 0; }
+    #menu-btn.open .ham-line:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* ── Social icon touch targets ── */
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+    }
+
+    /* ── Mobile padding overrides ── */
+    @media (max-width: 639px) {
+      .pricing-card { padding: 2rem; }
+      .proof-card { padding: 1.25rem; }
+    }
+
   </style>
 </head>
 <body class="font-sans bg-white text-gray-900 antialiased">
 
   <!-- ── NAV ── -->
   <header class="sticky top-0 z-50 border-b border-gray-100 bg-white/90 backdrop-blur">
-    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-      <div class="flex items-center gap-2">
-        <span class="text-xl font-black tracking-tight" style="color:#002349;">BERNIUS</span>
-        <span class="text-xs font-bold tracking-widest uppercase text-gray-400 mt-0.5">Consulting</span>
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="flex items-center justify-between py-4">
+        <div class="flex items-center gap-2">
+          <span class="text-xl font-black tracking-tight" style="color:#002349;">BERNIUS</span>
+          <span class="type-eyebrow text-gray-400 mt-0.5">Consulting</span>
+        </div>
+        <nav class="hidden gap-8 text-sm font-medium text-gray-500 md:flex">
+          <a href="#services" class="hover:text-gray-900 transition-colors">Services</a>
+          <a href="#proof" class="hover:text-gray-900 transition-colors">Proof</a>
+          <a href="#quiz" class="hover:text-gray-900 transition-colors">Quiz</a>
+          <a href="#about" class="hover:text-gray-900 transition-colors">About</a>
+          <a href="#pricing" class="hover:text-gray-900 transition-colors">Pricing</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="#booking" class="rounded-lg border px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-gray-50" style="border-color:#002349; color:#002349;">
+            Book a Call
+          </a>
+          <!-- Hamburger — mobile only -->
+          <button id="menu-btn" class="flex md:hidden flex-col gap-1.5 p-2 -mr-2 rounded-lg" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="ham-line"></span>
+            <span class="ham-line"></span>
+            <span class="ham-line"></span>
+          </button>
+        </div>
       </div>
-      <nav class="hidden gap-8 text-sm font-medium text-gray-500 md:flex">
-        <a href="#services" class="hover:text-gray-900 transition-colors">Services</a>
-        <a href="#proof" class="hover:text-gray-900 transition-colors">Proof</a>
-        <a href="#quiz" class="hover:text-gray-900 transition-colors">Quiz</a>
-        <a href="#about" class="hover:text-gray-900 transition-colors">About</a>
-        <a href="#pricing" class="hover:text-gray-900 transition-colors">Pricing</a>
-      </nav>
-      <a href="#booking" class="rounded-lg border px-4 py-2 text-sm font-semibold transition-colors hover:bg-gray-50" style="border-color:#002349; color:#002349;">
-        Book a Call
-      </a>
+
+      <!-- Mobile drawer -->
+      <div id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <nav class="flex flex-col pb-4 gap-1">
+          <a href="#services" class="mobile-nav-link rounded-lg px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">Services</a>
+          <a href="#proof" class="mobile-nav-link rounded-lg px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">Proof</a>
+          <a href="#quiz" class="mobile-nav-link rounded-lg px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">Quiz</a>
+          <a href="#about" class="mobile-nav-link rounded-lg px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">About</a>
+          <a href="#pricing" class="mobile-nav-link rounded-lg px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">Pricing</a>
+          <a href="#booking" class="mobile-nav-link mt-2 rounded-lg px-4 py-3 text-sm font-bold text-center text-white transition-opacity hover:opacity-90" style="background-color:#002349;">Book a Free Gap Call</a>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -385,10 +446,10 @@
         <!-- CTAs -->
         <div class="hero-cta flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href="https://tinyurl.com/PreAuditQuiz" target="_blank" rel="noopener" class="shimmer-btn inline-flex items-center justify-center rounded-lg px-7 py-3.5 text-sm font-bold transition-opacity hover:opacity-90" style="background: linear-gradient(135deg, #BC9042 0%, #E7C874 100%); color:#002349;">
-            Find My Biggest Gap — Free Quiz →
+            Find My Biggest Gap — Free →
           </a>
           <a href="#booking" class="inline-flex items-center justify-center rounded-lg border px-7 py-3.5 text-sm font-semibold transition-opacity hover:opacity-80" style="border-color:rgba(255,255,255,0.3); color:rgba(255,255,255,0.85);">
-            Already know your gap? Book a call
+            Already know your gap? Book a call →
           </a>
         </div>
         <p class="mt-4 text-xs" style="color:rgba(255,255,255,0.4);">Not sure where to start? Take the 5-min quiz first. Ready to talk? Book directly.</p>
@@ -420,9 +481,9 @@
   </section>
 
   <!-- ── PROBLEM (Priestley: make the pain real) ── -->
-  <section class="bg-gray-50 py-24">
+  <section class="bg-gray-50 py-20">
     <div class="mx-auto max-w-6xl px-6">
-      <div class="mx-auto max-w-2xl text-center">
+      <div class="max-w-2xl">
         <p class="mb-3 type-eyebrow" style="color:#7A5C1E;">The Problem</p>
         <h2 class="mb-6 type-h2" style="color:#002349;">
           You're investing in marketing without knowing what's broken.
@@ -456,15 +517,15 @@
   </section>
 
   <!-- ── SOCIAL PROOF / RESULTS ── -->
-  <section id="proof" class="py-24" style="background-color:#002349;">
+  <section id="proof" class="py-28" style="background-color:#002349;">
     <div class="mx-auto max-w-6xl px-6">
-      <div class="mb-16 text-center">
+      <div class="mb-16">
         <p class="mb-3 type-eyebrow" style="color:#BC9042;">Real Audit Results</p>
         <h2 class="type-h2 text-white">What we find when we look closely.</h2>
-        <p class="mt-4 text-gray-400 max-w-xl mx-auto">Every audit uncovers specific, actionable findings — not vague recommendations. Here's what we found for real clients.</p>
+        <p class="mt-4 text-gray-400 max-w-xl">Every audit uncovers specific, actionable findings — not vague recommendations. Here's what we found for real clients.</p>
       </div>
 
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
 
         <!-- Case 1: Lost Art Salon -->
         <div class="proof-card rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
@@ -563,7 +624,7 @@
   </section>
 
   <!-- ── SERVICES ── -->
-  <section id="services" class="py-24">
+  <section id="services" class="py-28">
     <div class="mx-auto max-w-6xl px-6">
       <div class="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div>
@@ -573,7 +634,7 @@
         <p class="max-w-sm text-gray-500 type-body">Every service connects to the same outcome: a digital presence that works as hard as you do.</p>
       </div>
 
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         <!-- Service 1: Core offer -->
         <div class="service-card col-span-full lg:col-span-1 rounded-2xl p-8 text-white" style="background-color:#002349; border-top: 3px solid #BC9042;">
           <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg" style="background:rgba(188,144,66,0.2);">
@@ -622,8 +683,8 @@
 
         <div class="service-card rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
           <div class="mb-4"><svg class="h-7 w-7" style="color:#BC9042;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-          <h3 class="mb-2 type-h3" style="color:#002349;">B2B Lead Generation Systems</h3>
-          <p class="mb-4 type-body text-gray-500">We build the full funnel: landing pages, lead magnets, automations, and nurture sequences that turn cold traffic into booked calls — without paid ads.</p>
+          <h3 class="mb-2 type-h3" style="color:#002349;">Outbound Lead Generation</h3>
+          <p class="mb-4 type-body text-gray-500">We build the full outbound stack: targeted prospect lists, automated sequences, and inbox infrastructure that turns cold contacts into booked calls — no paid ads required.</p>
           <ul class="space-y-1.5 text-sm text-gray-500">
             <li class="flex gap-2"><span style="color:#7A5C1E;">✓</span> Prospecting with Apollo</li>
             <li class="flex gap-2"><span style="color:#7A5C1E;">✓</span> Data enrichment & verification</li>
@@ -658,14 +719,14 @@
   </section>
 
   <!-- ── PROCESS ── -->
-  <section class="py-24 bg-gray-50">
+  <section class="py-20 bg-gray-50">
     <div class="mx-auto max-w-6xl px-6">
-      <div class="mb-16 text-center">
+      <div class="mb-12 text-center">
         <p class="mb-3 type-eyebrow" style="color:#7A5C1E;">How It Works</p>
         <h2 class="type-h2" style="color:#002349;">From first call to full clarity in 48 hours.</h2>
       </div>
 
-      <div class="grid gap-0 md:grid-cols-4 relative">
+      <div class="grid gap-2 md:grid-cols-4 relative">
         <!-- Connector line -->
         <div class="absolute top-8 left-0 right-0 h-px hidden md:block" style="background: linear-gradient(90deg, transparent, #BC9042, transparent); opacity:0.3;"></div>
 
@@ -682,22 +743,22 @@
         </div>
         <div class="relative p-8 text-center">
           <div class="step-num mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl text-white font-black text-xl" style="background-color:#002349;">03</div>
-          <h3 class="mb-2 type-h3" style="color:#002349;">You Get the Report</h3>
+          <h3 class="mb-2 type-h3" style="color:#002349;">Report Delivered</h3>
           <p class="type-body text-gray-500">A full PDF + slide deck. Every finding ranked by revenue impact. Exact next steps. No vague "improve your SEO".</p>
         </div>
         <div class="relative p-8 text-center">
           <div class="step-num mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl text-white font-black text-xl" style="background-color:#002349;">04</div>
-          <h3 class="mb-2 type-h3" style="color:#002349;">Implement or Delegate</h3>
-          <p class="type-body text-gray-500">You execute yourself, or engage us to implement. Either way, you now know exactly what to do.</p>
+          <h3 class="mb-2 type-h3" style="color:#002349;">You Decide</h3>
+          <p class="type-body text-gray-500">Execute yourself or engage us to implement. Either way, you know exactly what to fix and in what order.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ── ABOUT (Priestley: Profile P) ── -->
-  <section id="about" class="py-24">
+  <section id="about" class="py-28">
     <div class="mx-auto max-w-6xl px-6">
-      <div class="grid gap-16 md:grid-cols-2 items-center">
+      <div class="grid gap-20 md:grid-cols-2 items-center">
         <div>
           <p class="mb-3 type-eyebrow" style="color:#7A5C1E;">About</p>
           <h2 class="mb-6 type-h2" style="color:#002349;">
@@ -752,14 +813,14 @@
   </section>
 
   <!-- ── QUIZ / ONBOARDING ── -->
-  <section id="quiz" class="py-24 bg-gray-50">
+  <section id="quiz" class="py-20 bg-gray-50">
     <div class="mx-auto max-w-4xl px-6 text-center">
       <p class="mb-3 type-eyebrow" style="color:#7A5C1E;">Start Here</p>
       <h2 class="mb-4 type-h2" style="color:#002349;">
         Not sure where your biggest gap is?<br/>Take the Pre-Audit Quiz.
       </h2>
       <p class="mb-10 type-body-lg text-gray-500 prose-measure mx-auto">
-        20 questions across 5 topics: your business, online presence, current numbers, market position, and logistics. Takes 5–8 minutes. We'll tell you immediately which pillar is your weakest — and what to do about it.
+        5–8 minutes across 20 questions. We'll tell you exactly which pillar is your weakest — and what to do about it.
       </p>
 
       <a href="https://tinyurl.com/PreAuditQuiz" target="_blank" rel="noopener"
@@ -772,7 +833,7 @@
       <div class="mt-10 flex flex-wrap items-center justify-center gap-8 text-sm text-gray-400">
         <span>✓ No email required to start</span>
         <span>✓ Instant results</span>
-        <span>✓ Entry point for both audit tiers</span>
+        <span>✓ First step to either audit tier</span>
       </div>
     </div>
   </section>
@@ -780,7 +841,7 @@
   <!-- ── QUALIFICATION ── -->
   <section class="py-20 bg-white">
     <div class="mx-auto max-w-5xl px-6">
-      <div class="mb-12 text-center">
+      <div class="mb-12">
         <p class="mb-3 type-eyebrow" style="color:#7A5C1E;">Who It's For</p>
         <h2 class="type-h2" style="color:#002349;">Built for businesses where $8K/month matters.</h2>
         <p class="mt-4 text-gray-500 max-w-xl mx-auto">Revenue $150K–$2M/year. Existing digital presence. A decision-maker who acts on data — not committee sign-off.</p>
@@ -814,9 +875,9 @@
   </section>
 
   <!-- ── SOCIAL PROOF (moved before pricing) ── -->
-  <section class="py-20 bg-white">
+  <section class="py-24 bg-white">
     <div class="mx-auto max-w-4xl px-6">
-      <div class="mb-10 text-center">
+      <div class="mb-14 text-center">
         <p class="mb-3 type-eyebrow" style="color:#7A5C1E;">What Clients Say</p>
         <h2 class="type-h2" style="color:#002349;">Trusted by founders who act on data.</h2>
         <p class="mt-3 text-sm text-gray-400">12 audits completed · 100% found &gt;$8K/month in recoverable revenue</p>
@@ -891,7 +952,7 @@
   </section>
 
   <!-- ── PRICING (Priestley: clear offer tiers) ── -->
-  <section id="pricing" class="py-24 bg-white">
+  <section id="pricing" class="py-28 bg-white">
     <div class="mx-auto max-w-6xl px-6">
       <div class="mb-16 text-center">
         <p class="mb-3 type-eyebrow" style="color:#7A5C1E;">Pricing</p>
@@ -902,7 +963,7 @@
       <div class="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
         <!-- Tier 1: Proof Sprint -->
         <div class="pricing-card rounded-2xl bg-white p-12 shadow-sm border border-gray-100">
-          <div class="mb-2 type-eyebrow text-gray-400">Entry</div>
+          <div class="mb-2 type-eyebrow text-gray-400">Quick Start</div>
           <h3 class="mb-1 type-h3" style="color:#002349;">Proof Sprint</h3>
           <div class="mb-6 flex items-baseline gap-1">
             <span class="text-4xl font-black num-tabular" style="color:#7A5C1E;">$497</span>
@@ -956,14 +1017,14 @@
   </section>
 
   <!-- ── FAQ ── -->
-  <section id="faq" class="py-20 bg-gray-50">
+  <section id="faq" class="py-24 bg-gray-50">
     <div class="mx-auto max-w-3xl px-6">
       <div class="mb-12 text-center">
         <p class="mb-3 type-eyebrow" style="color:#7A5C1E;">FAQ</p>
         <h2 class="type-h2" style="color:#002349;">Questions we get before every audit</h2>
       </div>
 
-      <div class="space-y-4" id="faq-list">
+      <div class="space-y-3" id="faq-list">
 
         <details class="group rounded-xl border border-gray-200 bg-white px-6 py-5 cursor-pointer">
           <summary class="flex items-center justify-between font-bold text-base list-none" style="color:#002349;">
@@ -1018,7 +1079,7 @@
   </section>
 
   <!-- ── BOOKING CTA (Priestley: strong, clear CTA) ── -->
-  <section id="booking" class="py-24" style="background-color:#002349;">
+  <section id="booking" class="py-32" style="background-color:#002349;">
     <div class="mx-auto max-w-3xl px-6 text-center">
       <!-- Gold accent -->
       <div class="mx-auto mb-8 h-1 w-16" style="background: linear-gradient(90deg, #BC9042, #E7C874);"></div>
@@ -1035,7 +1096,7 @@
         <a href="https://calendly.com/stefan-bernius/video-call" target="_blank" rel="noopener"
            class="inline-flex items-center justify-center gap-2 rounded-lg px-8 py-4 text-sm font-bold transition-opacity hover:opacity-90 w-full sm:w-auto"
            style="background: linear-gradient(135deg, #BC9042, #E7C874); color:#002349;">
-          Book a Zoom Call →
+          Book a Free 20-min Call →
         </a>
         <a href="mailto:stefan@berniusconsulting.com"
            class="inline-flex items-center justify-center gap-2 rounded-lg border px-8 py-4 text-sm font-semibold text-white w-full sm:w-auto transition-colors hover:bg-white/10"
@@ -1085,13 +1146,13 @@
 
         <!-- Social icons -->
         <div class="flex items-center gap-4 text-gray-400">
-          <a href="https://www.linkedin.com/in/stefan-bernius-785b53355/" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-gray-600">
+          <a href="https://www.linkedin.com/in/stefan-bernius-785b53355/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link hover:text-gray-600">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           </a>
-          <a href="https://www.instagram.com/bernius.consulting" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-gray-600">
+          <a href="https://www.instagram.com/bernius.consulting" target="_blank" rel="noopener" aria-label="Instagram" class="social-link hover:text-gray-600">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
           </a>
-          <a href="https://wa.me/527771080143" target="_blank" rel="noopener" aria-label="WhatsApp" class="hover:text-gray-600">
+          <a href="https://wa.me/527771080143" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-link hover:text-gray-600">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
           </a>
         </div>
@@ -1240,6 +1301,22 @@
     });
   }, { threshold: 0.3 });
   document.querySelectorAll('.proof-card').forEach(c => barObserver.observe(c));
+
+  // ── Mobile nav ──
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuBtn.classList.toggle('open', isOpen);
+    menuBtn.setAttribute('aria-expanded', isOpen);
+  });
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      menuBtn.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
 
   // ── Scrolled nav shadow ──
   const header = document.querySelector('header');
