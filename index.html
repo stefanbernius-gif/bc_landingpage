@@ -64,6 +64,13 @@
         "reviewBody": "Before the ProofSprint, we had no clue that timing Instagram posts mattered. Now we schedule them right, and views plus engagement shot way up."
       },
       {
+        "@type": "Review",
+        "itemReviewed": { "@type": "ProfessionalService", "name": "Bernius Consulting" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "L'AmourFouShop" },
+        "reviewBody": "Honestly didn't think I needed all of this — but now I can't imagine running my gallery without it."
+      },
+      {
         "@type": "Person",
         "name": "Stefan Bernius",
         "url": "https://berniusconsulting.com",
@@ -400,7 +407,7 @@
           <a href="#pricing" class="hover:text-gray-900 transition-colors">Pricing</a>
         </nav>
         <div class="flex items-center gap-3">
-          <a href="#booking" class="rounded-lg border px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-gray-50" style="border-color:#002349; color:#002349;">
+          <a href="#booking" class="hidden md:inline-flex rounded-lg border px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-gray-50" style="border-color:#002349; color:#002349;">
             Book a Call
           </a>
           <!-- Hamburger — mobile only -->
@@ -796,24 +803,24 @@
         </div>
         <!-- Stats panel -->
         <div class="rounded-2xl p-10" style="background-color:#002349;">
-          <div class="grid grid-cols-2 gap-8">
-            <div class="border-b pb-8" style="border-color:rgba(255,255,255,0.08);">
+          <div class="grid grid-cols-2 gap-x-8 gap-y-0">
+            <div class="pb-6 border-b" style="border-color:rgba(255,255,255,0.08);">
               <div class="text-4xl font-black mb-1" style="color:#BC9042;">7</div>
               <div class="text-sm" style="color:rgba(255,255,255,0.6);">Pillar Audit Framework</div>
             </div>
-            <div class="border-b pb-8" style="border-color:rgba(255,255,255,0.08);">
+            <div class="pb-6 border-b" style="border-color:rgba(255,255,255,0.08);">
               <div class="text-4xl font-black mb-1" style="color:#BC9042;">48h</div>
               <div class="text-sm" style="color:rgba(255,255,255,0.6);">Avg. Report Delivery</div>
             </div>
-            <div class="border-b pb-8" style="border-color:rgba(255,255,255,0.08);">
+            <div class="pt-6">
               <div class="text-4xl font-black mb-1" style="color:#BC9042;">+30</div>
               <div class="text-sm" style="color:rgba(255,255,255,0.6);">Score Gain in 18 Days</div>
             </div>
-            <div class="border-b pb-8" style="border-color:rgba(255,255,255,0.08);">
+            <div class="pt-6">
               <div class="text-4xl font-black mb-1" style="color:#BC9042;">B2B</div>
               <div class="text-sm" style="color:rgba(255,255,255,0.6);">Founders & SMB Operators</div>
             </div>
-            <div class="col-span-2 pt-2">
+            <div class="col-span-2 pt-6 border-t" style="border-color:rgba(255,255,255,0.08);">
               <p class="type-body-dark italic" style="color:rgba(255,255,255,0.5);">"We applied every pillar to ourselves before offering it to anyone else." — Bernius Consulting Self-Audit, April 2026</p>
             </div>
           </div>
@@ -941,19 +948,26 @@
           </div>
         </div>
 
-        <!-- Self-audit proof card -->
-        <div class="reveal rounded-2xl p-8 text-left flex flex-col justify-between" style="background-color:#002349;">
+        <!-- Client review card -->
+        <div class="reveal rounded-2xl border border-gray-100 bg-gray-50 p-8 text-left shadow-sm flex flex-col justify-between">
           <div>
-            <div class="mb-3 type-eyebrow" style="color:#BC9042;">Bernius Consulting · Self-Audit · April 2026</div>
-            <blockquote class="mb-5 type-h3 text-white">
-              "We ran our own framework on ourselves before working on anyone else's. 35 → 65 in 18 days."
+            <div class="mb-4 flex gap-1">
+              <svg class="h-4 w-4" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="h-4 w-4" fill="#BC9042" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <blockquote class="mb-6 type-h3" style="color:#002349;">
+              "Honestly didn't think I needed all of this — but now I can't imagine running my gallery without it."
             </blockquote>
-            <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.6);">Starting score: 35/100. IG bio said "Real Estate Experts", no standalone domain, zero search visibility. We ran every pillar on ourselves — same framework, same scoring, same revenue impact model.</p>
           </div>
-          <div class="mt-6 flex gap-6 pt-5" style="border-top:1px solid rgba(255,255,255,0.1);">
-            <div><div class="text-2xl font-black" style="color:#BC9042;">+30</div><div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.45);">Score gain</div></div>
-            <div><div class="text-2xl font-black" style="color:#BC9042;">18d</div><div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.45);">Timeline</div></div>
-            <div><div class="text-2xl font-black" style="color:#BC9042;">65</div><div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.45);">Final score</div></div>
+          <div class="flex items-center gap-3">
+            <div class="flex h-9 w-9 items-center justify-center rounded-full text-sm font-black text-white shrink-0" style="background:#002349;">L</div>
+            <div>
+              <p class="text-sm font-bold" style="color:#002349;">L'AmourFouShop</p>
+              <p class="text-xs text-gray-400">Google Review</p>
+            </div>
           </div>
         </div>
 

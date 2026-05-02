@@ -10,7 +10,10 @@
       "Bash(git remote *)",
       "Bash(git push *)",
       "Bash(mv index.html index-starter.html)",
-      "Bash(mv bernius-consulting.html index.html)"
+      "Bash(mv bernius-consulting.html index.html)",
+      "Bash(curl -sI https://stefanbernius-gif.github.io/bc_landingpage/)",
+      "Bash(open https://berniusconsulting.com)",
+      "Bash(open \"/Users/stefanbernius/Library/CloudStorage/OneDrive-Personal/Beruflich/00 Bernius_Consulting/02 AI Tools/Claude Landingpages/index.html\")"
     ]
   }
 }
