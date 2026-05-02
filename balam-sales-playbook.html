@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balam Group — Sales Playbook</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        h1 { font-size: 32px; margin-bottom: 10px; color: #0F2141; }
+        h2 { font-size: 24px; margin-top: 40px; margin-bottom: 20px; color: #0F2141; padding-bottom: 10px; border-bottom: 2px solid #C9922A; }
+        h3 { font-size: 18px; margin-top: 25px; margin-bottom: 15px; color: #0F2141; }
+        .subtitle { color: #666; font-size: 16px; margin-bottom: 30px; }
+        .section { background: white; padding: 30px; margin: 20px 0; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .call-flow { background: white; padding: 0; margin: 20px 0; border-radius: 4px; border-left: 4px solid #C9922A; overflow: hidden; }
+        .flow-step {
+            padding: 20px 30px;
+            border-bottom: 1px solid #e5e5e5;
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 20px;
+        }
+        .flow-step:last-child { border-bottom: none; }
+        .flow-step-num {
+            background: #C9922A;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .flow-step-content h4 { color: #0F2141; margin-bottom: 8px; font-size: 16px; }
+        .flow-step-content p { color: #666; font-size: 14px; margin-bottom: 8px; }
+        .script-box {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 10px 0;
+            border-left: 3px solid #D4700A;
+        }
+        .objection {
+            background: #fff9e6;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 4px solid #D4700A;
+        }
+        .objection-title { color: #D4700A; font-weight: bold; margin-bottom: 8px; }
+        .objection-answer { color: #666; font-size: 14px; }
+        .table-wrapper { overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #0F2141; color: white; padding: 12px; text-align: left; font-weight: 600; }
+        td { padding: 12px; border-bottom: 1px solid #e5e5e5; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        .metric-box {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .metric { background: #f0f5ff; padding: 15px; border-radius: 4px; text-align: center; }
+        .metric-num { font-size: 24px; font-weight: bold; color: #0F2141; }
+        .metric-label { font-size: 12px; color: #666; margin-top: 8px; }
+        .dos { background: #f0faf4; padding: 15px; border-radius: 4px; border-left: 4px solid #1A7A4A; margin: 15px 0; }
+        .donts { background: #fdf2f2; padding: 15px; border-radius: 4px; border-left: 4px solid #C0392B; margin: 15px 0; }
+        .tips { background: #blue-bg; padding: 20px; border-radius: 4px; margin: 20px 0; }
+        ul { margin-left: 20px; margin-bottom: 15px; }
+        li { margin-bottom: 8px; }
+        strong { color: #0F2141; }
+        .quote { font-style: italic; color: #666; border-left: 3px solid #C9922A; padding-left: 15px; margin: 15px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Balam Group Sales Playbook</h1>
+        <p class="subtitle">WhatsApp/Phone Sales Scripts & Discovery Framework for Foreign Investor Qualification</p>
+
+        <!-- OVERVIEW -->
+        <div class="section">
+            <h2>🎯 Sales Overview</h2>
+            <p><strong>Typical Sales Cycle:</strong> Inquiry → 15-min consultation → Property showing → 8-10 week closing</p>
+            <p><strong>Your Role in Consultation:</strong> Establish trust, remove objections, qualify the lead, schedule a property showing</p>
+            <p><strong>Primary Objections:</strong> Hidden costs, fideicomiso confusion, risk/legal concerns, timeline uncertainty, too much hassle</p>
+            <p><strong>Conversation Goal:</strong> By the end of 15 minutes, they should say "yes" to a property showing visit</p>
+
+            <div class="metric-box">
+                <div class="metric">
+                    <div class="metric-num">15</div>
+                    <div class="metric-label">Minutes (Target Call Length)</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-num">$300K</div>
+                    <div class="metric-label">Average Deal Size</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-num">8-10</div>
+                    <div class="metric-label">Weeks to Close</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LEAD QUALIFICATION -->
+        <div class="section">
+            <h2>📋 Lead Qualification (First 3 Minutes)</h2>
+            <p><strong>Goal:</strong> Determine if they're a qualified buyer before diving into features/benefits.</p>
+
+            <h3>Discovery Questions (Ask These First)</h3>
+            <div class="call-flow">
+                <div class="flow-step">
+                    <div class="flow-step-num">1</div>
+                    <div class="flow-step-content">
+                        <h4>Budget & Timeline</h4>
+                        <p><strong>Ask:</strong> "¿Cuál es tu rango de presupuesto? ¿Y en cuánto tiempo esperas cerrar la compra?"</p>
+                        <p><em>Listen for:</em> Clear budget (ideally $200K+), timeline under 6 months = hot lead</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">2</div>
+                    <div class="flow-step-content">
+                        <h4>Buyer Type</h4>
+                        <p><strong>Ask:</strong> "¿Es para inversión/renta, para vivir, o ambas?"</p>
+                        <p><em>Listen for:</em> Investment = higher deal value. Living = longer relationship.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">3</div>
+                    <div class="flow-step-content">
+                        <h4>Experience Level</h4>
+                        <p><strong>Ask:</strong> "¿Has comprado propiedad internacional antes? ¿Cómo fue?"</p>
+                        <p><em>Listen for:</em> First-time = needs education. Experienced = expect efficiency.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-num">4</div>
+                    <div class="flow-step-content">
+                        <h4>Pain Point Validation</h4>
+                        <p><strong>Ask:</strong> "¿Cuál es tu mayor preocupación sobre comprar en México?"</p>
+                        <p><em>Listen for:</em> Fideicomiso fear, cost uncertainty, legal risk = perfect match for your solution</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Lead Scoring</h3>
+            <table>
+                <tr>
+                    <th>Qualification Level</th>
+                    <th>Criteria</th>
+                    <th>Next Action</th>
+                </tr>
+                <tr>
+                    <td><strong style="color: #1A7A4A;">🔥 HOT LEAD</strong></td>
+                    <td>Budget $250K+, Timeline &lt;6 months, Clear buyer type, Has money now</td>
+                    <td>Schedule showing immediately. Offer virtual tour this week.</td>
+                </tr>
+                <tr>
+                    <td><strong style="color: #0F2141;">✅ WARM LEAD</strong></td>
+                    <td>Budget $150K-$250K, Timeline 3-12 months, Needs to research more</td>
+                    <td>Share property listings. Follow up in 1 week. Be helpful, not pushy.</td>
+                </tr>
+                <tr>
+                    <td><strong style="color: #666;">❄️ COLD LEAD</strong></td>
+                    <td>Budget unclear, Timeline 12+ months, Just exploring, No urgency</td>
+                    <td>Nurture with monthly newsletter. Stay in touch. Don't waste call time.</td>
+                </tr>
+                <tr>
+                    <td><strong style="color: #C0392B;">🚫 UNQUALIFIED</strong></td>
+                    <td>Not a serious buyer, only tire-kicking, Unrealistic budget/timeline</td>
+                    <td>Be polite, thank them, move on. Don't spend energy on tire-kickers.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- CONSULTATION SCRIPT -->
+        <div class="section">
+            <h2>💬 Consultation Call Script (15 Minutes)</h2>
+            <p><strong>Structure:</strong> Qualification (3 min) → Education (5 min) → Objection Handling (4 min) → CTA (2 min)</p>
+
+            <h3>Opening (0-1 minute)</h3>
+            <div class="script-box">
+YOU: "Hola [NAME], ¿cómo estás? Gracias por contactarnos.
+Veo que descargaste nuestra guía. ¿Qué parte te interesó más?"
+
+THEM: [They respond]
+
+YOU: "Perfecto. Hoy mi objetivo es entender tu situación exacta
+y mostrarte cómo podemos ayudarte. ¿De acuerdo?"
+            </div>
+
+            <h3>Discovery (1-4 minutes)</h3>
+            <p>Use the 4 qualification questions above. <strong>Listen more than you talk.</strong> Take notes.</p>
+            <div class="script-box">
+YOU: "Cuéntame, ¿dónde te viste comprando? ¿Y cuál es la razón
+principal para invertir ahora en Yucatán?"
+
+THEM: [They explain]
+
+YOU: "Tiene sentido. En los últimos 3 años hemos ayudado a más
+de 500 compradores en exactamente tu situación. Así que sé
+exactamente lo que necesitas."
+            </div>
+
+            <h3>Education (4-9 minutes)</h3>
+            <p>Address their specific pain point. Don't give a generic pitch — personalize to them.</p>
+
+            <p><strong>If they're worried about fideicomiso:</strong></p>
+            <div class="script-box">
+YOU: "La buena noticia es que el fideicomiso NO es lo que suena.
+Es simplemente protección legal para ti. Tú eres el beneficiario.
+Un banco solo intermedia. Y cuando vendes, te devuelven todo.
+
+Es más seguro que comprar en algunos países de Europa.
+Nosotros manejamos toda la formación. Tú solo firmas."
+            </div>
+
+            <p><strong>If they're worried about costs:</strong></p>
+            <div class="script-box">
+YOU: "Entiendo. Muchos compradores internacionales se sorprenden
+con costos que no esperaban.
+
+Para una propiedad de $300K, el desglose TOTAL es:
+- Propiedad: $300K
+- Comisión: $15K
+- Fideicomiso + Legal: $5K-$9K
+- Seguro de título + impuestos: $3K-$4K
+- TOTAL: $323K-$328K
+
+Lo importante es que esto está 100% transparente ANTES de
+comprometerte. No hay sorpresas en el camino."
+            </div>
+
+            <p><strong>If they're worried about timeline:</strong></p>
+            <div class="script-box">
+YOU: "El timeline es: Consulta → Visita a Mérida (2-3 días) →
+Mostrar propiedades → Firmar documentos → 8-10 semanas cierre.
+
+Hemos cerrado transacciones en menos de 8 semanas y también
+en 12. Depende de tu velocidad y paperwork.
+
+¿Tú tienes prisa? ¿O prefieres tomarlo con calma?"
+            </div>
+
+            <h3>Objection Handling (9-13 minutes)</h3>
+            <p><strong>Let them voice concerns. Don't interrupt. Then respond.</strong></p>
+
+            <div class="objection">
+                <div class="objection-title">OBJECTION #1: "Esto suena complicado. ¿Realmente necesito un agente?"</div>
+                <div class="objection-answer">
+                    <strong>YOUR RESPONSE:</strong> "Fair question. Técnicamente podrías hacerlo solo. Pero aquí está el riesgo: un error en el fideicomiso, un título defectuoso, o un contrato mal redactado puede costarte $10K-$50K en problemas legales.<br><br>Nosotros tenemos un equipo legal in-house que verifica TODOS los títulos, maneja el fideicomiso, y escribe los contratos. Es parte del proceso. Y honestamente, es más barato que contratar un abogado independiente."
+                </div>
+            </div>
+
+            <div class="objection">
+                <div class="objection-title">OBJECTION #2: "¿Qué pasa si la propiedad no vale lo que pagué?"</div>
+                <div class="objection-answer">
+                    <strong>YOUR RESPONSE:</strong> "Buena preocupación. Por eso seleccionamos cada propiedad en zonas con histórico de apreciación. En los últimos 5 años, el norte y sur de Mérida han apreciado 3-4% anual.<br><br>Obviamente no garantizamos apreciación (nadie lo hace honestamente), pero seleccionamos por localización, no por especulación ciega. Y siempre es mejor preguntar: ¿compras para vivir o para invertir pura?"
+                </div>
+            </div>
+
+            <div class="objection">
+                <div class="objection-title">OBJECTION #3: "¿No hay corrupción? ¿Es seguro mi dinero?"</div>
+                <div class="objection-answer">
+                    <strong>YOUR RESPONSE:</strong> "Entiendo completamente. Sí, hay burocracia en México. Pero no, no es una 'zona gris'. Las compras de propiedad están reguladas, aseguradas, y documentadas ante notarios federales (son como escribanos públicos certificados).<br><br>Tu dinero no pasa por nuestras manos. Va directamente del banco al vendedor. El fideicomiso escrow protege ambos lados. Y tienes seguro de título que cubre errores legales por hasta 10 años.<br><br>Hemos cerrado 500+ transacciones sin un SOLO problema de seguridad o fraude. Somos NAR y AMPI certificados. La reputación es todo en este negocio."
+                </div>
+            </div>
+
+            <div class="objection">
+                <div class="objection-title">OBJECTION #4: "Necesito pensarlo / Hablar con mi familia"</div>
+                <div class="objection-answer">
+                    <strong>YOUR RESPONSE:</strong> "Completamente lógico. No es una decisión que hagas solo.<br><br>Así que aquí va mi sugerencia: Agendar una llamada para la semana próxima (tipo martes o jueves) cuando tengas tiempo de hablar con [spouse/partner/advisor]. Yo preparo un resumen con las propiedades específicas para tu presupuesto, y así pueden revisarlo juntos.<br><br>¿Funciona así?"
+                </div>
+            </div>
+
+            <h3>Close & CTA (13-15 minutes)</h3>
+            <div class="script-box">
+YOU: "Okay, entonces aquí está lo que voy a hacer:
+
+1) Esta semana te envío un PDF con 5-7 propiedades que
+   calzan exactamente con lo que buscas.
+
+2) Tú lo revisas, hablas con tu familia si es necesario.
+
+3) La próxima semana agendamos una segunda llamada (o
+   video tour de las propiedades que te interesen).
+
+4) Si decides venir a Mérida, coordinamos un viaje de 2-3
+   días para ver las propiedades en persona.
+
+¿Esto funciona para ti? ¿Martes o jueves la próxima semana?"
+
+THEM: [They agree or ask more questions]
+
+YOU: "Perfecto. Entonces te voy a enviar todo hoy por WhatsApp
+y email. Y agendamos una llamada para [DAY/TIME]."
+            </div>
+        </div>
+
+        <!-- PROPERTY SHOWING FLOW -->
+        <div class="section">
+            <h2>🏠 Property Showing Flow (Post-Consultation)</h2>
+            <p><strong>Timeline:</strong> Consultation → 3-7 days → Property showing visit</p>
+
+            <h3>Before the Showing</h3>
+            <ul>
+                <li>Send 3-5 property listings (via WhatsApp) that match their budget/type</li>
+                <li>Include: photos, price, location, key features, neighborhood overview</li>
+                <li>Offer virtual tour (Zoom walkthrough) if they want to pre-screen before visiting</li>
+                <li>Confirm: When they're coming to Mérida, how many days, budget again</li>
+            </ul>
+
+            <h3>During the Showing</h3>
+            <div class="dos">
+                <strong>✅ DO:</strong>
+                <ul>
+                    <li>Show 4-6 properties in one day (not more, decision fatigue is real)</li>
+                    <li>Walk through the neighborhood (let them feel it)</li>
+                    <li>Point out nearby amenities: restaurants, banks, beaches, expat communities</li>
+                    <li>Answer questions honestly (if a property isn't perfect, don't oversell)</li>
+                    <li>Take notes on what they like/dislike</li>
+                </ul>
+            </div>
+
+            <div class="donts">
+                <strong>❌ DON'T:</strong>
+                <ul>
+                    <li>Overwhelm them with too many properties (decision paralysis)</li>
+                    <li>Pressure them to decide same day</li>
+                    <li>Bad-mouth competitors or other neighborhoods</li>
+                    <li>Make up features (be transparent about what needs renovation, etc.)</li>
+                    <li>Ignore red flags (if title looks sketchy, tell them)</li>
+                </ul>
+            </div>
+
+            <h3>After the Showing</h3>
+            <ul>
+                <li><strong>Same day:</strong> Send thank-you message. Ask: "Which properties interested you most?"</li>
+                <li><strong>24 hours:</strong> Send title reports for top 2-3 candidates</li>
+                <li><strong>48 hours:</strong> Follow up: "Any questions about the properties? Ready to move forward?"</li>
+                <li><strong>Decision day:</strong> Once they pick one, start legal/title verification</li>
+            </ul>
+        </div>
+
+        <!-- CLOSING PROCESS -->
+        <div class="section">
+            <h2>✍️ Closing Process (Weeks 1-10 After Deal Agreement)</h2>
+            <table>
+                <tr>
+                    <th>Timeline</th>
+                    <th>Your Action</th>
+                    <th>Buyer Expectation</th>
+                </tr>
+                <tr>
+                    <td><strong>Week 1-2</strong></td>
+                    <td>Title verification, legal review, fideicomiso setup</td>
+                    <td>Confirmation that property is clear, no liens</td>
+                </tr>
+                <tr>
+                    <td><strong>Week 3-4</strong></td>
+                    <td>Seller agreement finalized, all docs ready for notary</td>
+                    <td>Clear next steps, signature dates</td>
+                </tr>
+                <tr>
+                    <td><strong>Week 5-6</strong></td>
+                    <td>Buyer provides funds (via wire transfer), fideicomiso account opened</td>
+                    <td>Instructions for fund transfer, security assurance</td>
+                </tr>
+                <tr>
+                    <td><strong>Week 7-8</strong></td>
+                    <td>Notary signing (buyer can do remotely or in-person)</td>
+                    <td>Clear signing instructions, document copies</td>
+                </tr>
+                <tr>
+                    <td><strong>Week 9-10</strong></td>
+                    <td>Title recorded, fideicomiso registration complete</td>
+                    <td>Final ownership confirmation, keys/possession</td>
+                </tr>
+            </table>
+
+            <h3>Key Communication Points</h3>
+            <div class="tips">
+                <p><strong>💡 During closing, update buyer WEEKLY:</strong> Don't let them wonder what's happening. A simple message: "Hey! We're on track. Just waiting on [X]. Should have update by [DATE]." This reduces anxiety and builds trust.</p>
+            </div>
+        </div>
+
+        <!-- RED FLAGS -->
+        <div class="section">
+            <h2>🚩 Red Flags (When NOT to Proceed)</h2>
+            <ul>
+                <li><strong>Unrealistic budget/timeline combination:</strong> "$50K property, close in 2 weeks" = not happening. Reset expectations or pass.</li>
+                <li><strong>They won't commit to a showing:</strong> If they keep "just researching," they're not a buyer. Move on.</li>
+                <li><strong>Financing issues surface mid-closing:</strong> If they suddenly can't produce funds, pause legal work immediately.</li>
+                <li><strong>Title problems appear during verification:</strong> Liens, unclear ownership, squatters. Don't force the deal. Advise walking away.</li>
+                <li><strong>They're comparing you to 10 other agents:</strong> You'll lose. Don't waste energy. Focus on committed leads.</li>
+            </ul>
+        </div>
+
+        <!-- TEMPLATES -->
+        <div class="section">
+            <h2>📧 WhatsApp Templates (Copy & Personalize)</h2>
+
+            <h3>Post-Consultation (Send within 1 hour)</h3>
+            <div class="script-box">
+Hola [NAME], fue un placer hablar contigo hoy 😊
+
+Basado en lo que me contaste (presupuesto $XXK, zona [AREA],
+tipo [PROPERTY]), aquí van 5 propiedades que calzan perfecto:
+
+[PROPERTY 1]
+[PROPERTY 2]
+[PROPERTY 3]
+[PROPERTY 4]
+[PROPERTY 5]
+
+Revísalas cuando tengas un momento. ¿Cuáles te llaman la atención?
+
+Estoy aquí si tienes preguntas sobre cualquiera.
+
+Saludos,
+[YOUR NAME]
+Balam Group
+            </div>
+
+            <h3>Follow-Up (3 days later if no response)</h3>
+            <div class="script-box">
+Hola [NAME], solo checking in 👋
+
+¿Tuviste tiempo de revisar las propiedades?
+
+Si alguna te interesa, podemos:
+- Hacer un video tour (15 min)
+- Enviar más detalles (fotos, neighborhood info)
+- Agendar una visita a Mérida
+
+¿Qué prefieres?
+
+Saludos,
+[YOUR NAME]
+            </div>
+
+            <h3>Closing Update (Weekly during weeks 1-10)</h3>
+            <div class="script-box">
+Hola [NAME], actualización sobre tu compra:
+
+✅ Title verification: COMPLETADA
+✅ Legal docs: En notaría esta semana
+⏳ Fideicomiso setup: Esperando confirmación del banco
+   (debería ser el [DATE])
+
+Todo va en plan. Cualquier pregunta, aquí estoy.
+
+Saludos,
+[YOUR NAME]
+            </div>
+        </div>
+
+        <!-- METRICS & SUCCESS -->
+        <div class="section">
+            <h2>📊 Sales Metrics to Track</h2>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Target</th>
+                    <th>Formula</th>
+                </tr>
+                <tr>
+                    <td>Consultation Completion Rate</td>
+                    <td>85%+</td>
+                    <td>Consultations completed / Consultations booked</td>
+                </tr>
+                <tr>
+                    <td>Showing Booking Rate</td>
+                    <td>60-70%</td>
+                    <td>Property showings booked / Consultations completed</td>
+                </tr>
+                <tr>
+                    <td>Close Rate</td>
+                    <td>15-25%</td>
+                    <td>Deals closed / Property showings</td>
+                </tr>
+                <tr>
+                    <td>Average Deal Value</td>
+                    <td>$300K</td>
+                    <td>Total revenue / Number of closed deals</td>
+                </tr>
+                <tr>
+                    <td>Sales Cycle Length</td>
+                    <td>8-10 weeks</td>
+                    <td>Consultation date → Closing date</td>
+                </tr>
+            </table>
+
+            <h3>Monthly Sales Goals (1 sales person)</h3>
+            <div class="metric-box">
+                <div class="metric">
+                    <div class="metric-num">8-10</div>
+                    <div class="metric-label">Consultations/month</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-num">5-6</div>
+                    <div class="metric-label">Property showings/month</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-num">1-2</div>
+                    <div class="metric-label">Deals closed/month</div>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 30px; font-size: 14px; color: #666;">
+                <strong>For 1 sales person, 1-2 deals/month = $300K-$600K revenue/month = $3.6M-$7.2M annual</strong>
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -2589,31 +2589,169 @@
     <!-- ===== CONTACT FORM ===== -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Get in Touch</h2>
-                <p>Send us a message and we'll respond within 24 hours.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+                <!-- LEFT: CONSULTATION -->
+                <div>
+                    <div class="section-header" style="margin-bottom: 2rem;">
+                        <h2 style="margin-bottom: 0.5rem;">Schedule a Consultation</h2>
+                        <p>Let's discuss your property goals. 15-minute call, no pressure.</p>
+                    </div>
+                    <form class="contact-form" method="POST" action="https://formspree.io/f/xyzabc123">
+                        <div class="form-group">
+                            <label for="consult-name">Your Name</label>
+                            <input type="text" id="consult-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="consult-email">Email Address</label>
+                            <input type="email" id="consult-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="consult-phone">Phone</label>
+                            <input type="tel" id="consult-phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="consult-budget">Budget Range</label>
+                            <select id="consult-budget" name="budget" required style="width: 100%; padding: 12px; border: 1px solid var(--rule); border-radius: 4px; font-family: var(--font); color: var(--navy);">
+                                <option value="">Select your budget</option>
+                                <option value="Under $150K">Under $150K</option>
+                                <option value="$150K - $250K">$150K - $250K</option>
+                                <option value="$250K - $400K">$250K - $400K</option>
+                                <option value="$400K+">$400K+</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="form-submit">Schedule Call</button>
+                    </form>
+                </div>
+
+                <!-- RIGHT: LEAD MAGNET -->
+                <div class="lead-magnet-box">
+                    <h3 style="font-family: var(--font-serif); font-size: 24px; color: white; margin-bottom: 1rem; line-height: 1.2;">Free Buyer's Checklist</h3>
+                    <p style="font-family: var(--font); font-size: 14px; color: rgba(255, 255, 255, 0.85); margin-bottom: 1.5rem; line-height: 1.65;">Complete step-by-step guide for foreign investors. Learn what to do before, during, and after buying.</p>
+
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 6px; margin-bottom: 1.5rem;">
+                        <p style="font-size: 12px; color: rgba(255, 255, 255, 0.75); margin-bottom: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;">What You'll Get:</p>
+                        <ul style="list-style: none; margin: 0; padding: 0;">
+                            <li style="font-size: 13px; color: rgba(255, 255, 255, 0.9); margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; top: 0.2rem;">✓</span> Financial prep checklist
+                            </li>
+                            <li style="font-size: 13px; color: rgba(255, 255, 255, 0.9); margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; top: 0.2rem;">✓</span> Property viewing checklist
+                            </li>
+                            <li style="font-size: 13px; color: rgba(255, 255, 255, 0.9); margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; top: 0.2rem;">✓</span> Legal process timeline
+                            </li>
+                            <li style="font-size: 13px; color: rgba(255, 255, 255, 0.9); padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0; top: 0.2rem;">✓</span> Red flags to avoid
+                            </li>
+                        </ul>
+                    </div>
+
+                    <form class="lead-magnet-form" method="POST" action="https://formspree.io/f/xyzabc123">
+                        <div class="form-group">
+                            <label for="magnet-name">Your Name</label>
+                            <input type="text" id="magnet-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="magnet-email">Email Address</label>
+                            <input type="email" id="magnet-email" name="email" required>
+                        </div>
+                        <button type="submit" class="btn-lead-magnet">Get Checklist</button>
+                        <p style="font-size: 11px; color: rgba(255, 255, 255, 0.65); margin-top: 1rem; text-align: center;">Instant download. No spam.</p>
+                    </form>
+                </div>
             </div>
-            <form class="contact-form" method="POST" action="https://formspree.io/f/xyzabc123">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone (optional)</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-                <div class="form-group">
-                    <label for="message">Your Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="form-submit">Send Message</button>
-            </form>
         </div>
     </section>
+
+    <style>
+        .lead-magnet-box {
+            background: linear-gradient(135deg, #0F2141 0%, #1A3A52 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--gold);
+        }
+
+        .lead-magnet-box h3 {
+            color: white;
+        }
+
+        .lead-magnet-form {
+            margin-top: 0;
+        }
+
+        .lead-magnet-form .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .lead-magnet-form label {
+            color: rgba(255, 255, 255, 0.9);
+            display: block;
+            margin-bottom: 8px;
+            font-family: var(--font);
+            font-weight: 600;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .lead-magnet-form input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--navy);
+            padding: 12px;
+            border-radius: 4px;
+            font-family: var(--font);
+        }
+
+        .lead-magnet-form input::placeholder {
+            color: var(--mid-grey);
+        }
+
+        .lead-magnet-form input:focus {
+            background: white;
+            border-color: var(--gold);
+            outline: none;
+        }
+
+        .btn-lead-magnet {
+            width: 100%;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 14px 36px;
+            border: none;
+            border-radius: 4px;
+            font-family: var(--font);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-lead-magnet:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(201, 146, 42, 0.4);
+        }
+
+        .btn-lead-magnet:focus {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+        }
+
+        @media (max-width: 768px) {
+            [style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+
+            .lead-magnet-box {
+                margin-top: 2rem;
+            }
+        }
+    </style>
 
     <!-- ===== FOOTER ===== -->
     <footer>

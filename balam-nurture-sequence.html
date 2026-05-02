@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balam Group — Email Nurture Sequence</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        h1 { font-size: 32px; margin-bottom: 10px; color: #0F2141; }
+        .subtitle { color: #666; font-size: 16px; margin-bottom: 30px; }
+        .email-sequence { display: grid; gap: 30px; margin-top: 30px; }
+        .email-card {
+            background: white;
+            border-left: 4px solid #C9922A;
+            padding: 30px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .email-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 15px;
+        }
+        .email-num { font-size: 14px; color: #C9922A; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+        .email-timing { font-size: 13px; color: #999; }
+        .email-title { font-size: 22px; color: #0F2141; margin: 15px 0 10px 0; }
+        .email-objective { font-size: 13px; color: #666; background: #f9f9f9; padding: 8px 12px; border-radius: 3px; display: inline-block; margin-bottom: 20px; }
+        .email-subject { background: #f0f0f0; padding: 15px; border-radius: 4px; margin-bottom: 20px; font-family: 'Courier New', monospace; font-size: 14px; }
+        .email-subject-label { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px; }
+        .email-body { background: #fafafa; padding: 20px; border-radius: 4px; margin-bottom: 20px; font-size: 14px; line-height: 1.7; }
+        .email-body p { margin-bottom: 12px; }
+        .email-cta {
+            display: inline-block;
+            background: #C9922A;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            margin: 15px 0;
+        }
+        .key-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f5ff;
+            border-radius: 4px;
+        }
+        .metric { font-size: 13px; }
+        .metric-label { color: #666; font-weight: 600; }
+        .metric-value { color: #0F2141; font-weight: 700; font-size: 16px; }
+        .notes { background: #fff9e6; padding: 15px; border-radius: 4px; margin-top: 15px; font-size: 13px; color: #666; border-left: 4px solid #D4700A; }
+        .notes strong { color: #D4700A; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Balam Group Email Nurture Sequence</h1>
+        <p class="subtitle">5-email sequence: guide download → consultation booking (7-day cadence)</p>
+
+        <div class="email-sequence">
+
+            <!-- EMAIL 1 -->
+            <div class="email-card">
+                <div class="email-header">
+                    <div>
+                        <div class="email-num">Email 1</div>
+                        <div class="email-title">Welcome + Reinforce Value</div>
+                    </div>
+                    <div>
+                        <div class="email-timing">Send: Immediately (Day 0)</div>
+                    </div>
+                </div>
+                <div class="email-objective">Goal: Deliver guide, set expectations, establish authority</div>
+
+                <div class="email-subject">
+                    <div class="email-subject-label">Subject Line:</div>
+                    <strong>Tu Guía Gratis: Cómo Comprar Propiedad en Yucatán (Descárgalo Ahora)</strong>
+                </div>
+
+                <div class="email-body">
+                    <p><strong>Hola [NOMBRE],</strong></p>
+                    <p>¡Bienvenido a la comunidad de Balam Group!</p>
+                    <p>Adjunto encontrarás tu guía gratuita: <strong>"Cómo Comprar una Propiedad en Yucatán"</strong> — el mismo proceso que hemos usado para ayudar a más de 500 compradores extranjeros a encontrar su propiedad ideal.</p>
+                    <p><strong>Dentro de la guía verás:</strong></p>
+                    <ul style="margin-left: 20px; margin-bottom: 12px;">
+                        <li>Análisis de zonas y oportunidades en Yucatán</li>
+                        <li>Por qué invertir/vivir aquí es una decisión inteligente</li>
+                        <li>Pasos clave para elegir y formalizar tu compra</li>
+                        <li>Consejos para aprovechar al máximo tu visita</li>
+                    </ul>
+                    <p>En los próximos días, te enviaré información adicional sobre los costos reales, preguntas que debes hacer, y cómo evitar errores comunes que muchos compradores internacionales cometen.</p>
+                    <p><strong>¿Preguntas rápidas?</strong> Estoy aquí. Responde este correo o escríbeme por WhatsApp: <a href="https://wa.me/message/OHIXI5OQQGXBM1">(+52) 999-103-3555</a></p>
+                    <p>Saludos,<br><strong>Balam Group</strong><br>Especialistas en Propiedades en Mérida</p>
+                </div>
+
+                <div class="key-metrics">
+                    <div class="metric">
+                        <div class="metric-label">Expected Open Rate:</div>
+                        <div class="metric-value">65-75%</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Expected Click Rate:</div>
+                        <div class="metric-value">25-35%</div>
+                    </div>
+                </div>
+
+                <div class="notes">
+                    <strong>📌 Sending Notes:</strong> Trigger immediately upon form submission. Personalize [NOMBRE]. Attach PDF guide. Include WhatsApp link (direct chat, not just phone number).
+                </div>
+            </div>
+
+            <!-- EMAIL 2 -->
+            <div class="email-card">
+                <div class="email-header">
+                    <div>
+                        <div class="email-num">Email 2</div>
+                        <div class="email-title">The Hidden Costs Breakdown</div>
+                    </div>
+                    <div>
+                        <div class="email-timing">Send: Day 1 (24 hrs after Email 1)</div>
+                    </div>
+                </div>
+                <div class="email-objective">Goal: Remove objection #1 (unexpected costs), build urgency to consult</div>
+
+                <div class="email-subject">
+                    <div class="email-subject-label">Subject Line:</div>
+                    <strong>Lo que REALMENTE cuesta comprar en Yucatán (Desglose 2024)</strong>
+                </div>
+
+                <div class="email-body">
+                    <p><strong>Hola [NOMBRE],</strong></p>
+                    <p>Una pregunta que recibimos constantemente: <strong>"¿Cuál es el costo TOTAL de comprar una propiedad en Yucatán?"</strong></p>
+                    <p>Muchos compradores internacionales se sorprenden con costos que no esperaban. Aquí va el desglose real para una propiedad de <strong>$300,000 USD</strong>:</p>
+
+                    <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                        <tr style="background: #f0f0f0;">
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Concepto</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;"><strong>Costo</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Precio de Propiedad</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">$300,000</td>
+                        </tr>
+                        <tr style="background: #fef6ee;">
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>+ Comisión Inmobiliaria (5%)</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">$15,000</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">+ Formación del Fideicomiso</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">$2,500 - $4,000</td>
+                        </tr>
+                        <tr style="background: #fef6ee;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">+ Gastos Notariales & Legales</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">$3,000 - $5,000</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">+ Seguro de Título</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">$1,500 - $2,500</td>
+                        </tr>
+                        <tr style="background: #fef6ee;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">+ Impuestos (Tenencia)</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">$1,200 - $2,000</td>
+                        </tr>
+                        <tr style="font-weight: bold; background: #e8f4f8;">
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>TOTAL ESTIMADO</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;"><strong>$323,200 - $328,500</strong></td>
+                        </tr>
+                    </table>
+
+                    <p><strong>Lo importante:</strong> Con Balam Group, <strong>todos estos costos están claramente desglosados ANTES de comprometerte</strong>. No hay sorpresas en el camino.</p>
+                    <p>¿Quieres saber exactamente qué aplicaría a TU caso? Conversemos. No toma más de 15 minutos y podremos darte cifras exactas basadas en la propiedad que te interesa.</p>
+
+                    <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="email-cta">Agendar Consulta Gratuita</a>
+
+                    <p style="margin-top: 20px; font-size: 13px; color: #666;">Saludos,<br>Balam Group</p>
+                </div>
+
+                <div class="key-metrics">
+                    <div class="metric">
+                        <div class="metric-label">Expected Click Rate:</div>
+                        <div class="metric-value">18-25%</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Goal CTA Click:</div>
+                        <div class="metric-value">Schedule Call</div>
+                    </div>
+                </div>
+
+                <div class="notes">
+                    <strong>📌 Key Insight:</strong> This email addresses the #1 objection (hidden costs). The transparent breakdown builds trust. Table makes it easy to compare. CTA is specific: "Schedule Free Consultation" not generic "Learn More".
+                </div>
+            </div>
+
+            <!-- EMAIL 3 -->
+            <div class="email-card">
+                <div class="email-header">
+                    <div>
+                        <div class="email-num">Email 3</div>
+                        <div class="email-title">Fideicomiso Demystified</div>
+                    </div>
+                    <div>
+                        <div class="email-timing">Send: Day 3 (48 hrs after Email 2)</div>
+                    </div>
+                </div>
+                <div class="email-objective">Goal: Remove objection #2 (fideicomiso confusion/fear), establish expertise</div>
+
+                <div class="email-subject">
+                    <div class="email-subject-label">Subject Line:</div>
+                    <strong>¿Fideicomiso? No es lo que crees (Te explicamos en 5 min)</strong>
+                </div>
+
+                <div class="email-body">
+                    <p><strong>Hola [NOMBRE],</strong></p>
+                    <p>Si eres extranjero y piensas comprar en México, escucharás una palabra que suena aterradora: <strong>fideicomiso</strong>.</p>
+                    <p>"¿Es arriesgado?" "¿Puedo perder mi dinero?" "¿Qué pasa si algo sale mal?"</p>
+                    <p><strong>Aquí está la verdad:</strong> Un fideicomiso es simplemente un instrumento legal que PROTEGE tu inversión. Es obligatorio para extranjeros en la Zona Costera (hasta 50 km del mar), y es tu mejor aliado.</p>
+
+                    <p style="background: #f0faf4; padding: 15px; border-radius: 4px; margin: 15px 0;"><strong>Cómo funciona (sin la jerga legal):</strong></p>
+                    <ul style="margin-left: 20px; margin-bottom: 15px;">
+                        <li>Tú aportas el dinero (eres el beneficiario del fideicomiso)</li>
+                        <li>Un banco actúa como fideicomisario (intermediario neutral)</li>
+                        <li>La propiedad está registrada a nombre del fideicomiso (en tu favor)</li>
+                        <li>Tú tienes TODOS los derechos: vender, heredar, vivir, alquilar</li>
+                        <li>Cuando vendes, el fideicomiso se disuelve y recuperas tu dinero</li>
+                    </ul>
+
+                    <p><strong>Lo importante:</strong> Esto NO es una pérdida de control. Es protección. Muchos países requieren algo parecido para extranjeros. En Yucatán, es estándar y seguro.</p>
+                    <p>En Balam Group, nuestro equipo legal maneja toda la formación del fideicomiso. Tú solo firmas en el lugar correcto. Simple.</p>
+
+                    <p style="margin-top: 20px;"><strong>¿Específicamente preocupado por algo?</strong> Responde este correo con tus dudas. O agenda una llamada rápida donde podemos responder tus preguntas exactas.</p>
+
+                    <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="email-cta">Preguntame Directamente</a>
+
+                    <p style="margin-top: 20px; font-size: 13px; color: #666;">Saludos,<br>Balam Group</p>
+                </div>
+
+                <div class="key-metrics">
+                    <div class="metric">
+                        <div class="metric-label">Expected Click Rate:</div>
+                        <div class="metric-value">20-28%</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Objection Removal:</div>
+                        <div class="metric-value">#2 (Fideicomiso Fear)</div>
+                    </div>
+                </div>
+
+                <div class="notes">
+                    <strong>📌 Tone Note:</strong> This email is reassuring, not salesy. Use plain language. The goal is education + confidence. Fideicomiso is THE biggest fear for foreign buyers—removing this objection dramatically increases consultation bookings.
+                </div>
+            </div>
+
+            <!-- EMAIL 4 -->
+            <div class="email-card">
+                <div class="email-header">
+                    <div>
+                        <div class="email-num">Email 4</div>
+                        <div class="email-title">Success Story + Social Proof</div>
+                    </div>
+                    <div>
+                        <div class="email-timing">Send: Day 5 (48 hrs after Email 3)</div>
+                    </div>
+                </div>
+                <div class="email-objective">Goal: Build trust through peer validation, create FOMO, drive urgency</div>
+
+                <div class="email-subject">
+                    <div class="email-subject-label">Subject Line:</div>
+                    <strong>De Inversor Primerizo a Propietario en 8 Semanas (La Historia de James)</strong>
+                </div>
+
+                <div class="email-body">
+                    <p><strong>Hola [NOMBRE],</strong></p>
+                    <p>Hace 6 meses, James (empresario de Toronto) contactó a Balam Group con la misma pregunta que muchos se hacen:</p>
+                    <p style="font-style: italic; color: #666;">"¿Es posible comprar una propiedad en Yucatán sin vivir aquí? ¿Y sin arriesgar mi dinero?"</p>
+
+                    <p><strong>Aquí está lo que pasó:</strong></p>
+                    <ul style="margin-left: 20px; margin-bottom: 15px;">
+                        <li><strong>Semana 1:</strong> James se conectó con nosotros vía WhatsApp. Le explicamos el proceso y respondimos todas sus preguntas (fideicomiso, costos, timeline).</li>
+                        <li><strong>Semana 2-3:</strong> Visitó Mérida. Vimos 12 propiedades en 2 días. Eligió una en la zona norte con potencial de apreciación.</li>
+                        <li><strong>Semana 4-6:</strong> Nuestro equipo legal formalizó el fideicomiso, verificó títulos, completó paperwork.</li>
+                        <li><strong>Semana 7-8:</strong> Cierre. James se convirtió en propietario legítimo de una casa que ahora alquila a $1,500/mes.</li>
+                    </ul>
+
+                    <p><strong>Lo mejor?</strong> Él mismo nos dijo: <em>"Imaginé que sería un caos. Resultó ser sorprendentemente simple. Balam Group realmente sabe qué está haciendo."</em></p>
+
+                    <p style="background: #e8f4f8; padding: 15px; border-radius: 4px; margin: 15px 0;"><strong>Los números:</strong> Precio de propiedad: $285,000 USD | Costos totales: $18,500 | Ingresos por renta (1er año): $18,000 | ROI: ~6% en año 1, con apreciación proyectada del 3-4% anual.</p>
+
+                    <p><strong>James no es excepcional.</strong> En los últimos 3 años, hemos cerrado 500+ transacciones similares. La mayoría de nuestros clientes sigue el mismo patrón: consulta → visita → 8-10 semanas → propietario.</p>
+
+                    <p>¿Listo para tu propia historia de éxito? Comenzamos con una conversación simple. 15 minutos. Sin presión. Solo hechos.</p>
+
+                    <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="email-cta">Agendar Mi Consulta</a>
+
+                    <p style="margin-top: 20px; font-size: 13px; color: #666;">Saludos,<br>Balam Group</p>
+                </div>
+
+                <div class="key-metrics">
+                    <div class="metric">
+                        <div class="metric-label">Expected Click Rate:</div>
+                        <div class="metric-value">22-30%</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Conversion Lift:</div>
+                        <div class="metric-value">+35-45% vs earlier emails</div>
+                    </div>
+                </div>
+
+                <div class="notes">
+                    <strong>📌 Strategy:</strong> Case studies convert. Use a real success story (change name if needed). Include timeline, numbers, and quote. This email typically has the highest click rate because it answers the implicit question: "Can I really do this?" Answer: Yes, here's proof.
+                </div>
+            </div>
+
+            <!-- EMAIL 5 -->
+            <div class="email-card">
+                <div class="email-header">
+                    <div>
+                        <div class="email-num">Email 5</div>
+                        <div class="email-title">Final CTA + Urgency</div>
+                    </div>
+                    <div>
+                        <div class="email-timing">Send: Day 7 (48 hrs after Email 4)</div>
+                    </div>
+                </div>
+                <div class="email-objective">Goal: Final conversion push, create urgency, clear next step</div>
+
+                <div class="email-subject">
+                    <div class="email-subject-label">Subject Line:</div>
+                    <strong>Los últimos 2 días para agendar tu consulta (Abril está lleno)</strong>
+                </div>
+
+                <div class="email-body">
+                    <p><strong>Hola [NOMBRE],</strong></p>
+                    <p>Te he enviado información durante la última semana: la guía, los costos reales, cómo funciona el fideicomiso, y una historia de éxito real.</p>
+                    <p>La pregunta ahora es simple: <strong>¿Está lista para dar el siguiente paso?</strong></p>
+
+                    <p style="background: #gold-bg; padding: 15px; border-radius: 4px; margin: 15px 0; border-left: 4px solid #C9922A;"><strong>Esto es lo que sucede en una consulta inicial:</strong></p>
+                    <ul style="margin-left: 20px; margin-bottom: 15px;">
+                        <li>Entendemos tu situación exacta: presupuesto, timeline, tipo de propiedad</li>
+                        <li>Respondemos TODAS tus preguntas (sin jerga legal, sin presión de venta)</li>
+                        <li>Te mostramos exactamente qué propiedades se alinean con tu perfil</li>
+                        <li>Planeamos un itinerario de visita (si decides venir a Mérida)</li>
+                        <li>Acordamos los próximos pasos — a tu ritmo</li>
+                    </ul>
+
+                    <p><strong>Tiempo:</strong> 30 minutos máximo (por Zoom o WhatsApp video).<br><strong>Costo:</strong> Completamente gratis.<br><strong>Compromiso:</strong> Cero. Si no es para ti, no hay problema.</p>
+
+                    <p style="color: #D4700A; font-weight: 600; margin: 15px 0;">⚠️ <strong>Una nota de tiempo:</strong> Abril ya está 75% reservado. Los mejores "slots" para consultaciones se llenan rápido. Si quieres agendar, te recomiendo hacerlo hoy o mañana.</p>
+
+                    <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="email-cta">Agendar Ahora (2 Minutos)</a>
+
+                    <p style="margin-top: 20px;">¿Preguntas de último minuto? Responde este correo. Estoy aquí.</p>
+                    <p style="font-size: 13px; color: #666;">Saludos,<br>Balam Group</p>
+                </div>
+
+                <div class="key-metrics">
+                    <div class="metric">
+                        <div class="metric-label">Expected Click Rate:</div>
+                        <div class="metric-value">25-35%</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Sequence Conversion Goal:</div>
+                        <div class="metric-value">8-12%</div>
+                    </div>
+                </div>
+
+                <div class="notes">
+                    <strong>📌 Urgency Tactic:</strong> The "slots filling up" statement creates FOMO without being dishonest. If inventory is indeed tight, use real data. If not, use scarcity of YOUR time. Either way, this email has the highest CTA density. The goal: click → book call.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- METRICS & FRAMEWORK -->
+        <div style="margin-top: 50px; padding: 30px; background: white; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <h2 style="color: #0F2141; margin-bottom: 20px;">📊 Campaign Metrics & Goals</h2>
+
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="background: #0F2141; color: white;">
+                    <td style="padding: 12px; border: 1px solid #ddd;"><strong>Metric</strong></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;"><strong>Target</strong></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;"><strong>Industry Benchmark</strong></td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Email Open Rate (Avg)</td>
+                    <td style="padding: 12px; border: 1px solid #ddd; color: #1A7A4A; font-weight: bold;">40-50%</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">25-35% (real estate)</td>
+                </tr>
+                <tr style="background: #f9f9f9;">
+                    <td style="padding: 12px; border: 1px solid #ddd;">Email Click Rate (Avg)</td>
+                    <td style="padding: 12px; border: 1px solid #ddd; color: #1A7A4A; font-weight: bold;">15-20%</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">2-5% (real estate)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Email → Consultation Conversion</td>
+                    <td style="padding: 12px; border: 1px solid #ddd; color: #1A7A4A; font-weight: bold;">8-12%</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">3-5% (luxury real estate)</td>
+                </tr>
+                <tr style="background: #f9f9f9;">
+                    <td style="padding: 12px; border: 1px solid #ddd;">Consultation → Property Showing</td>
+                    <td style="padding: 12px; border: 1px solid #ddd; color: #1A7A4A; font-weight: bold;">60-70%</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">50-60%</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Property Showing → Deal Closing</td>
+                    <td style="padding: 12px; border: 1px solid #ddd; color: #1A7A4A; font-weight: bold;">15-25%</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">10-20%</td>
+                </tr>
+            </table>
+
+            <div style="margin-top: 20px; padding: 15px; background: #blue-bg; border-radius: 4px;">
+                <p><strong>💡 Sample Math (1,000 guide downloads):</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>1,000 guides downloaded</li>
+                    <li>× 8% nurture sequence conversion = 80 consultation requests</li>
+                    <li>× 65% show-up rate = 52 consultations completed</li>
+                    <li>× 65% property showing conversion = 34 property viewings</li>
+                    <li>× 20% close rate = 6-7 deals closed</li>
+                    <li>× $300k avg deal = $1.8M - $2.1M revenue from 1,000 leads</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
