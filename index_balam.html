@@ -43,6 +43,80 @@
             --accent: #C9922A;
         }
 
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .fade-in-up {
+                animation: fadeInUp 0.6s ease-out forwards;
+                opacity: 0;
+            }
+
+            .fade-in-scale {
+                animation: fadeInScale 0.5s ease-out forwards;
+                opacity: 0;
+            }
+
+            .slide-in-left {
+                animation: slideInFromLeft 0.6s ease-out forwards;
+                opacity: 0;
+            }
+
+            /* Staggered animation for benefit items */
+            .benefit-item {
+                animation: fadeInUp 0.6s ease-out forwards;
+                opacity: 0;
+            }
+
+            .benefit-item:nth-child(1) { animation-delay: 0s; }
+            .benefit-item:nth-child(2) { animation-delay: 0.15s; }
+            .benefit-item:nth-child(3) { animation-delay: 0.3s; }
+            .benefit-item:nth-child(4) { animation-delay: 0.45s; }
+
+            /* Staggered animation for property cards */
+            .property-card.animate-in {
+                animation: fadeInUp 0.6s ease-out forwards;
+                opacity: 0;
+            }
+
+            .property-card.animate-in:nth-of-type(1) { animation-delay: 0s; }
+            .property-card.animate-in:nth-of-type(2) { animation-delay: 0.1s; }
+            .property-card.animate-in:nth-of-type(3) { animation-delay: 0.2s; }
+            .property-card.animate-in:nth-of-type(4) { animation-delay: 0.3s; }
+            .property-card.animate-in:nth-of-type(5) { animation-delay: 0.4s; }
+        }
+
         html {
             scroll-behavior: smooth;
             font-size: 16px;
@@ -309,7 +383,7 @@
             letter-spacing: 0.08em;
             text-transform: uppercase;
             cursor: pointer;
-            transition: opacity 0.2s;
+            transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
             text-decoration: none;
             display: inline-block;
             text-align: center;
@@ -322,6 +396,8 @@
 
         .btn-primary:hover {
             opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(201, 146, 42, 0.3);
         }
 
         .btn-secondary {
@@ -334,6 +410,8 @@
         .btn-secondary:hover {
             background: rgba(255,255,255,0.1);
             border-color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,255,255,0.2);
         }
 
         .btn-ghost-light {
@@ -346,6 +424,8 @@
         .btn-ghost-light:hover {
             background: rgba(255,255,255,0.1);
             border-color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,255,255,0.2);
         }
 
         /* ===== TRUST STRIP ===== */
@@ -614,6 +694,12 @@
             display: flex;
             flex-direction: column;
             position: relative;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        }
+
+        .property-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
         }
 
         .property-badge {
@@ -1424,13 +1510,15 @@
             letter-spacing: 0.08em;
             text-transform: uppercase;
             cursor: pointer;
-            transition: opacity 0.2s;
+            transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
             text-decoration: none;
             display: inline-block;
         }
 
         .btn-cta-primary:hover {
             opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(201, 146, 42, 0.3);
         }
 
         .btn-cta-primary:focus {
@@ -2647,6 +2735,17 @@
         // Apply observer to all sections, cards, and elements
         document.querySelectorAll('section, .property-card, .testimonial-card, .team-member, .resource-card').forEach(el => {
             observer.observe(el);
+        });
+
+        // Add class to property cards for staggered animation
+        document.querySelectorAll('.property-card').forEach(card => {
+            card.classList.add('animate-in');
+        });
+
+        // Apply staggered animation to benefit items in "Why Balam Group?" section
+        document.querySelectorAll('.gregory-story-body > .gregory-article-text > div > div').forEach((item, index) => {
+            item.classList.add('benefit-item');
+            item.style.animationDelay = `${index * 0.15}s`;
         });
 
         // ===== FLOATING WHATSAPP BUTTON =====
