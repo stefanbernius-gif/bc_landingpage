@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balam Group Google Ads Strategy (Revised)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0F2141;
+            --white: #FFFFFF;
+            --warm-grey: #F5F6F8;
+            --gold: #C9922A;
+            --mid-grey: #64748B;
+            --rule: #E2E8F0;
+            --font-serif: 'Libre Baskerville', Georgia, serif;
+            --font: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font);
+            color: var(--navy);
+            background: var(--white);
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.875rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--navy);
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            padding: 4rem 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--rule);
+        }
+
+        header h1 {
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .header-subtitle {
+            font-size: 1.125rem;
+            color: var(--mid-grey);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .header-meta {
+            font-size: 0.875rem;
+            color: var(--mid-grey);
+            margin-top: 1.5rem;
+        }
+
+        .header-meta .gold {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* ===== CONTENT ===== */
+        main {
+            padding: 2rem 0;
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        /* ===== TABLES ===== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background: var(--warm-grey);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--navy);
+            border-bottom: 2px solid var(--rule);
+            font-family: var(--font-serif);
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* ===== CODE / PRE ===== */
+        pre {
+            background: var(--warm-grey);
+            padding: 1.5rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+            border-left: 3px solid var(--gold);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background: var(--warm-grey);
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: var(--navy);
+        }
+
+        /* ===== CALLOUT BOXES ===== */
+        .insight-box {
+            background: linear-gradient(135deg, rgba(201, 146, 42, 0.08) 0%, rgba(201, 146, 42, 0.04) 100%);
+            border-left: 3px solid var(--gold);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .insight-box strong {
+            color: var(--gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-box {
+            background: var(--warm-grey);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            border: 1px solid var(--rule);
+        }
+
+        .metric-box strong {
+            display: block;
+            margin-bottom: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .metric-box strong:first-child {
+            margin-top: 0;
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.08) 0%, rgba(40, 167, 69, 0.04) 100%);
+            border-left: 3px solid #28a745;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.08) 0%, rgba(255, 193, 7, 0.04) 100%);
+            border-left: 3px solid #ffc107;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        /* ===== DIVIDER ===== */
+        hr {
+            border: none;
+            height: 1px;
+            background: var(--rule);
+            margin: 3rem 0;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            padding-bottom: 3rem;
+            border-top: 1px solid var(--rule);
+            font-size: 0.9rem;
+            color: var(--mid-grey);
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer strong {
+            color: var(--navy);
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        .intro-text {
+            font-size: 1.125rem;
+            color: var(--mid-grey);
+            margin-bottom: 2rem;
+        }
+
+        .section-intro {
+            font-size: 1rem;
+            color: var(--mid-grey);
+            margin-bottom: 1.5rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            header {
+                padding: 2rem 0;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 0.75rem;
+            }
+
+            pre {
+                padding: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Balam Group<br>Google Ads Strategy</h1>
+            <p class="header-subtitle">Awareness-First Approach: SEO Keyword Integration + Budget Optimization</p>
+            <p class="header-meta">Strategy by <span class="gold">Bernius Consulting</span> | May 2026</p>
+        </header>
+
+        <main>
+            <h2>Executive Summary</h2>
+
+            <h3>Current State</h3>
+            <ul>
+                <li>7.9K monthly organic visits (100% organic)</li>
+                <li>80.6% bounce rate (poor engagement)</li>
+                <li>15–30 estimated monthly clients from organic traffic</li>
+                <li>$0 ad spend</li>
+                <li><strong>New insight:</strong> 200-keyword SEO analysis reveals major awareness-stage content gaps (schools, neighborhoods, lifestyle keywords ranking 20–30 with 40K–110K monthly search volume)</li>
+            </ul>
+
+            <h3>Revised Opportunity</h3>
+            <ul>
+                <li>Launch low-budget Google Ads to fill SEO awareness funnel</li>
+                <li>Target awareness keywords where Balam ranks 20+ (schools, pet-friendly, neighborhoods)</li>
+                <li>Drive traffic to blog/guide pages to build authority signals</li>
+                <li>Lower customer acquisition cost through awareness nurturing</li>
+                <li>Eventually convert to high-intent buyer searches (fideicomiso, property buying)</li>
+            </ul>
+
+            <div class="insight-box">
+                <strong>Investment Strategy</strong>
+                $500–600/month Google Ads spend | 6 months to prove ROI, then scale to $1.5K–2K/month | Expected: 30–50 awareness leads/month → 5–10 qualified buyer leads/month → 1–3 clients/month
+            </div>
+
+            <hr>
+
+            <h2>Research Findings</h2>
+            <p class="section-intro">Why Awareness-First Makes Sense for $500–600 Budget</p>
+
+            <h3>SEO Gap Analysis (200-Keyword Study)</h3>
+
+            <p><strong>Critical Finding:</strong> Balam dominates branded/decision keywords but fails on awareness-stage content.</p>
+
+            <p><strong>High-volume awareness keywords where Balam underperforms:</strong></p>
+            <ul>
+                <li>"escuelas cerca de mi" → 110K monthly searches, Rank 24 (target: Top 10)</li>
+                <li>"escuelas primarias cerca de mi" → 40.5K searches, Rank 26 (target: Top 10)</li>
+                <li>"colegios cerca de mi" → 40.5K searches, Rank 27 (target: Top 10)</li>
+                <li>"pet friendly Mérida Yucatán" → 18.1K searches, Rank 96 (massive gap)</li>
+                <li>"Chuburna Puerto Yucatán" → 14.8K searches, Rank 20–25 (good but improvable)</li>
+                <li>"haciendas en Yucatán" → 720 searches, Rank 72 (poor)</li>
+            </ul>
+
+            <p><strong>Content type performance:</strong></p>
+            <ul>
+                <li>Proyecto/desarrollo pages: Avg Rank 19.8 (strong — no ads needed)</li>
+                <li>Blog/guía pages: Avg Rank 36.4 (weak — ads can bridge this gap)</li>
+                <li>Decision-stage keywords: Avg Rank 22 (strong organic)</li>
+                <li>Awareness-stage keywords: Avg Rank 41 (weak — ads are cost-effective here)</li>
+            </ul>
+
+            <h3>Budget Efficiency: Why $600 Beats $3K</h3>
+
+            <p><strong>High-intent keywords are expensive:</strong> Fideicomiso, "buy property," property lawyers cost $2–5 per click.</p>
+
+            <p><strong>Awareness keywords are affordable:</strong> Schools, neighborhoods, lifestyle, pet-friendly cost $0.50–1.50 per click (3–5x cheaper).</p>
+
+            <div class="metric-box">
+                <strong>$3K budget on high-intent keywords:</strong><br>
+                CPC average: $3 | Monthly clicks: 1,000 | Expected leads (3% conversion): 30 | Cost per lead: $100<br><br>
+                <strong>$600 budget on awareness keywords:</strong><br>
+                CPC average: $1 | Monthly clicks: 600 | Expected leads (8–10% conversion, warm traffic): 48–60 | Cost per lead: $10–12.50
+            </div>
+
+            <p><strong>Plus:</strong> Awareness traffic to blog pages improves SEO ranking → Organic traffic increases → Ad dependency decreases over 6 months.</p>
+
+            <hr>
+
+            <h2>Phase 1: Foundation Setup</h2>
+
+            <h3>Google Ads Account & UTM Tracking</h3>
+
+            <p><strong>Create Google Ads account:</strong></p>
+            <ul>
+                <li>Link to existing Google Analytics</li>
+                <li>Set up conversion tracking: Form submission, landing page engagement (>1 min), blog article view, internal link clicks</li>
+                <li>Goal: Track which awareness keywords → which blog pages → eventual buyer lead</li>
+            </ul>
+
+            <pre>utm_source=google
+utm_medium=cpc
+utm_campaign=[Campaign Name]
+utm_content=[Ad Variant]</pre>
+
+            <h3>Landing Pages: Blog-First Strategy</h3>
+
+            <p><strong>Send awareness campaign traffic to blog/guide pages, NOT property pages.</strong> This builds authority and creates warm audiences for later high-intent retargeting.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Blog Page</th>
+                        <th>Topic</th>
+                        <th>Current Rank</th>
+                        <th>Monthly Volume</th>
+                        <th>Ad Spend</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Schools in North Mérida</td>
+                        <td>Education</td>
+                        <td>24–27</td>
+                        <td>40K–110K</td>
+                        <td>$150</td>
+                    </tr>
+                    <tr>
+                        <td>Pet-Friendly Guide</td>
+                        <td>Lifestyle</td>
+                        <td>96</td>
+                        <td>18.1K</td>
+                        <td>$100</td>
+                    </tr>
+                    <tr>
+                        <td>Neighborhoods Guide</td>
+                        <td>Area Discovery</td>
+                        <td>35+</td>
+                        <td>8K–15K</td>
+                        <td>$100</td>
+                    </tr>
+                    <tr>
+                        <td>Chuburna Area Guide</td>
+                        <td>Geography</td>
+                        <td>20–25</td>
+                        <td>14.8K</td>
+                        <td>$100</td>
+                    </tr>
+                    <tr>
+                        <td>Haciendas History</td>
+                        <td>Lifestyle</td>
+                        <td>72</td>
+                        <td>720</td>
+                        <td>$50</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Each blog page must include:</strong> Clear H1 matching search query | Internal link to properties ("Interested in living here? See our projects →") | WhatsApp button for direct inquiry | Related blog links</p>
+
+            <hr>
+
+            <h2>Phase 2: Campaign Structure</h2>
+
+            <h3>$600/Month Budget Allocation</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Campaign</th>
+                        <th>Budget</th>
+                        <th>Goal</th>
+                        <th>Primary Keywords</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Campaign 1:<br>Schools & Education</strong></td>
+                        <td>$200</td>
+                        <td>Drive blog traffic + authority</td>
+                        <td>"escuelas cerca de mi" (110K vol, Rank 24) — HIGHEST PRIORITY | "escuelas primarias" | "colegios Mérida"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Campaign 2:<br>Neighborhoods & Lifestyle</strong></td>
+                        <td>$200</td>
+                        <td>Awareness + area comparison</td>
+                        <td>"pet friendly Mérida" (18.1K vol, Rank 96) — BIGGEST OPPORTUNITY | "Chuburna" | "zona norte" | "mejores zonas Mérida"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Campaign 3:<br>Content Authority</strong></td>
+                        <td>$100</td>
+                        <td>Build domain authority</td>
+                        <td>"haciendas Yucatán" | "pueblos magicos" | "arquitectura colonial"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Campaign 4:<br>Retargeting</strong></td>
+                        <td>$100</td>
+                        <td>Warm audience conversion</td>
+                        <td>Blog visitors → "buy property Mérida" | "Provincia Golf" | "infonavit Mérida"</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Ad Copy: Campaign 1 (Schools)</h3>
+
+            <p><strong>Goal:</strong> Drive traffic to "Schools in North Mérida" blog page. Build authority on education keywords.</p>
+
+            <p><strong>Variant A (Educational):</strong></p>
+            <pre>Headline 1: Top Schools in North Mérida
+Headline 2: Where Families Choose to Live
+Headline 3: Discover the Best Education
+
+Description 1: Find primary, secondary & bilingual schools in Mérida's safest neighborhoods.
+Description 2: Free guide to schools, neighborhoods, and family-friendly communities.
+
+CTA: See School Guide</pre>
+
+            <p><strong>Variant B (Lifestyle):</strong></p>
+            <pre>Headline 1: Raising a Family in Mérida?
+Headline 2: Great Schools + Safe Neighborhoods
+Headline 3: See Where Expats Live
+
+Description 1: Compare schools, neighborhoods, and family amenities. Learn where 500+ expat families have chosen to live.
+Description 2: Get our neighborhood + school comparison guide free.
+
+CTA: Explore Neighborhoods</pre>
+
+            <p><strong>Bid Strategy:</strong> Target CPA $10–15 per engagement (blog page visit >1 min)</p>
+
+            <h3>Ad Copy: Campaign 2 (Neighborhoods)</h3>
+
+            <p><strong>Goal:</strong> Drive discovery traffic to neighborhood guides and lifestyle content.</p>
+
+            <p><strong>Keywords (Phrase Match):</strong></p>
+            <pre>"pet friendly Mérida Yucatán" (18.1K vol, Rank 96) — BIGGEST OPPORTUNITY
+"Chuburna Puerto Yucatán" (14.8K vol, Rank 20–25)
+"zona norte Mérida" (8K vol, Rank 35)
+"zona poniente Mérida" (1.2K vol, Rank ~80) — UNDERSERVED</pre>
+
+            <p><strong>Variant A (Pet Owners):</strong></p>
+            <pre>Headline 1: Pet-Friendly Living in Mérida
+Headline 2: Best Areas for Your Family & Pets
+Headline 3: Safe, Friendly Communities
+
+Description: Discover which Mérida neighborhoods are best for pet owners. See parks, veterinarians, and pet-friendly spaces nearby.
+
+CTA: See Pet-Friendly Guide</pre>
+
+            <p><strong>Bid Strategy:</strong> Target CPA $8–12 per engagement</p>
+
+            <hr>
+
+            <h2>Phase 3: Performance Targets</h2>
+
+            <p><strong>Expected Monthly Results at $600 Budget (Month 2–3):</strong></p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Target</th>
+                        <th>Rationale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Total Impressions</strong></td>
+                        <td>8K–12K</td>
+                        <td>Awareness keywords have lower CPM</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Clicks</strong></td>
+                        <td>600–900</td>
+                        <td>Average CPC $0.65–1.00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Blog Page Visitors</strong></td>
+                        <td>500–700</td>
+                        <td>Core of budget goes to awareness</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Avg Time on Page</strong></td>
+                        <td>1.5–2 min</td>
+                        <td>Good content engagement = SEO signal</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Internal Link CTR</strong></td>
+                        <td>8–12%</td>
+                        <td>Blog readers clicking to properties</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cost per Blog Visitor</strong></td>
+                        <td>$0.85–1.20</td>
+                        <td>Awareness campaign efficiency</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cost per Consultation</strong></td>
+                        <td>$50–100</td>
+                        <td>Retargeting (warmer audience)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr>
+
+            <h2>Phase 4: 6-Month Timeline</h2>
+
+            <p><strong>Month 1: Foundation ($600)</strong></p>
+            <ul>
+                <li>Week 1–2: Set up campaigns, launch Campaigns 1–2 (Schools + Neighborhoods)</li>
+                <li>Week 3–4: Add Campaigns 3–4 (Authority + Retargeting)</li>
+                <li>Focus: Learning, optimization, building blog engagement signals</li>
+            </ul>
+            <p style="margin-left: 1.5rem; color: var(--mid-grey);">Expected: 30–40 awareness leads, 0–2 clients (still warming audience)</p>
+
+            <p><strong>Month 2–3: Optimize ($600)</strong></p>
+            <ul>
+                <li>Identify highest-performing blog pages</li>
+                <li>Double down on best-performing keywords</li>
+                <li>Start retargeting blog visitors (Campaign 4 impact)</li>
+            </ul>
+            <p style="margin-left: 1.5rem; color: var(--mid-grey);">Expected: 40–50 awareness leads, 2–5 consultations, 1–2 clients</p>
+
+            <p><strong>Month 4–5: Prove ROI + Scale ($900–1,000)</strong></p>
+            <ul>
+                <li>Add high-intent keyword budget if ROI proven</li>
+                <li>Optimize landing pages based on performance</li>
+                <li>Test new awareness keywords (Poniente focus)</li>
+            </ul>
+            <p style="margin-left: 1.5rem; color: var(--mid-grey);">Expected: 50–60 leads, 8–15 consultations, 2–4 clients</p>
+
+            <p><strong>Month 6: Plan Scale to $1.5K–2K</strong></p>
+            <ul>
+                <li>If ROI positive: Add $400–600 for high-intent keywords</li>
+                <li>Shift budget toward best-performing campaigns</li>
+                <li>Plan Q2 expansion</li>
+            </ul>
+            <p style="margin-left: 1.5rem; color: var(--mid-grey);">Expected: 60–70 leads, 15–25 consultations, 3–5 clients</p>
+
+            <hr>
+
+            <h2>Phase 5: SEO Synergy</h2>
+
+            <p class="section-intro">How Awareness Ads Improve Organic Ranking</p>
+
+            <p><strong>The feedback loop:</strong></p>
+
+            <pre>1. Run awareness ads → Blog traffic increases
+
+2. Blog readers engage (1.5+ min on page, internal link clicks)
+   → Google sees signals: user satisfaction, engagement time
+
+3. Engagement signals improve page authority
+   → Rankings improve for "escuelas," "pet friendly," "neighborhoods"
+
+4. As blog pages rank better organically → Reduce ad spend
+
+5. Organic traffic takes over → Lower CAC long-term</pre>
+
+            <p><strong>Example trajectory:</strong></p>
+            <ul>
+                <li>Month 1: 500 blog visits via ads + 200 organic = 700 total</li>
+                <li>Month 3: 600 blog visits via ads + 800 organic = 1,400 total (organic doubles)</li>
+                <li>Month 6: 400 blog visits via ads + 2,000 organic = 2,400 total (organic takes over)</li>
+            </ul>
+
+            <div class="success-box">
+                <strong>Result:</strong> By Month 6, same blog traffic at lower ad cost because organic has improved.
+            </div>
+
+            <hr>
+
+            <h2>Why $600 Makes Sense</h2>
+
+            <h3>1. Lower-Intent Keywords Are Cheaper</h3>
+            <p>"Escuelas cerca de mi": CPC $0.50–1.00 (vs. "buy property" at $3–5) = 6x more clicks for same budget</p>
+
+            <h3>2. Blog Traffic Builds Organic Ranking</h3>
+            <p>Each month of ad-driven traffic improves SEO. After 6 months, organic traffic reduces ad reliance. $600 × 6 months = $3,600 total investment with lasting SEO benefit.</p>
+
+            <h3>3. Risk Reduction</h3>
+            <p>Test awareness funnel at low cost first. Once blog pages rank better, add high-intent budget. Proof of concept before scaling to $2K+.</p>
+
+            <h3>4. Budget Reality</h3>
+            <p>$600/month is more defensible than $3K/month. Shows commitment to testing, not large upfront risk. Can scale if results prove ROI.</p>
+
+            <hr>
+
+            <h2>Key Differences from Original Plan</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Original Plan</th>
+                        <th>Revised Plan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Budget</strong></td>
+                        <td>$3K–5K/month</td>
+                        <td>$600/month</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Focus</strong></td>
+                        <td>High-intent keywords</td>
+                        <td>Awareness keywords</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Landing Pages</strong></td>
+                        <td>Property pages</td>
+                        <td>Blog/guide pages</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Keyword CPC</strong></td>
+                        <td>$2–5 (competitive)</td>
+                        <td>$0.50–1.50 (affordable)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Monthly Leads</strong></td>
+                        <td>80–125 (mostly curious)</td>
+                        <td>40–60 (higher quality nurturing)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ad Dependency</strong></td>
+                        <td>High (always need ads)</td>
+                        <td>Medium (organic improves over time)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Content Quality</strong></td>
+                        <td>Not improved</td>
+                        <td>Improved (blog engagement → SEO)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr>
+
+            <h2>Recommendation: Phased Growth</h2>
+
+            <p><strong>Phase 1 (Month 1–3): $600/month awareness-first</strong><br>
+            Test funnel, improve blog SEO, prove concept. Budget risk: $1,800 total.</p>
+
+            <p><strong>Phase 2 (Month 4–6): Add $500 high-intent budget</strong><br>
+            Once blog pages rank better, add buyer keywords. Total budget: $1,100/month. Expected: 2–5 clients/month.</p>
+
+            <p><strong>Phase 3 (Month 7+): Scale to $1.5K–2K</strong><br>
+            Optimize mix based on 6 months of learning. Expected: 3–8 clients/month. Better ROI due to improved SEO foundation.</p>
+
+            <div class="insight-box">
+                <strong>Why This Works Better</strong>
+                You're not betting $3K/month on high-intent keywords (risky, expensive). Instead, you're investing $600 to improve your SEO foundation while capturing warm awareness audiences. As organic rankings improve, ad dependency drops and CAC improves.
+            </div>
+
+            <hr>
+
+            <h2>Implementation Checklist</h2>
+
+            <p><strong>Week 1–2: Setup</strong></p>
+            <ul>
+                <li>Create Google Ads account + conversion tracking</li>
+                <li>Set up UTM tracking for all campaigns</li>
+                <li>Audit existing blog pages (schools, pet-friendly, neighborhoods)</li>
+                <li>Add internal links from blog → property pages</li>
+            </ul>
+
+            <p><strong>Week 3: Campaign Build</strong></p>
+            <ul>
+                <li>Build Campaign 1 (Schools & Education) — 5 ad groups</li>
+                <li>Build Campaign 2 (Neighborhoods & Lifestyle) — 6 ad groups</li>
+                <li>Build Campaign 3 (Content Authority) — 5 ad groups</li>
+                <li>Set bid strategy: Target CPA $8–12</li>
+            </ul>
+
+            <p><strong>Week 4: Launch & Monitor</strong></p>
+            <ul>
+                <li>Launch Campaign 1 + Campaign 2 (70% of budget)</li>
+                <li>Monitor for 5 days (check conversion tracking)</li>
+                <li>Launch Campaign 3 (30% of budget)</li>
+                <li>Daily check-in on CTR, CPC, engagement metrics</li>
+            </ul>
+
+            <p><strong>Week 5–8: Optimize</strong></p>
+            <ul>
+                <li>Review which blog pages get most engagement</li>
+                <li>Pause low-CTR ads (CTR <1% by day 5)</li>
+                <li>Scale high-performers (+20% budget)</li>
+                <li>Test new ad copy variants</li>
+                <li>Track blog → property link clicks</li>
+            </ul>
+
+            <hr>
+
+            <h2>Next Steps</h2>
+
+            <ol>
+                <li><strong>Approve</strong> $600/month awareness-first budget</li>
+                <li><strong>Audit</strong> existing blog pages (schools, neighborhoods, pet-friendly)</li>
+                <li><strong>Optimize</strong> blog pages with internal links</li>
+                <li><strong>Set up</strong> Google Ads account + conversion tracking</li>
+                <li><strong>Launch</strong> Campaign 1 (Schools) + Campaign 2 (Neighborhoods) Week 1</li>
+                <li><strong>Monitor</strong> daily for first 2 weeks</li>
+                <li><strong>Report</strong> weekly performance (leads, costs, engagement)</li>
+            </ol>
+
+            <div class="insight-box">
+                <strong>Timeline</strong>
+                4 weeks to launch | 6 months to full optimization | Month 4–6 to prove ROI for scaling
+            </div>
+        </main>
+
+        <footer>
+            <p><strong>Balam Group Google Ads Strategy (Revised)</strong></p>
+            <p>Strategy by <strong>Bernius Consulting</strong> | May 2026</p>
+            <p>Based on 200-keyword SEO analysis and budget-optimized Google Ads approach for sustainable growth.</p>
+        </footer>
+    </div>
+</body>
+</html>
