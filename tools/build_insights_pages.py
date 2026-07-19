@@ -126,10 +126,11 @@ def extract_article(path):
                 box.append(s.extract())
             break
 
-    # Drop pipeline boilerplate footer lines
+    # Drop pipeline boilerplate lines (footer + AI disclaimer header)
     for p in body.find_all("p"):
         t = p.get_text(strip=True)
-        if t.startswith("Prepared by Bernius Consulting") or "Fuel the next one" in t:
+        if (t.startswith("Prepared by Bernius Consulting") or "Fuel the next one" in t
+                or "AI-drafted" in t or "written by an AI pipeline" in t):
             p.decompose()
 
     # Drop empty paragraphs
