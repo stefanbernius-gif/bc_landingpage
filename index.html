@@ -125,7 +125,7 @@
       "name": "What happens after I receive the report?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You get a 30-minute (Proof Sprint) or 60-minute (Full Audit) walkthrough call where we go through the findings together. After that, you can implement the fixes yourself — the report tells you exactly what to do and in what order. Most Full Audit clients choose to continue working with us on implementation: SEO content, automation builds, CRM setup, or ongoing monitoring. We scope that on the call based on what your audit actually found. There's no pressure — you decide what's right for your situation."
+        "text": "You get a 30-minute (Proof Sprint or Core Audit) or 60-minute (Full Audit) walkthrough call where we go through the findings together. After that, you can implement the fixes yourself — the report tells you exactly what to do and in what order. Most Full Audit clients choose to continue working with us on implementation: SEO content, automation builds, CRM setup, or ongoing monitoring. We scope that on the call based on what your audit actually found. There's no pressure — you decide what's right for your situation."
       }
     },
     {
@@ -133,7 +133,7 @@
       "name": "Is the $497 Proof Sprint worth it if I'm a small business?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Proof Sprint is designed exactly for that: one focused pillar, scored 0–100, with USD gap estimates and a personal Loom walkthrough — delivered in 24 hours. If even one finding converts a single additional client, it pays for itself many times over. And if you decide to go all-in with the Full Audit within 30 days, the $497 is fully credited — you only pay the $2,000 difference."
+        "text": "The Proof Sprint is designed exactly for that: one focused pillar, scored 0–100, with USD gap estimates and a personal Loom walkthrough — delivered in 24 hours. If even one finding converts a single additional client, it pays for itself many times over. And if you upgrade to the Core or Full Audit within 30 days, the $497 is fully credited — you only pay the difference."
       }
     },
     {
@@ -1066,58 +1066,80 @@
     <div class="mx-auto max-w-6xl px-6">
       <div class="mb-16 text-center">
         <p class="mb-3 type-eyebrow" style="color:#7A5C1E;">Pricing</p>
-        <h2 class="type-h2" style="color:#002349;">One decision. Two entry points.</h2>
-        <p class="mt-4 text-gray-500 max-w-lg mx-auto">Both options pay for themselves if you implement even one finding. The question is how fast you want to move.</p>
+        <h2 class="type-h2" style="color:#002349;">One decision. Three entry points.</h2>
+        <p class="mt-4 text-gray-500 max-w-lg mx-auto">Every option pays for itself if you implement even one finding. The question is how deep you want to go.</p>
       </div>
 
-      <div class="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+      <div class="grid gap-6 md:grid-cols-3 max-w-6xl mx-auto items-stretch">
         <!-- Tier 1: Proof Sprint -->
-        <div class="pricing-card rounded-2xl bg-white p-12 shadow-sm border border-gray-100">
+        <div class="pricing-card rounded-2xl bg-white p-8 shadow-sm border border-gray-100 flex flex-col">
           <div class="mb-2 type-eyebrow text-gray-400">Quick Start</div>
           <h3 class="mb-1 type-h3" style="color:#002349;">Proof Sprint</h3>
           <div class="mb-6 flex items-baseline gap-1">
             <span class="text-4xl font-black num-tabular" style="color:#7A5C1E;">$497</span>
             <span class="text-sm text-gray-400">one-time</span>
           </div>
-          <ul class="mb-6 space-y-3 text-sm text-gray-600">
+          <ul class="mb-6 space-y-3 text-sm text-gray-600 flex-1">
             <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> 1-pillar deep audit — 4 sub-checks scored 0–100</li>
             <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> USD gap estimate per finding</li>
             <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> 3 prioritised quick wins to act on this week</li>
             <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> Personal Loom walkthrough (10–12 min)</li>
-            <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> Gap estimates for remaining 6 pillars</li>
             <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> 24-hour delivery</li>
           </ul>
-          <p class="mb-4 rounded-lg px-4 py-3 text-sm font-semibold text-center" style="background:#f0faf4; color:#1A7A4A;">$497 fully credited toward the Full Audit — valid 30 days</p>
+          <p class="mb-4 rounded-lg px-4 py-3 text-sm font-semibold text-center" style="background:#f0faf4; color:#1A7A4A;">$497 fully credited toward Core or Full — 30 days</p>
           <a href="#booking" class="block w-full rounded-lg border-2 py-3.5 text-center text-sm font-bold transition-colors hover:bg-gray-50" style="border-color:#002349; color:#002349;">
             Book a Proof Sprint
           </a>
           <p class="mt-3 text-center text-xs text-gray-400">In your inbox in 24 hours.</p>
         </div>
 
-        <!-- Tier 2: Full Audit -->
-        <div class="pricing-card rounded-2xl p-12 text-white relative overflow-hidden" style="background-color:#002349; box-shadow: 0 0 0 3px #BC9042;">
+        <!-- Tier 2: Core Audit — compromise target, visually dominant -->
+        <div class="pricing-card rounded-2xl p-8 text-white relative overflow-hidden flex flex-col" style="background-color:#002349; box-shadow: 0 0 0 3px #BC9042;">
           <div class="absolute top-0 left-0 right-0 h-1" style="background: linear-gradient(90deg, #BC9042, #E7C874, #BC9042);"></div>
           <div class="mb-2 type-eyebrow" style="color:#E7C874;">Recommended</div>
-          <h3 class="mb-1 type-h3">Full 360° Audit</h3>
+          <h3 class="mb-1 type-h3">Core Audit</h3>
           <div class="mb-6 flex items-baseline gap-1">
-            <span class="text-4xl font-black num-tabular" style="color:#BC9042;">$2,497</span>
+            <span class="text-4xl font-black num-tabular" style="color:#BC9042;">$1,297</span>
             <span class="text-sm" style="color:rgba(255,255,255,0.45);">one-time</span>
           </div>
-          <ul class="mb-6 space-y-3 text-sm" style="color:rgba(255,255,255,0.8);">
-            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> All 7 pillars — 28+ sub-checks scored 0–100</li>
-            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> USD gap estimate per sub-check and per pillar</li>
-            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> Competitor paid media scan across all pillars</li>
-            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> Three-scenario financial model (6-month)</li>
-            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> Full scored HTML report + implementation roadmap</li>
-            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> 60-min strategy call included</li>
-            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> Full refund if we don't find $8,000/month</li>
-            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> 50% upfront · 50% on delivery · 48h turnaround</li>
-            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> Implementation path: fix it yourself or continue with us</li>
+          <ul class="mb-6 space-y-3 text-sm flex-1" style="color:rgba(255,255,255,0.8);">
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> 3 pillars of your choice — 12+ sub-checks scored 0–100</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> USD gap estimate per sub-check</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> Competitor snapshot across your 3 pillars</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> Prioritised action roadmap</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> Full scored HTML report</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> 30-min strategy call</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#BC9042;">✓</span> 48-hour turnaround</li>
           </ul>
+          <p class="mb-4 rounded-lg px-4 py-3 text-sm font-semibold text-center" style="background:rgba(188,144,66,0.15); color:#E7C874;">50% credited toward the Full Audit — 30 days</p>
           <a href="#booking" class="block w-full rounded-lg py-3.5 text-center text-sm font-bold transition-opacity hover:opacity-90" style="background: linear-gradient(135deg, #BC9042, #E7C874); color:#002349;">
+            Book a Core Audit
+          </a>
+          <p class="mt-3 text-center text-xs" style="color:rgba(255,255,255,0.4);">Most clients start here.</p>
+        </div>
+
+        <!-- Tier 3: Full Audit — premium anchor -->
+        <div class="pricing-card rounded-2xl bg-white p-8 shadow-sm border border-gray-100 flex flex-col">
+          <div class="mb-2 type-eyebrow text-gray-400">Deep Dive</div>
+          <h3 class="mb-1 type-h3" style="color:#002349;">Full 360° Audit</h3>
+          <div class="mb-6 flex items-baseline gap-1">
+            <span class="text-4xl font-black num-tabular" style="color:#7A5C1E;">$2,497</span>
+            <span class="text-sm text-gray-400">one-time</span>
+          </div>
+          <ul class="mb-6 space-y-3 text-sm text-gray-600 flex-1">
+            <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> All 7 pillars — 28+ sub-checks scored 0–100</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> USD gap estimate per sub-check and per pillar</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> Competitor paid media scan across all pillars</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> Three-scenario financial model (6-month)</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> Scored HTML report + implementation roadmap</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> 60-min strategy call included</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> Full refund if we don't find $8,000/month</li>
+            <li class="flex gap-3"><span class="font-bold" style="color:#7A5C1E;">✓</span> 50% upfront · 50% on delivery</li>
+          </ul>
+          <a href="#booking" class="block w-full rounded-lg border-2 py-3.5 text-center text-sm font-bold transition-colors hover:bg-gray-50" style="border-color:#002349; color:#002349;">
             Book a Full Audit
           </a>
-          <p class="mt-3 text-center text-xs" style="color:rgba(255,255,255,0.4);">Guarantee applies to Full Audit only. Requires URL, social handles, and business context at booking.</p>
+          <p class="mt-3 text-center text-xs text-gray-400">Guarantee applies to Full Audit only.</p>
         </div>
       </div>
 
@@ -1165,7 +1187,7 @@
             What happens after I receive the report?
             <svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 ml-4" style="color:#7A5C1E;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
           </summary>
-          <p class="mt-4 type-body text-gray-500">You get a 30-minute (Proof Sprint) or 60-minute (Full Audit) walkthrough call where we go through the findings together. After that, you can implement the fixes yourself — the report tells you exactly what to do and in what order. Most Full Audit clients choose to continue working with us on implementation: SEO content, automation builds, CRM setup, or ongoing monitoring. We scope that on the call based on what your audit actually found. There's no pressure — you decide what's right for your situation.</p>
+          <p class="mt-4 type-body text-gray-500">You get a 30-minute (Proof Sprint or Core Audit) or 60-minute (Full Audit) walkthrough call where we go through the findings together. After that, you can implement the fixes yourself — the report tells you exactly what to do and in what order. Most Full Audit clients choose to continue working with us on implementation: SEO content, automation builds, CRM setup, or ongoing monitoring. We scope that on the call based on what your audit actually found. There's no pressure — you decide what's right for your situation.</p>
         </details>
 
         <details class="group rounded-xl border border-gray-200 bg-white px-6 py-5 cursor-pointer">
@@ -1173,7 +1195,7 @@
             Is the $497 Proof Sprint worth it if I'm a small business?
             <svg class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 ml-4" style="color:#7A5C1E;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
           </summary>
-          <p class="mt-4 type-body text-gray-500">The Proof Sprint is designed exactly for that: one focused pillar, scored 0–100, with USD gap estimates and a personal Loom walkthrough — delivered in 24 hours. If even one finding converts a single additional client, it pays for itself many times over. And if you decide to go all-in with the Full Audit within 30 days, the $497 is fully credited — you only pay the $2,000 difference.</p>
+          <p class="mt-4 type-body text-gray-500">The Proof Sprint is designed exactly for that: one focused pillar, scored 0–100, with USD gap estimates and a personal Loom walkthrough — delivered in 24 hours. If even one finding converts a single additional client, it pays for itself many times over. And if you upgrade to the Core or Full Audit within 30 days, the $497 is fully credited — you only pay the difference.</p>
         </details>
 
         <details class="group rounded-xl border border-gray-200 bg-white px-6 py-5 cursor-pointer">
