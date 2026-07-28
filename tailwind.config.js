@@ -1,4 +1,4 @@
-/** Rebuild:  npx tailwindcss@3 -c tailwind.config.js -i src/input.css -o assets/tailwind.min.css --minify */
+/** Build (CSS + asset fingerprinting):  bash scripts/build.sh */
 module.exports = {
   content: ['./**/*.html'],
   theme: {
