@@ -1,7 +1,9 @@
 @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url('fonts/inter-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url('fonts/inter-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
 
-/* Custom cursor — teal ring + dot. Enabled only on fine-pointer/hover-capable devices via cursor.js */
+/* Custom cursor — rotating teal gradient ring + dot. Enabled only on fine-pointer/hover-capable devices via cursor.js.
+   NOTE: #cursor-ring's own transform is set inline by JS every frame (position). The spin animation lives on
+   ::before instead, so it never fights the JS-driven translate. */
 #cursor-dot, #cursor-ring {
   position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
   border-radius: 50%; will-change: transform; opacity: 0;
@@ -12,14 +14,28 @@
   transition: opacity 0.2s ease, transform 0.2s cubic-bezier(.4,0,.2,1);
 }
 #cursor-ring {
-  width: 32px; height: 32px; border: 1.5px solid rgba(55,195,196,0.45);
-  transition: width 0.25s cubic-bezier(.4,0,.2,1), height 0.25s cubic-bezier(.4,0,.2,1),
-              border-color 0.25s ease, opacity 0.25s ease;
+  width: 34px; height: 34px;
+  transition: width 0.25s cubic-bezier(.4,0,.2,1), height 0.25s cubic-bezier(.4,0,.2,1), opacity 0.25s ease;
 }
+#cursor-ring::before {
+  content: ''; position: absolute; inset: 0; border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(55,195,196,0) 0%, rgba(55,195,196,0.95) 40%, rgba(55,195,196,0) 78%);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+          mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+  animation: cursor-ring-spin 2.4s linear infinite;
+  transition: background 0.25s ease, -webkit-mask 0.25s ease, mask 0.25s ease;
+}
+@keyframes cursor-ring-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 body.cursor-ready.cursor-visible #cursor-dot,
 body.cursor-ready.cursor-visible #cursor-ring { opacity: 1; }
 body.cursor-ready, body.cursor-ready * { cursor: none !important; }
-body.cursor-hover #cursor-ring { width: 46px; height: 46px; border-color: rgba(55,195,196,0.75); }
+body.cursor-hover #cursor-ring { width: 48px; height: 48px; }
+body.cursor-hover #cursor-ring::before {
+  background: conic-gradient(from 0deg, rgba(55,195,196,0) 0%, rgba(55,195,196,1) 40%, rgba(55,195,196,0) 78%);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 4px));
+          mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 4px));
+  animation-duration: 1.3s;
+}
 body.cursor-ready.cursor-visible.cursor-hover #cursor-dot { opacity: 0; transform: translate(-50%,-50%) scale(0); }
 @media (hover: none), (pointer: coarse) {
   #cursor-dot, #cursor-ring { display: none !important; }
