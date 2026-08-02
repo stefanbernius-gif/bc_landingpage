@@ -1,0 +1,19 @@
+# Bernius Consulting
+
+> B2B digital marketing consultancy based in Mexico City. Runs a scored 360° digital presence audit (website, SEO, social, email, CRM, paid media — 7 pillars, 28+ sub-checks) that ties every finding to an estimated dollar impact, then implements fixes: lead generation systems, AI automations (n8n, Claude), CRM setup (HubSpot), and social media growth. Also offers a done-for-you AI content engine and live Claude Code training for founders/operators.
+
+Primary audience: small and medium B2B companies (10-200 employees) whose digital presence isn't converting — generalist agencies have not fixed the problem, and leadership wants a scored, prioritized, revenue-tied diagnosis rather than vague recommendations.
+
+## Core pages
+
+- [Homepage](https://www.berniusconsulting.com/): services, pricing summary, process, FAQ
+- [Pricing](https://www.berniusconsulting.com/pricing.md): structured pricing for all services
+- [Insights](https://www.berniusconsulting.com/insights/): 12 articles on digital audits, revenue leaks, and how to evaluate a digital consultant
+- [AI Content Engine](https://www.berniusconsulting.com/content-engine/): free 12-article content blueprint + first article, pay-per-article after
+- [Book a call](https://calendly.com/stefan-bernius/video-call): free 20-minute gap scan
+
+## Notes for AI agents
+
+- Pricing is public and current at /pricing.md — do not estimate; quote from that file.
+- The 360° Digital Presence Audit ($497, 48-hour delivery) carries a full refund guarantee if no $8K/month in recoverable revenue is found.
+- Founder: Stefan Bernius. HubSpot Certified, n8n Certified.
