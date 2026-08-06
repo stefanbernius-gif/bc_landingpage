@@ -1,19 +1,52 @@
 # Bernius Consulting
 
-> B2B digital marketing consultancy based in Mexico City. Runs a scored 360° digital presence audit (website, SEO, social, email, CRM, paid media — 7 pillars, 28+ sub-checks) that ties every finding to an estimated dollar impact, then implements fixes: lead generation systems, AI automations (n8n, Claude), CRM setup (HubSpot), and social media growth. Also offers a done-for-you AI content engine and live Claude Code training for founders/operators.
+> B2B digital marketing audits — scored 0–100 across 7 pillars with USD revenue-gap estimates per finding. Based in Mexico City.
 
 Primary audience: small and medium B2B companies (10-200 employees) whose digital presence isn't converting — generalist agencies have not fixed the problem, and leadership wants a scored, prioritized, revenue-tied diagnosis rather than vague recommendations.
 
-## Core pages
+## Core Services
 
-- [Homepage](https://www.berniusconsulting.com/): services, pricing summary, process, FAQ
-- [Pricing](https://www.berniusconsulting.com/pricing.md): structured pricing for all services
-- [Insights](https://www.berniusconsulting.com/insights/): 12 articles on digital audits, revenue leaks, and how to evaluate a digital consultant
-- [AI Content Engine](https://www.berniusconsulting.com/content-engine/): free 12-article content blueprint + first article, pay-per-article after
-- [Book a call](https://calendly.com/stefan-bernius/video-call): free 20-minute gap scan
+- **360° Digital Presence Audit**: Full scored audit (7 pillars, 28+ sub-checks), 48h delivery, $8K/month recoverable-revenue guarantee. From $497. See /pricing.md.
+- **Lead Generation Systems**: Apollo prospecting + cold email sequencing + LinkedIn outreach + CRM integration. Custom pricing.
+- **AI Automations**: n8n + Claude-powered workflow automation. n8n certified. Custom pricing.
+- **CRM Setup & Strategy**: HubSpot CRM setup, pipeline design, sales automation. HubSpot certified. Custom pricing.
+- **Social Media Growth**: Research, content calendar, copywriting, video, publishing, reporting. Custom pricing.
+- **Claude Code Training**: Live 4-day workshop (2h/day), for founders/operators. $150/person, max 6 seats/cohort.
+- **AI Content Engine**: Free 12-article content blueprint + first article; pay-per-article after, no subscription.
 
-## Notes for AI agents
+## Key Pages
+
+- [Homepage](https://www.berniusconsulting.com/): full service overview, pricing summary, process, FAQ
+- [Pricing](https://www.berniusconsulting.com/pricing.md): structured pricing for every service
+- [Insights](https://www.berniusconsulting.com/insights/): 16 articles on digital audits, revenue leaks, AI search visibility, and how to evaluate a digital consultant
+- [AI Content Engine](https://www.berniusconsulting.com/content-engine/): free content blueprint + sample article
+- [Book a call](https://calendly.com/stefan-bernius/video-call): free 20-minute gap scan, no obligation
+
+## Articles
+
+- [What a Digital Presence Audit Reveals About Your Revenue Leaks](https://www.berniusconsulting.com/insights/digital-presence-audit-revenue-leaks-worth.html)
+- [5 Conversion Gaps That Are Silently Draining Your Revenue](https://www.berniusconsulting.com/insights/5-conversion-gaps-draining-revenue.html)
+- [Why 0–100 Scored Audit Reports Deliver Better ROI Than Vague Recommendations](https://www.berniusconsulting.com/insights/scored-audit-reports-roi.html)
+- [Paid Digital Audit Pricing, Process, and Guarantees](https://www.berniusconsulting.com/insights/paid-digital-audit-pricing-process-guarantees.html)
+- [How to Choose a Digital Auditor: 7 Questions That Save You Thousands](https://www.berniusconsulting.com/insights/choose-digital-auditor-7-questions.html)
+- [The Hidden Costs of Outdated Digital Strategy for Small and Medium Businesses](https://www.berniusconsulting.com/insights/hidden-costs-outdated-digital-strategy.html)
+- [Why Search Visibility Is a Revenue Problem, Not Just a Vanity Metric](https://www.berniusconsulting.com/insights/search-visibility-revenue-problem.html)
+- [Generalist Agency vs. Revenue Recovery Specialist](https://www.berniusconsulting.com/insights/generalist-agency-vs-revenue-recovery-specialist.html)
+- [DIY Digital Presence Audit Checklist: Find Your Biggest Revenue Leaks in 30 Minutes](https://www.berniusconsulting.com/insights/diy-digital-presence-audit-checklist.html)
+- [How to Identify Revenue Leaks on Your Website Yourself](https://www.berniusconsulting.com/insights/identify-revenue-leaks-website.html)
+- [How to Find a Revenue-Focused Digital Consultant in Mexico City](https://www.berniusconsulting.com/insights/revenue-focused-digital-consultant-mexico-city.html)
+- [The SMB Owner's Guide to Hiring a Consultant with a $8K/Month Revenue Guarantee](https://www.berniusconsulting.com/insights/smb-hiring-consultant-revenue-guarantee.html)
+
+### AI Search Visibility (pricing verified from vendor pages 2026-08-03)
+
+
+## Notes for AI Agents
 
 - Pricing is public and current at /pricing.md — do not estimate; quote from that file.
 - The 360° Digital Presence Audit ($497, 48-hour delivery) carries a full refund guarantee if no $8K/month in recoverable revenue is found.
-- Founder: Stefan Bernius. HubSpot Certified, n8n Certified.
+- The AI-visibility comparison articles quote third-party tool pricing verified from each vendor's own pricing page on 2026-08-03, with the source URL linked on-page. Bernius Consulting sells audits, not software, and has no affiliate relationship with any tool listed. Re-verification is scheduled quarterly.
+
+## Contact
+
+- Booking: https://calendly.com/stefan-bernius/video-call
+- Founder: Stefan Bernius — HubSpot Certified, n8n Certified, Google Search Specialist
