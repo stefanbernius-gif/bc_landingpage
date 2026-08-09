@@ -1,11 +1,31 @@
 #!/usr/bin/env python3
 """Build styled article pages for berniusconsulting.com/insights/ from Google Docs HTML exports.
 
+!!! STALE — DO NOT RUN AGAINST THE LIVE PAGES (checked 2026-08-03) !!!
+    The 12 deployed insights pages were hand-upgraded after they were generated:
+    Person author schema, publisher logo ImageObject, dateModified + "Updated ..."
+    in the meta strip, per-article FAQPage schema, hand-written meta descriptions,
+    a font preload, and the local fingerprinted stylesheet instead of the Tailwind
+    CDN. This TEMPLATE still emits the OLD shape, so running it now would silently
+    revert ~120 lines per page across all 12.
+
+    Either bring this template back in line with a deployed page before using it,
+    or use tools/build_comparison_pages.py, which fills a template extracted from
+    (and round-trip verified against) the current deployed output.
+
 Input:  .tmp/articles/<slug>.html   (File > Export > HTML from Google Docs, via browser session)
 Output: insights/<slug>.html        (fully styled, same design system as index.html)
 
 Usage:  python3 tools/build_insights_pages.py
 """
+import sys as _sys
+
+if __name__ == "__main__" and "--i-know-this-is-stale" not in _sys.argv:
+    raise SystemExit(
+        "Refusing to run: this generator is stale and would revert hand-made "
+        "improvements on all 12 live insights pages (see module docstring).\n"
+        "Use tools/build_comparison_pages.py, or pass --i-know-this-is-stale."
+    )
 import glob
 import html as html_mod
 import os
@@ -301,8 +321,8 @@ TEMPLATE = """<!DOCTYPE html>
     /* Key takeaways callout */
     .takeaways {{
       background: #F7EFDD;
-      border-left: 3px solid #BC9042;
-      border-radius: 0 12px 12px 0;
+      border: 1px solid #E7C874;
+      border-radius: 12px;
       padding: 1.75rem 2rem;
       margin: 2.5rem 0;
     }}
@@ -356,8 +376,10 @@ TEMPLATE = """<!DOCTYPE html>
     header.scrolled {{ box-shadow: 0 4px 24px rgba(0,35,73,0.10); }}
     a:focus-visible, button:focus-visible {{ outline: 2px solid #BC9042; outline-offset: 3px; border-radius: 6px; }}
 
-    #mobile-menu {{ max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(.4,0,.2,1), opacity 0.25s; opacity: 0; }}
-    #mobile-menu.open {{ max-height: 460px; opacity: 1; }}
+    #mobile-menu {{ display: grid; grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows 0.35s cubic-bezier(.4,0,.2,1), opacity 0.25s; opacity: 0; }}
+    #mobile-menu > * {{ min-height: 0; padding-bottom: 0; }}
+    #mobile-menu.open > * {{ padding-bottom: 1rem; }}
+    #mobile-menu.open {{ grid-template-rows: 1fr; opacity: 1; }}
     .ham-line {{ display: block; width: 20px; height: 2px; background: #002349; transition: transform 0.25s cubic-bezier(.4,0,.2,1), opacity 0.2s; transform-origin: center; }}
     #menu-btn.open .ham-line:nth-child(1) {{ transform: translateY(6px) rotate(45deg); }}
     #menu-btn.open .ham-line:nth-child(2) {{ opacity: 0; }}

@@ -294,7 +294,7 @@
     }
     .service-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0,35,73,0.12);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.10);
     }
 
     /* ── Proof card hover ── */
@@ -395,15 +395,18 @@
 
     /* ── Mobile nav drawer ── */
     #mobile-menu {
-      max-height: 0;
+      display: grid;
+      grid-template-rows: 0fr;
       overflow: hidden;
-      transition: max-height 0.35s cubic-bezier(.4,0,.2,1), opacity 0.25s;
+      transition: grid-template-rows 0.35s cubic-bezier(.4,0,.2,1), opacity 0.25s;
       opacity: 0;
     }
     #mobile-menu.open {
-      max-height: 400px;
+      grid-template-rows: 1fr;
       opacity: 1;
     }
+    #mobile-menu > * { min-height: 0; padding-bottom: 0; }
+    #mobile-menu.open > * { padding-bottom: 1rem; }
     /* Hamburger lines */
     .ham-line {
       display: block;
@@ -710,7 +713,7 @@
 
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         <!-- Service 1: Core offer -->
-        <div class="service-card col-span-full lg:col-span-1 rounded-2xl p-8 text-white" style="background-color:#002349; border-top: 3px solid #BC9042;">
+        <div class="service-card col-span-full lg:col-span-1 rounded-2xl p-8 text-white" style="background-color:#002349;">
           <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg" style="background:rgba(188,144,66,0.2);">
             <span class="text-lg">🔍</span>
           </div>
@@ -790,7 +793,7 @@
         </div>
 
         <!-- Service 4: AI Content Engine (NEW) -->
-        <div class="service-card col-span-full rounded-2xl p-8 md:flex md:items-center md:justify-between md:gap-10" style="background:#F7EFDD; border: 1px solid #E7C874; border-left: 4px solid #BC9042;">
+        <div class="service-card col-span-full rounded-2xl p-8 md:flex md:items-center md:justify-between md:gap-10" style="background:#F7EFDD; border: 1px solid #E7C874;">
           <div class="md:max-w-2xl">
             <div class="mb-2 flex items-center gap-2">
               <span class="rounded-full px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide" style="background:#BC9042; color:#002349;">New</span>

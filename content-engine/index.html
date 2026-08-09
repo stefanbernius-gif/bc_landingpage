@@ -265,15 +265,18 @@
 
     /* ── Mobile nav drawer ── */
     #mobile-menu {
-      max-height: 0;
+      display: grid;
+      grid-template-rows: 0fr;
       overflow: hidden;
-      transition: max-height 0.35s cubic-bezier(.4,0,.2,1), opacity 0.25s;
+      transition: grid-template-rows 0.35s cubic-bezier(.4,0,.2,1), opacity 0.25s;
       opacity: 0;
     }
     #mobile-menu.open {
-      max-height: 400px;
+      grid-template-rows: 1fr;
       opacity: 1;
     }
+    #mobile-menu > * { min-height: 0; padding-bottom: 0; }
+    #mobile-menu.open > * { padding-bottom: 1rem; }
     /* Hamburger lines */
     .ham-line {
       display: block;
@@ -472,7 +475,7 @@
           <p class="text-sm" style="color:rgba(255,255,255,0.75);">Rewrites until every issue is fixed, then a final line-edit pass strips AI-sounding phrasing — filler transitions, corporate verbs, uniform rhythm — while preserving every fact. Delivered as a branded Google Doc, ready for human review.</p>
         </div>
       </div>
-      <div class="mt-8 rounded-xl border-l-4 p-5 text-sm" style="background:#F7EFDD; border-color:#BC9042; color:#002349;">
+      <div class="mt-8 rounded-xl border p-5 text-sm" style="background:#F7EFDD; border-color:#E7C874; color:#002349;">
         <strong>AI-drafted and QA-reviewed:</strong> every article passes the full pipeline above, then ships as an editable Google Doc — not a live post. Fact-check pricing, claims, and any legal or compliance details before you publish it under your name.
       </div>
     </div>
