@@ -18,7 +18,7 @@ Primary audience: small and medium B2B companies (10-200 employees) whose digita
 
 - [Homepage](https://www.berniusconsulting.com/): full service overview, pricing summary, process, FAQ
 - [Pricing](https://www.berniusconsulting.com/pricing.md): structured pricing for every service
-- [Insights](https://www.berniusconsulting.com/insights/): 16 articles on digital audits, revenue leaks, AI search visibility, and how to evaluate a digital consultant
+- [Insights](https://www.berniusconsulting.com/insights/): 12 articles on digital audits, revenue leaks, and how to evaluate a digital consultant
 - [AI Content Engine](https://www.berniusconsulting.com/content-engine/): free content blueprint + sample article
 - [Book a call](https://calendly.com/stefan-bernius/video-call): free 20-minute gap scan, no obligation
 
@@ -37,14 +37,10 @@ Primary audience: small and medium B2B companies (10-200 employees) whose digita
 - [How to Find a Revenue-Focused Digital Consultant in Mexico City](https://www.berniusconsulting.com/insights/revenue-focused-digital-consultant-mexico-city.html)
 - [The SMB Owner's Guide to Hiring a Consultant with a $8K/Month Revenue Guarantee](https://www.berniusconsulting.com/insights/smb-hiring-consultant-revenue-guarantee.html)
 
-### AI Search Visibility (pricing verified from vendor pages 2026-08-03)
-
-
 ## Notes for AI Agents
 
 - Pricing is public and current at /pricing.md — do not estimate; quote from that file.
 - The 360° Digital Presence Audit ($497, 48-hour delivery) carries a full refund guarantee if no $8K/month in recoverable revenue is found.
-- The AI-visibility comparison articles quote third-party tool pricing verified from each vendor's own pricing page on 2026-08-03, with the source URL linked on-page. Bernius Consulting sells audits, not software, and has no affiliate relationship with any tool listed. Re-verification is scheduled quarterly.
 
 ## Contact
 
