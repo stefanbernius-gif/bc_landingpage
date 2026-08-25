@@ -179,6 +179,11 @@
     .table-wrap { overflow-x: auto; margin-bottom: 2rem; }
     .table-wrap .article-table { margin-bottom: 0; min-width: 560px; }
 
+    /* Article figures */
+    .article-figure { margin: 2.5rem auto; max-width: 960px; }
+    .article-figure img { width: 100%; height: auto; border-radius: 12px; border: 1px solid #e5e7eb; box-shadow: 0 8px 24px rgba(0,35,73,0.08); }
+    .article-figure figcaption { margin-top: 0.75rem; font-size: 0.8125rem; color: #6b7280; text-align: center; }
+
     /* ── Related cards ── */
     .rel-card {
       position: relative; overflow: hidden;
@@ -326,6 +331,10 @@
       <p><strong>Conversion Architecture</strong> carries <strong>20%</strong> of the total audit weight for this reason. Its sub-checks cover page speed and load performance, mobile responsiveness, and form friction: field count, tap targets, trust signals. Load and interaction performance can be measured against Google's Core Web Vitals: <strong>LCP</strong> (Largest Contentful Paint) for loading, <strong>CLS</strong> (Cumulative Layout Shift) for layout stability, and <a href="https://web.dev/articles/inp" target="_blank" rel="noopener"><strong>INP</strong></a> (Interaction to Next Paint) for responsiveness, which Google confirmed as the replacement for <strong>FID</strong> in March 2024.</p>
       <p>Those metrics are objective. Messaging leaks are harder to see and can cost more. When a homepage speaks in generic service language to a buyer evaluating a high-ticket property listing or a professional services engagement worth five figures, that buyer leaves without inquiring. There is no bounce spike on a specific button, no abandoned form, no signal in standard analytics, only a lower inquiry rate you have already learned to accept as normal.</p>
       <p>This is why the <strong>Proof Sprint (USD 497)</strong> exists as a single-pillar diagnostic: four scored sub-checks on Conversion Architecture, three quick wins, and a 10–12 minute Loom walkthrough, delivered in <strong>24 hours</strong>. It isolates the leaks on your highest-intent pages before anyone touches the rest of the stack.</p>
+      <figure class="article-figure">
+        <img src="../assets/myth-vs-reality-vault.webp" alt="Editorial illustration contrasting a sealed navy vault labeled Myth with the same vault showing glowing gold cracks and leaking revenue in Reality" width="1280" height="853" loading="lazy" />
+        <figcaption>Sometimes the vault looks fine. The leaks stay silent until the layers are connected.</figcaption>
+      </figure>
       <h2>Myth vs. Reality: "We'd Already Know If We Were Losing $8,000 a Month"</h2>
       <p>Revenue leaks of this size stay invisible because they are distributed across small, disconnected failures that no single dashboard captures, which is exactly why owners can run profitable businesses without knowing what their digital presence forfeits each month.</p>
       <p><strong>Myth:</strong> Revenue leaks are obvious and show up in analytics as clear drops.</p>
