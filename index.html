@@ -480,6 +480,70 @@
       }
     }
 
+    /* ── Swipeable at every width (audit results row) ──
+       Same mechanics as .swipe-cards above, but it never falls back to a static
+       grid: the row holds more cards than fit, so a partial card is always
+       visible at the trailing edge to signal that it scrolls. */
+    .swipe-always {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+      scroll-behavior: smooth;
+      /* bleed to the container edges so cards can sit flush while scrolling */
+      margin-inline: -1.5rem;
+      padding-inline: 1.5rem;
+      scroll-padding-inline: 1.5rem;
+      padding-bottom: 0.5rem;
+      scrollbar-width: none;
+    }
+    .swipe-always::-webkit-scrollbar { display: none; }
+    /* Cards per view: 1.15 on phones, 2.3 on tablets, 4.3 on desktop — the
+       fractional part is the peek. Gap is 1.25rem (gap-5). */
+    .swipe-always > * {
+      flex: 0 0 86%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+    @media (min-width: 768px) {
+      .swipe-always > * { flex: 0 0 calc((100% - 1.625rem) / 2.3); }
+    }
+    @media (min-width: 1280px) {
+      .swipe-always > * { flex: 0 0 calc((100% - 4.125rem) / 4.3); }
+    }
+    /* trailing spacer keeps the last card snappable to the same inset */
+    .swipe-always::after {
+      content: "";
+      flex: 0 0 0.5rem;
+    }
+    .swipe-always > .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    /* Arrow controls for .swipe-always */
+    .swipe-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 2.5rem;
+      width: 2.5rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(188,144,66,0.35);
+      color: #BC9042;
+      background: transparent;
+      transition: background-color .2s ease, border-color .2s ease, opacity .2s ease;
+    }
+    .swipe-nav-btn:hover:not(:disabled) {
+      background: rgba(188,144,66,0.14);
+      border-color: rgba(188,144,66,0.6);
+    }
+    .swipe-nav-btn:disabled { opacity: 0.3; cursor: default; }
+
     /* ── Reduced motion ── */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -641,15 +705,47 @@
   <!-- ── SOCIAL PROOF / RESULTS ── -->
   <section id="proof" class="py-28" style="background-color:#002349;">
     <div class="mx-auto max-w-6xl px-6">
-      <div class="mb-16">
-        <p class="mb-3 type-eyebrow" style="color:#BC9042;">Real Audit Results</p>
-        <h2 class="type-h2 text-white">What we find when we look closely.</h2>
-        <p class="mt-4 text-gray-400 max-w-xl">Every audit uncovers specific, actionable findings — not vague recommendations. Here's what we found for real clients.</p>
+      <div class="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p class="mb-3 type-eyebrow" style="color:#BC9042;">Real Audit Results</p>
+          <h2 class="type-h2 text-white">What we find when we look closely.</h2>
+          <p class="mt-4 text-gray-400 max-w-xl">Every audit uncovers specific, actionable findings — not vague recommendations. Here's what we found for real clients.</p>
+        </div>
+        <div class="hidden shrink-0 gap-2 md:flex">
+          <button type="button" class="swipe-nav-btn" data-swipe-prev="proof-cards" aria-label="Previous audit results" aria-controls="proof-cards">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button type="button" class="swipe-nav-btn" data-swipe-next="proof-cards" aria-label="Next audit results" aria-controls="proof-cards">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
       </div>
 
-      <div class="swipe-cards grid gap-5 md:grid-cols-2 xl:grid-cols-4" tabindex="0" role="region" aria-label="Audit findings, scrollable">
+      <div id="proof-cards" class="swipe-always gap-5" tabindex="0" role="region" aria-label="Audit findings, scrollable">
 
-        <!-- Case 1: Lost Art Salon -->
+        <!-- Case 1: Kimmel Realty Group -->
+        <div class="proof-card rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
+          <div class="mb-2 flex items-center justify-between">
+            <div class="type-eyebrow" style="color:#BC9042;">Kimmel Realty</div>
+            <span class="shrink-0 whitespace-nowrap text-sm font-black text-white">40<span style="color:rgba(255,255,255,0.35); font-weight:400;">/100</span></span>
+          </div>
+          <div class="mb-3 text-xs" style="color:rgba(255,255,255,0.4);">SMA · Real Estate</div>
+          <h3 class="mb-3 type-h3 text-white">60 hidden casino posts in Google.</h3>
+          <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.65);">Two duplicate Business Profiles split the reviews — all 7 of them 2–3 years old. Only 11 organic keywords, in a market where buyers are 90%+ US and Canadian cash. The Proof Sprint became an interim engagement: clear the posts, optimise the blog for SEO/GEO, then rebuild E-E-A-T.</p>
+          <div class="mt-4 pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);">
+            <div class="text-xs" style="color:rgba(255,255,255,0.4);">Real Estate · Proof Sprint → Interim Marketing</div>
+          </div>
+          <div class="mt-3">
+            <div class="flex justify-between text-xs mb-1" style="color:rgba(255,255,255,0.3);">
+              <span>Score</span><span>40/100</span>
+            </div>
+            <div class="h-1 w-full rounded-full" style="background:rgba(255,255,255,0.08);">
+              <div class="h-1 rounded-full score-bar" data-width="40" style="transform:scaleX(0); transform-origin:left; background:linear-gradient(90deg,#BC9042,#E7C874); transition: transform 1.4s cubic-bezier(.4,0,.2,1);"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2: Lost Art Salon -->
         <div class="proof-card rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
           <div class="mb-2 flex items-center justify-between">
             <div class="type-eyebrow" style="color:#BC9042;">Lost Art Salon</div>
@@ -671,7 +767,7 @@
           </div>
         </div>
 
-        <!-- Case 2: Lugar de Huida -->
+        <!-- Case 3: Lugar de Huida -->
         <div class="proof-card rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
           <div class="mb-2 flex items-center justify-between">
             <div class="type-eyebrow" style="color:#BC9042;">Lugar de Huida</div>
@@ -693,7 +789,7 @@
           </div>
         </div>
 
-        <!-- Case 3: Balam Group -->
+        <!-- Case 4: Balam Group -->
         <div class="proof-card rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
           <div class="mb-2 flex items-center justify-between">
             <div class="type-eyebrow" style="color:#BC9042;">Balam Group</div>
@@ -715,7 +811,7 @@
           </div>
         </div>
 
-        <!-- Case 4: Waldorf Astoria SMA -->
+        <!-- Case 5: Waldorf Astoria SMA -->
         <div class="proof-card rounded-2xl p-7" style="background:rgba(255,255,255,0.05); border: 1px solid rgba(188,144,66,0.2);">
           <div class="mb-2 flex items-center justify-between">
             <div class="type-eyebrow" style="color:#BC9042;">Waldorf Astoria</div>
@@ -1492,17 +1588,46 @@
       }
     });
   }, { threshold: 0.3 });
-  document.querySelectorAll('.proof-card').forEach(c => barObserver.observe(c));
+  // A card parked off-screen inside a horizontal scroller never intersects the
+  // viewport on its own, so watch the row and fill every bar in it at once.
+  // Cards outside a scroller keep their per-card trigger.
+  document.querySelectorAll('.swipe-always').forEach(r => barObserver.observe(r));
+  document.querySelectorAll('.proof-card').forEach(c => {
+    if (!c.closest('.swipe-always')) barObserver.observe(c);
+  });
 
-  // Cards parked off-screen inside a mobile swipe row never intersect the
-  // viewport, so the observers above would leave their bars at scaleX(0).
-  // Paint those up front instead.
+  // Same problem on the mobile-only swipe rows: paint those bars up front.
   if (window.matchMedia('(max-width: 767px)').matches) {
     document.querySelectorAll('.swipe-cards .score-bar').forEach(b => {
       const w = parseFloat(b.dataset.width);
       if (w) { b.style.transition = 'none'; b.style.transform = `scaleX(${w / 100})`; }
     });
   }
+
+  // ── Swipe row arrows ──
+  document.querySelectorAll('.swipe-always').forEach(row => {
+    const prev = document.querySelector(`[data-swipe-prev="${row.id}"]`);
+    const next = document.querySelector(`[data-swipe-next="${row.id}"]`);
+    if (!prev || !next) return;
+
+    const step = () => {
+      const card = row.querySelector(':scope > *');
+      if (!card) return row.clientWidth;
+      const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
+      return card.getBoundingClientRect().width + gap;
+    };
+    const sync = () => {
+      const max = row.scrollWidth - row.clientWidth;
+      prev.disabled = row.scrollLeft <= 1;
+      next.disabled = row.scrollLeft >= max - 1;
+    };
+
+    prev.addEventListener('click', () => row.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next.addEventListener('click', () => row.scrollBy({ left: step(), behavior: 'smooth' }));
+    row.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('resize', sync);
+    sync();
+  });
 
   // ── Mobile nav ──
   const menuBtn = document.getElementById('menu-btn');
