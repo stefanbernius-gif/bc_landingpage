@@ -7,7 +7,7 @@ All prices USD. Payment via Stripe or PayPal.
 - Price: From $497 (final scope confirmed on a free 20-minute call)
 - Delivery: 48 hours
 - Guarantee: Full refund if the audit doesn't find at least $8,000/month in recoverable revenue
-- Covers: 7 pillars, 28+ sub-checks — content & messaging, conversion architecture, search & discoverability, social media presence, paid media intelligence, email & CRM, revenue growth
+- Covers: 7 pillars, 28 sub-checks, 140 scored signals — content & messaging, conversion architecture, search & discoverability, social media presence, paid media intelligence, email & CRM, revenue growth
 - Includes: competitor benchmark, prioritized action plan with revenue-impact estimates per finding, full PDF + slide deck
 - Free first step: 20-minute Gap Scan call, no cost, no obligation
 

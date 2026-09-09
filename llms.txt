@@ -6,7 +6,7 @@ Primary audience: small and medium B2B companies (10-200 employees) whose digita
 
 ## Core Services
 
-- **360° Digital Presence Audit**: Full scored audit (7 pillars, 28+ sub-checks), 48h delivery, $8K/month recoverable-revenue guarantee. From $497. See /pricing.md.
+- **360° Digital Presence Audit**: Full scored audit (7 pillars, 28 sub-checks, 140 scored signals), 48h delivery, $8K/month recoverable-revenue guarantee. From $497. See /pricing.md.
 - **Lead Generation Systems**: Apollo prospecting + cold email sequencing + LinkedIn outreach + CRM integration. Custom pricing.
 - **AI Automations**: n8n + Claude-powered workflow automation. n8n certified. Custom pricing.
 - **CRM Setup & Strategy**: HubSpot CRM setup, pipeline design, sales automation. HubSpot certified. Custom pricing.
