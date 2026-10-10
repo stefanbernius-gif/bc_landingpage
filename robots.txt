@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /report/
 Sitemap: https://www.berniusconsulting.com/sitemap.xml
