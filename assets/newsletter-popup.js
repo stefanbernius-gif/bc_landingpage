@@ -30,6 +30,8 @@
     '#bcnl .s a{color:#8a94a6;text-decoration:underline}' +
     '#bcnl .err{font-size:13px;color:#b42318;margin:0;min-height:0}' +
     '#bcnl .ok h2{margin-bottom:6px}' +
+    '#bcnl .ok .t2{font-size:13px;line-height:1.5;color:#4b5563;margin:0 0 18px}' +
+    '#bcnl button.got{font:inherit;font-size:15px;font-weight:700;padding:12px 16px;border:0;border-radius:8px;cursor:pointer;color:#002349;background:linear-gradient(135deg,#BC9042,#E7C874);width:100%}' +
     '#cursor-dot,#cursor-ring{z-index:10002}';   // keep the site's custom cursor (z 9999) above the popup
 
   var shown = false, root;
@@ -75,9 +77,11 @@
       .then(function () {
         set(KEY, 'subscribed');
         if (window.gtag) gtag('event', 'newsletter_signup');
-        root.querySelector('.body').innerHTML = '<div class="ok"><p class="k">Subscribed</p><h2>You are in. Thank you.</h2>' +
-          '<p class="t">The next issue comes to ' + email.replace(/[<>&"]/g, '') + '.</p></div>';
-        setTimeout(close, 3500);
+        root.querySelector('.body').innerHTML = '<div class="ok"><p class="k">One last step</p><h2>Check your inbox.</h2>' +
+          '<p class="t">We sent a confirmation link to <strong>' + email.replace(/[<>&"]/g, '') + '</strong>. Click it to join the list. Look in Spam or Promotions if you do not see the email.</p>' +
+          '<p class="t2">Save <strong>stefan@news.berniusconsulting.com</strong> to your contacts so future newsletters always arrive.</p>' +
+          '<button class="got" type="button">Got it</button></div>';
+        root.querySelector('.got').onclick = close;
       })
       .catch(function () { btn.disabled = false; btn.textContent = 'Subscribe'; err.textContent = 'That did not work. Please try again in a moment.'; });
   }
