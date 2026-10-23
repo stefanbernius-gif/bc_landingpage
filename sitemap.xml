@@ -97,6 +97,12 @@
     <priority>0.1</priority>
   </url>
   <url>
+    <loc>https://www.berniusconsulting.com/email-policy</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
     <loc>https://www.berniusconsulting.com/insights/what-is-a-website-audit.html</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
