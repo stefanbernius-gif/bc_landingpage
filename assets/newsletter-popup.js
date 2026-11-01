@@ -1,6 +1,7 @@
 /* Newsletter signup popup -> n8n "BC — Website newsletter signup to Odoo" (vOYywJTuMGOQBh7B) -> Odoo list "Newsletter".
    Shows once per visitor after the cookie banner is answered, at 20 s or 50 % scroll.
-   Closed: hidden for 30 days. Subscribed: hidden for good. Test with ?nl=1. */
+   Closed: hidden for 30 days. Subscribed: hidden for good. Test with ?nl=1.
+   Any link with data-newsletter or href="#newsletter" opens it on click, whatever the stored state. */
 (function () {
   var ENDPOINT = 'https://n8n.srv840520.hstgr.cloud/webhook/bc-newsletter-signup';
   var KEY = 'bc_nl_state', DAYS = 30, DELAY = 20000;
@@ -8,7 +9,7 @@
   function get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   var st = get(KEY);
-  if (!force && (st === 'subscribed' || (st && Date.now() - +st < DAYS * 864e5))) return;
+  var seen = !force && (st === 'subscribed' || (st && Date.now() - +st < DAYS * 864e5));
 
   var css = '' +
     '#bcnl{position:fixed;inset:0;z-index:10001;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(0,20,45,.55);opacity:0;transition:opacity .25s}' +
@@ -34,9 +35,10 @@
     '#bcnl button.got{font:inherit;font-size:15px;font-weight:700;padding:12px 16px;border:0;border-radius:8px;cursor:pointer;color:#002349;background:linear-gradient(135deg,#BC9042,#E7C874);width:100%}' +
     '#cursor-dot,#cursor-ring{z-index:10002}';   // keep the site's custom cursor (z 9999) above the popup
 
-  var shown = false, root;
+  var shown = false, root, styled = false;
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && shown) close(); });
   function build() {
-    var s = document.createElement('style'); s.textContent = css; document.head.appendChild(s);
+    if (!styled) { var s = document.createElement('style'); s.textContent = css; document.head.appendChild(s); styled = true; }
     root = document.createElement('div'); root.id = 'bcnl';
     root.setAttribute('role', 'dialog'); root.setAttribute('aria-modal', 'true'); root.setAttribute('aria-labelledby', 'bcnl-h');
     root.innerHTML =
@@ -52,7 +54,6 @@
     document.body.appendChild(root);
     root.querySelector('.x').onclick = close;
     root.addEventListener('click', function (e) { if (e.target === root) close(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && shown) close(); });
     root.querySelector('form').onsubmit = submit;
   }
   function show() {
@@ -63,7 +64,7 @@
   }
   function close() {
     if (get(KEY) !== 'subscribed') set(KEY, String(Date.now()));
-    root.classList.remove('on'); setTimeout(function () { root.remove(); }, 250); shown = false;
+    var r = root; r.classList.remove('on'); setTimeout(function () { r.remove(); }, 250); shown = false;
   }
   function submit(e) {
     e.preventDefault();
@@ -100,5 +101,12 @@
     if (force || get('cookie_consent')) return arm();
     var iv = setInterval(function () { if (get('cookie_consent')) { clearInterval(iv); arm(); } }, 1000);
   }
+  // manual open from a link: ignores the once-per-visitor rule
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('[data-newsletter], a[href="#newsletter"]');
+    if (a) { e.preventDefault(); show(); }
+  });
+  window.bcOpenNewsletter = show;
+  if (seen) return;
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();
