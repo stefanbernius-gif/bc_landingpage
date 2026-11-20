@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /report/
+Disallow: /bill-barroso/
 Sitemap: https://www.berniusconsulting.com/sitemap.xml
