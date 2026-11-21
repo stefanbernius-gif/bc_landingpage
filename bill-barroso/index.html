@@ -59,6 +59,8 @@ a{color:#1c1c1e}a:hover{color:#765c36}
 .kw3{position:relative}.kw3::before{content:"";position:absolute;top:0;left:0;right:0;height:60%;background:linear-gradient(to bottom,rgba(255,255,255,.2),rgba(255,255,255,0));pointer-events:none;z-index:0}.kw3 .kw-card{position:relative;z-index:1}
 .kw3 .kw-card.is-active,.kw3 .kw-card:focus-visible{background-color:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}.kw3 .kw-title{transition:transform .45s cubic-bezier(.2,.75,.2,1)}.kw3 .kw-card.is-active .kw-title,.kw3 .kw-card:focus-visible .kw-title{transform:scale(1.12)}
 @media (hover:hover){.kw3 .kw-card:hover{background-color:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}.kw3 .kw-card:hover .kw-title{transform:scale(1.12)}}
+@media (hover:hover) and (min-width:761px){.kw3 .kw-card:hover,.kw3 .kw-card:focus-visible{background-color:rgba(0,0,0,.4);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}}
+@media (min-width:761px){.kw3::before{display:none}}
 @media (max-width:900px){.wb-wrap{min-height:0 !important}.wb-photo{width:100% !important;height:520px !important}.wb-card{position:relative !important;left:auto !important;top:auto !important;width:auto !important;margin:-110px 16px 0 !important;padding:40px 24px !important}}
 @media (max-width:760px){.kw-card{min-height:360px !important;border-right:0 !important;border-bottom:1px solid rgba(255,255,255,.55)}}
 @media (max-width:760px){.kw3{height:100vh;height:100svh;flex-direction:column;flex-wrap:nowrap !important}.kw3 .kw-card{min-height:0 !important;flex:1 1 0 !important}}
@@ -198,6 +200,7 @@ html{scroll-padding-top:84px;scroll-behavior:smooth}
 .menu-close{position:absolute;top:22px;right:clamp(16px,4vw,56px);width:48px;height:48px;border:0;background:none;color:#1c1c1e;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .menu-ov p{text-align:left;font-size:12px !important;letter-spacing:.22em !important;white-space:nowrap}
 .menu-ov .menu-cta{white-space:nowrap}
+.menu-ov .menu-cta{font-size:13px !important;font-weight:600 !important;letter-spacing:.18em !important;line-height:1.2;padding:17px 28px;margin-top:26px}
 @media (max-width:560px){.menu-ov .menu-cta{letter-spacing:.12em;padding:18px 22px}.menu-ov p{letter-spacing:.14em !important}}
 @media (max-width:900px){.site-hd nav{display:none !important}.menu-btn{opacity:1;visibility:visible;pointer-events:auto;transform:none;top:12px;width:50px;height:50px}.site-hd{padding-top:18px;padding-bottom:18px}}
 @media (max-width:760px){.menu-ov{top:0;left:0;right:0;bottom:auto;width:100%;min-width:0;max-height:100vh;max-height:100svh;overflow-y:auto;overscroll-behavior:contain;align-items:center;justify-content:flex-start;text-align:center;gap:6px;padding:84px 24px 40px;box-shadow:0 30px 80px rgba(20,18,24,.25);transform:translateY(-100%);transition:opacity .35s ease,transform .5s cubic-bezier(.2,.8,.2,1),visibility .5s}.menu-ov.is-open{transform:none}.menu-ov p{text-align:center;white-space:normal}.menu-ov a:not(.menu-cta){padding:5px 0}.menu-ov .menu-cta{box-sizing:border-box;width:100%;max-width:340px;margin-top:22px;white-space:normal;text-align:center;line-height:1.4;padding:17px 16px;font-size:13px !important;font-weight:600 !important;letter-spacing:.14em !important}.menu-close{top:12px;right:16px}}
@@ -298,12 +301,14 @@ details[open] summary::after{content:"\2013"}
   <div class="menu-ov" id="menu-ov" role="dialog" aria-modal="true" aria-label="Menu">
     <button class="menu-close" type="button" aria-label="Close menu"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 2l16 16M18 2L2 18"></path></svg></button>
     <p style="margin: 0 0 12px; font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 14px; letter-spacing: .3em; text-transform: uppercase; color: #6b665e">BMB · San Miguel de Allende</p>
+    <a href="#about">About</a>
     <a href="#listings">Residences</a>
     <a href="#neighborhoods">Neighborhoods</a>
     <a href="#method">Method</a>
+    <a href="#numbers">Home value quiz</a>
     <a href="#market">Market</a>
-    <a href="#about">About</a>
     <a href="#journal">Journal</a>
+    <a href="#faq">FAQ</a>
     <a class="menu-cta" href="https://wa.me/524151332002?text=Hi%20Bill%2C%20I%27d%20like%20a%20MAPE%20valuation%20for%20my%20property.">Request a MAPE valuation</a>
   </div>
 
@@ -334,7 +339,7 @@ details[open] summary::after{content:"\2013"}
   </div>
 
   <section id="about" aria-label="About BMB" style="background: #ffffff; padding: 0 0 120px">
-    <div class="wb-wrap" style="position: relative; max-width: 1440px; margin: 0 auto; min-height: 1265px">
+    <div class="wb-wrap" style="position: relative; max-width: 1440px; margin: 0 auto; min-height: 1065px">
       <img loading="lazy" decoding="async" class="wb-photo" src="media/bmb-bill-portrait-navy4.webp" alt="Bill Barroso, broker and consultant in San Miguel de Allende" style="display: block; width: 70%; height: 925px; margin-left: auto; object-fit: cover; object-position: 62% 0%">
       <div class="glass wb-card" style="position: absolute; left: clamp(16px, 5vw, 80px); top: 545px; width: 62%; box-sizing: border-box; padding: 76px 84px; background: rgba(255,255,255,.66); box-shadow: 0 30px 70px rgba(28,28,30,.14)">
         <h2 style="margin: 0; font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: clamp(40px, 4.6vw, 68px); line-height: 1.05; color: #1c1c1e">Bill Barroso</h2>
