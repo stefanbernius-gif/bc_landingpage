@@ -16,7 +16,6 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="modulepreload" href="vendor/three.module.min.js">
 <style>
 @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300 700;font-display:swap;src:url(fonts/cormorant-garamond-latin.woff2) format('woff2')}
 @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300 700;font-display:swap;src:url(fonts/cormorant-garamond-italic-latin.woff2) format('woff2')}
@@ -31,7 +30,7 @@ a{color:var(--gold-lt);text-underline-offset:3px}
 .serif{font-family:'Cormorant Garamond',Georgia,serif}
 /* header */
 .hdr{position:absolute;z-index:5;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:calc(14px + env(safe-area-inset-top)) clamp(16px,4vw,40px) 14px}
-.mark{display:flex;align-items:center;gap:12px;color:var(--ivory);text-decoration:none;font-size:12px;letter-spacing:.28em;text-transform:uppercase}
+.mark{display:flex;align-items:center;gap:12px;min-height:44px;min-width:44px;color:var(--ivory);text-decoration:none;font-size:12px;letter-spacing:.28em;text-transform:uppercase}
 .mark svg{width:34px;height:34px}
 .hbtn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid rgba(216,167,67,.6);color:var(--gold-lt);text-decoration:none;font-size:12px;letter-spacing:.2em;text-transform:uppercase;transition:background-color .25s ease,color .25s ease}
 .hbtn:hover{background:var(--gold);color:var(--nave)}
@@ -49,8 +48,8 @@ a{color:var(--gold-lt);text-underline-offset:3px}
 .cue{display:inline-flex;flex-direction:column;align-items:center;gap:8px;margin-top:22px;color:var(--gold-lt);font-size:11px;letter-spacing:.3em;text-transform:uppercase}
 .cue i{display:block;width:1px;height:38px;background:linear-gradient(var(--gold),transparent);animation:cue 1.8s ease-in-out infinite}
 @keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-.gbtn{display:inline-block;margin-top:26px;padding:18px 34px;background:linear-gradient(180deg,#f1d48a,#c9952f 55%,#9c6f1d);color:#1a120a;text-decoration:none;font-weight:600;font-size:13px;letter-spacing:.22em;text-transform:uppercase;box-shadow:0 10px 30px rgba(216,167,67,.25),inset 0 1px 0 rgba(255,255,255,.5);transition:transform .25s ease,box-shadow .25s ease}
-.gbtn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(216,167,67,.35),inset 0 1px 0 rgba(255,255,255,.5)}
+.gbtn{display:inline-block;margin-top:26px;padding:18px 34px;background:linear-gradient(180deg,#f1d48a,#c9952f 55%,#9c6f1d);color:#1a120a;text-decoration:none;font-weight:600;font-size:13px;letter-spacing:.22em;text-transform:uppercase;box-shadow:0 10px 24px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.5);transition:transform .25s ease,box-shadow .25s ease}
+.gbtn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.5)}
 .r-fade{position:absolute;inset:0;pointer-events:none;background:#0b0805;opacity:var(--end,0)}
 .r-poster{display:none}
 /* no WebGL or reduced motion: a still, framed version of the same story */
@@ -62,8 +61,8 @@ a{color:var(--gold-lt);text-underline-offset:3px}
 #retablo.static .r-ph h1,#retablo.static .r-ph h2{font-size:clamp(34px,7vw,56px)}
 /* gilded frame around the quiz */
 .nave{padding:clamp(28px,6vw,90px) clamp(10px,3vw,40px) clamp(40px,7vw,100px);background:radial-gradient(120% 80% at 50% 0,#22180c 0,var(--nave) 60%)}
-.nave h2{margin:0 0 clamp(22px,3vw,40px);text-align:center;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(30px,4vw,48px);line-height:1.08;color:var(--ivory);text-wrap:balance}
-.nave h2 i{color:var(--gold-lt)}
+.nave>h2{margin:0 0 clamp(22px,3vw,40px);text-align:center;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(30px,4vw,48px);line-height:1.08;color:var(--ivory);text-wrap:balance}
+.nave>h2 i{color:var(--gold-lt)}
 .gilt{position:relative;max-width:1240px;margin:0 auto;padding:clamp(10px,1.6vw,20px);background:linear-gradient(135deg,#f6dc8f,#b9862c 25%,#f1d48a 48%,#8a6420 72%,#e2b55a);box-shadow:0 40px 90px rgba(0,0,0,.6)}
 .gilt::before{content:"";position:absolute;inset:clamp(4px,.6vw,8px);border:1px solid rgba(26,18,10,.45);pointer-events:none;z-index:1}
 .gilt .orn{position:absolute;z-index:2;width:clamp(54px,9vw,120px);height:clamp(54px,9vw,120px);filter:drop-shadow(0 2px 3px rgba(0,0,0,.45))}
@@ -74,13 +73,25 @@ a{color:var(--gold-lt);text-underline-offset:3px}
 .why{max-width:1100px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(16px,4vw,40px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,56px)}
 .why div{padding-top:22px;border-top:1px solid rgba(216,167,67,.55)}
 .why h3{margin:0 0 10px;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:28px;line-height:1.1;color:var(--ivory)}
-.why p{margin:0;color:var(--ivory-soft);font-size:16px}
+.why p{margin:0;color:var(--ivory-soft);font-size:16px;text-wrap:pretty}
+#contact p,.r-ph p,.pg .ftxt{text-wrap:pretty}
 #contact{padding:clamp(70px,10vw,130px) 20px;text-align:center;border-top:1px solid rgba(216,167,67,.25);background:radial-gradient(80% 120% at 50% 100%,#2a1d0c 0,var(--nave) 70%)}
 #contact h2{margin:0 auto;max-width:760px;font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(36px,5vw,64px);line-height:1.04;color:var(--ivory);text-wrap:balance}
 #contact p{margin:16px auto 0;max-width:520px;color:var(--ivory-soft)}
 footer{padding:28px clamp(16px,4vw,40px) calc(30px + env(safe-area-inset-bottom));color:#8f8473;font-size:13px;line-height:1.6;border-top:1px solid rgba(216,167,67,.2);text-align:center}
 footer a{color:#b9ab93}
-@media (max-width:760px){.why{grid-template-columns:1fr}.mark span{display:none}.gilt{padding:8px}.gilt .o0,.gilt .o1{top:-10px}.gilt .o2,.gilt .o3{bottom:-10px}.gilt .o0,.gilt .o2{left:-10px}.gilt .o1,.gilt .o3{right:-10px}}
+@media (max-width:760px){.why{grid-template-columns:1fr}.mark span{display:none}
+.nave{padding:28px 0 40px}.nave>h2{padding:0 16px}
+.gilt{display:flex;flex-direction:column;height:calc(100vh - 16px);height:calc(100svh - 16px);margin:0 8px;padding:7px}
+.gilt #numbers{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+.gilt #numbers .card{flex:1 1 auto;min-height:0;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(110px,32%) minmax(0,1fr)}
+.gilt #numbers .media{height:auto}
+.gilt #numbers .body{min-height:0;height:100%;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:18px 18px 20px;display:flex;flex-direction:column;justify-content:flex-start}
+.gilt #numbers .start{justify-content:center}
+.gilt #pg-src{flex:none;padding:6px 12px 7px;font-size:12.5px}
+.gilt .orn{width:44px;height:44px}.gilt .o0,.gilt .o1{top:-4px}.gilt .o2,.gilt .o3{bottom:-4px}.gilt .o0,.gilt .o2{left:-4px}.gilt .o1,.gilt .o3{right:-4px}
+.gilt::before{inset:3px}}
+@media (max-width:760px) and (max-height:740px){.gilt #numbers .card{grid-template-rows:minmax(96px,27%) minmax(0,1fr)}.gilt #numbers .body{padding-top:14px}}
 @media (prefers-reduced-motion:reduce){.r-ph,.gbtn,.hbtn{transition:none}.cue i{animation:none}}
 </style>
 </head>
@@ -178,6 +189,7 @@ footer a{color:#b9ab93}
 .pg .demo a{color:inherit}
 .pg .num{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(46px,5vw,62px);font-weight:500;letter-spacing:-.01em;color:#8a6420}
 .pg .q{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(26px,2.4vw,32px);font-weight:500;line-height:1.12}
+.pg .start h2 i{color:#8a6420}
 .pg .start h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(40px,4.4vw,64px)}
 .pg .verdict{font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:500}
 .pg .range{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(40px,4.6vw,58px);font-weight:500}
@@ -185,8 +197,7 @@ footer a{color:#b9ab93}
 .pg .locked b{font-size:30px}
 .pg .btn{background:#1a120a}
 .pg .btn:hover{background:#3b2a14}
-.pg .src{color:#8f877a}
-@media (max-width:760px){#numbers .media{height:46vh;height:46svh}#numbers .body{min-height:54vh;min-height:54svh;display:flex;flex-direction:column;justify-content:center}}
+.pg .src{color:#6b6356;font-size:12.5px}
 </style>
 <section id="numbers" class="pg" style="scroll-margin-top:0" aria-label="Guess what your home is worth">
   <div class="card"><div class="media" id="pg-bgs" aria-hidden="true"></div><div class="body" id="pg-card" aria-live="polite"></div></div>
@@ -236,7 +247,7 @@ function preload(id){if(!id)return;var f=img(id);var im=new Image();im.src=M+f}
 function stars(n){return '★★★★★'.slice(0,n)+'<i>'+'★★★★★'.slice(n)+'</i>'}
 function render(focus){
   var ord=order(),id=ord[s.i],st=STEPS[id],qn=ord.length-3,h='';
-  if(st.kind==='start'){showBg(img(id));preload(ord[1]);$('pg-card').innerHTML='<div class="start"><p class="kick">Home value quiz</p><h2>Guess what your home <i>is worth</i></h2><button type="button" class="btn" data-start>Start</button></div>';if(focus){var sb0=$('pg-card').querySelector('[data-start]');if(sb0)sb0.focus({preventScroll:true})}return}
+  if(st.kind==='start'){showBg(img(id));preload(ord[1]);$('pg-card').innerHTML='<div class="start"><h2>Guess what your home <i>is worth</i></h2><button type="button" class="btn" data-start>Start</button></div>';if(focus){var sb0=$('pg-card').querySelector('[data-start]');if(sb0)sb0.focus({preventScroll:true})}return}
   showBg(img(id));preload(ord[s.i+1]);
   var stepNo=Math.min(s.i,qn);
   h+='<div class="meta"><span>'+(id==='gate'||id==='reveal'?'Your result':(id==='type'?'Question 1':'Question '+stepNo+' of '+qn))+'</span><span class="bar"><i style="width:'+Math.round(Math.min(s.i,ord.length-1)/(ord.length-1)*100)+'%"></i></span></div>';
@@ -252,9 +263,8 @@ function render(focus){
     h+='<p class="rsub">Your guess <b>'+short(s.guess)+'</b> is '+(dir==='in'?'<b>inside</b> the range.':'<b>'+pct+'% '+dir+'</b> it.')+' '+(s.type==='res'?s.size+' m², '+DN[s.dist-1]+' from the Jardín.':Math.round(s.size).toLocaleString('en-US')+' m² lot.')+'</p>';
     h+='<div class="facts"><p>Similar listings ask a median <b>'+short(c2.q[10])+' per m²</b>; <b>'+c2.seg.cut+'%</b> of these <b>'+c2.seg.n+'</b> listings have already cut their price.'+(s.type==='res'?' The median '+(s.cur==='USD'?'dollar':'peso')+' home actually <b>sold for '+(s.cur==='USD'?'$516K':'$3.75M MXN')+'</b> in 2026.':'')+'</p>';
     if(s.type==='res'){var str=STR_USD[s.beds-1],mU=s.cur==='USD'?c2.c:c2.c/FX;h+='<p><b>Rent it out?</b> Holiday rentals here are booked 31–42% of nights; '+(s.beds===4?'4+':s.beds)+(s.beds===1?' bedroom earns about':' bedrooms earn about')+' <b>'+(s.cur==='USD'?short(str):short(str*FX)+' MXN')+'</b> a year before costs ('+(str/mU*100).toFixed(1)+'% of the price).</p>'}
-    h+='<p class="src">Recent example data. Not an appraisal.</p>';
     h+='</div><div class="nav"><button type="button" class="back" data-again>Play again</button><a class="btn" id="pg-cta" href="'+wa(c2,cur)+'">Talk to an agent</a></div>'}
-  $('pg-card').innerHTML=h;
+  $('pg-card').innerHTML=h;if(focus&&innerWidth<=760){var gf=document.querySelector('.gilt');if(gf){var gr=gf.getBoundingClientRect();if(Math.abs(gr.top-8)>3)window.scrollTo({top:scrollY+gr.top-8,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}var bd=$('pg-card');if(bd)bd.scrollTop=0}
   if(focus){var el=$('pg-in')||$('pg-email')||$('pg-card').querySelector('.chip.on')||$('pg-card').querySelector('.chip,.stars button,.btn');if(el)el.focus({preventScroll:true})}
 }
 function nav(next,label){return '<div class="nav"><button type="button" class="back" data-back'+(s.i<=1?' hidden':'')+'>Back</button>'+(next?'<button type="button" class="btn" data-next>'+(label||'Next')+'</button>':'')+'</div>'}

@@ -157,8 +157,10 @@ export function mount(host) {
   const kp = new THREE.Vector3(), tmp = new THREE.Vector3();
   let target = 0, p = 0, on = false, raf = 0;
   const progress = () => { const r = host.getBoundingClientRect(); return cl(-r.top / (r.height - innerHeight)); };
+  const cap = innerWidth < 760 ? 1000 / 30 : 0; let last = 0;          // phones: 30 fps is smooth enough and saves battery
   function frame() {
     raf = 0; if (!on) return;
+    const now = performance.now(); if (cap && now - last < cap) { raf = requestAnimationFrame(frame); return; } last = now;
     p += (target - p) * .1;
     const t = performance.now() / 1000, portrait = W() / H() < .85;
     const fly = ease(seg(p, .22, .46)), insert = ease(seg(p, .44, .52)), turn = ease(seg(p, .52, .6)), open = ease(seg(p, .6, .84));
