@@ -324,7 +324,7 @@ details[open] summary::after{content:"\2013"}
       <h1 style="margin: 0; padding-left: .08em; font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-weight: 200; font-size: clamp(46px, 9vw, 144px); line-height: .95; letter-spacing: .08em; color: #ffffff; text-transform: uppercase; text-wrap: balance">Bill Barroso</h1>
       <p class="hero-line" style="margin: 30px 0 0; padding-left: .26em; color: #ffffff; text-wrap: balance"><span style="font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: clamp(13px, 1.3vw, 19px); letter-spacing: .26em; text-transform: uppercase; white-space: nowrap">San Miguel de Allende</span> <span class="hero-sep" aria-hidden="true" style="display: inline-block; width: 28px; height: 1px; margin: 0 .5em; vertical-align: .32em; background: rgba(255,255,255,.75)"></span> <span style="font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: clamp(13px, 1.3vw, 19px); letter-spacing: .26em; text-transform: uppercase; white-space: nowrap">Known by heart</span> <span class="hero-sep2" aria-hidden="true" style="display: inline-block; width: 28px; height: 1px; margin: 0 .5em; vertical-align: .32em; background: rgba(255,255,255,.75)"></span><span class="sr-dash" style="position:absolute;left:-9999px">, </span><span style="font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: clamp(13px, 1.3vw, 19px); letter-spacing: .26em; text-transform: uppercase; white-space: nowrap">and by the numbers.</span></p>
       <div class="hero-cta" style="margin: 94px auto 0; max-width: 400px">
-        <a class="cta-main cta-fill" href="#numbers">Guess what your home is worth</a>
+        <a class="cta-main cta-fill" href="#numbers">Take the home value quiz</a>
       </div>
     </div>
   </section>
@@ -530,6 +530,8 @@ details[open] summary::after{content:"\2013"}
 .pg .facts p{margin:0}
 .pg .facts p+p{margin-top:6px}
 .pg .facts b{font-weight:500;color:#1c1c1e}
+#pg-asof{white-space:nowrap}
+@media (max-width:700px){.pg #pg-src{padding:10px 16px 12px}}
 .pg .facts .src{font-size:12.5px;color:#6b665e;text-align:left;margin:10px 0 0;padding:0}
 .pg .src{position:relative;max-width:900px;margin:0 auto;padding:18px 16px 28px;text-align:center;font-size:12px;line-height:1.5;color:#6b665e}
 .pg .sr{position:absolute;left:-9999px}
@@ -540,6 +542,7 @@ details[open] summary::after{content:"\2013"}
 </style>
 <section id="numbers" class="pg" style="scroll-margin-top:0" aria-label="Guess what your home is worth">
   <div class="card"><div class="media" id="pg-bgs" aria-hidden="true"></div><div class="body" id="pg-card" aria-live="polite"></div></div>
+  <p class="src" id="pg-src">Home value quiz · AMPI San Miguel MLS asking prices, pulled <span id="pg-asof">19 Nov 2026</span>.</p>
 </section>
 <script>
 (function(){
@@ -585,7 +588,7 @@ function preload(id){if(!id)return;var f=img(id);var im=new Image();im.src=M+f}
 function stars(n){return '★★★★★'.slice(0,n)+'<i>'+'★★★★★'.slice(n)+'</i>'}
 function render(focus){
   var ord=order(),id=ord[s.i],st=STEPS[id],qn=ord.length-3,h='';
-  if(st.kind==='start'){showBg(img(id));preload(ord[1]);$('pg-card').innerHTML='<div class="start"><p class="kick">Before stage I · the numbers game</p><h2>Guess what your home <i>is worth</i></h2><button type="button" class="btn" data-start>Start</button></div>';if(focus){var sb0=$('pg-card').querySelector('[data-start]');if(sb0)sb0.focus({preventScroll:true})}return}
+  if(st.kind==='start'){showBg(img(id));preload(ord[1]);$('pg-card').innerHTML='<div class="start"><p class="kick">Before stage I · home value quiz</p><h2>Guess what your home <i>is worth</i></h2><button type="button" class="btn" data-start>Start</button></div>';if(focus){var sb0=$('pg-card').querySelector('[data-start]');if(sb0)sb0.focus({preventScroll:true})}return}
   showBg(img(id));preload(ord[s.i+1]);
   var stepNo=Math.min(s.i,qn);
   h+='<div class="meta"><span>'+(id==='gate'||id==='reveal'?'Your result':(id==='type'?'Question 1':'Question '+stepNo+' of '+qn))+'</span><span class="bar"><i style="width:'+Math.round(Math.min(s.i,ord.length-1)/(ord.length-1)*100)+'%"></i></span></div>';
@@ -601,7 +604,7 @@ function render(focus){
     h+='<p class="rsub">Your guess <b>'+short(s.guess)+'</b> is '+(dir==='in'?'<b>inside</b> the range.':'<b>'+pct+'% '+dir+'</b> it.')+' '+(s.type==='res'?s.size+' m², '+DN[s.dist-1]+' from the Jardín.':Math.round(s.size).toLocaleString('en-US')+' m² lot.')+'</p>';
     h+='<div class="facts"><p>Similar listings ask a median <b>'+short(c2.q[10])+' per m²</b>; <b>'+c2.seg.cut+'%</b> of these <b>'+c2.seg.n+'</b> listings have already cut their price.'+(s.type==='res'?' The median '+(s.cur==='USD'?'dollar':'peso')+' home actually <b>sold for '+(s.cur==='USD'?'$516K':'$3.75M MXN')+'</b> in 2026.':'')+'</p>';
     if(s.type==='res'){var str=STR_USD[s.beds-1],mU=s.cur==='USD'?c2.c:c2.c/FX;h+='<p><b>Rent it out?</b> Holiday rentals here are booked 31–42% of nights; '+(s.beds===4?'4+':s.beds)+(s.beds===1?' bedroom earns about':' bedrooms earn about')+' <b>'+(s.cur==='USD'?short(str):short(str*FX)+' MXN')+'</b> a year before costs ('+(str/mU*100).toFixed(1)+'% of the price).</p>'}
-    h+='<p class="src">Sold medians: AMPI sales via Live in San Miguel, Jan–Sep 2026. Asking prices: AMPI San Miguel MLS, pulled '+ASOF+'.</p>';
+    h+='<p class="src">Sold medians: AMPI sales via Live in San Miguel, Jan–Sep 2026.</p>';
     h+='</div><div class="nav"><button type="button" class="back" data-again>Play again</button><a class="btn" id="pg-cta" href="'+wa(c2,cur)+'">Confirm my range</a></div>'}
   $('pg-card').innerHTML=h;
   if(focus){var el=$('pg-in')||$('pg-email')||$('pg-card').querySelector('.chip.on')||$('pg-card').querySelector('.chip,.stars button,.btn');if(el)el.focus({preventScroll:true})}
@@ -634,7 +637,7 @@ render(false);
 // Weekly numbers: segs_m2.json next to the page replaces the built-in set when it is complete.
 try{fetch('segs_m2.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():null}).then(function(d){
   if(!d||!d.seg||!d.asof)return;for(var k in SEG){var x=d.seg[k];if(!x||!x.q||x.q.length!==21||!(x.n>=30))return}
-  SEG=d.seg;ASOF=d.asof}).catch(function(){})}catch(e){}
+  SEG=d.seg;ASOF=d.asof;var e=document.getElementById('pg-asof');if(e)e.textContent=ASOF}).catch(function(){})}catch(e){}
 })();
 </script>
 
