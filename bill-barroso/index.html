@@ -57,7 +57,15 @@ a{color:#1c1c1e}a:hover{color:#765c36}
 .kw-card:hover .kw-sub,.kw-card:focus-visible .kw-sub,.kw-card.is-active .kw-sub{opacity:1;transform:none}
 @media (max-width:900px){.wb-wrap{min-height:0 !important}.wb-photo{width:100% !important;height:520px !important}.wb-card{position:relative !important;left:auto !important;top:auto !important;width:auto !important;margin:-110px 16px 0 !important;padding:40px 24px !important}}
 @media (max-width:760px){.kw-card{min-height:360px !important;border-right:0 !important;border-bottom:1px solid rgba(255,255,255,.55)}}
-@media (max-width:760px){.nb-card{min-height:210px !important;flex-basis:100% !important}}
+@media (max-width:760px){.kw3{height:100vh;height:100svh;flex-direction:column;flex-wrap:nowrap !important}.kw3 .kw-card{min-height:0 !important;flex:1 1 0 !important}}
+@media (max-width:760px){[aria-label="Credentials"]{flex-direction:column !important;flex-wrap:nowrap !important;gap:0 !important;padding:0 16px !important;height:100vh;height:100svh}.trust-band section[aria-label="Credentials"] > div,[aria-label="Credentials"] > div{flex:1 1 0 !important;padding:0 !important;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}}
+@media (max-width:760px){html{scroll-snap-type:y proximity}.hero,.trust-band,.kw3,#listings{scroll-snap-align:start}.kw3,#listings{scroll-snap-stop:always;scroll-margin-top:-84px}.trust-band{scroll-snap-stop:always;scroll-margin-top:-84px}#about{scroll-snap-align:start;scroll-snap-stop:always;scroll-margin-top:-84px;padding:0 !important}#about .wb-wrap{height:100vh;height:100svh}#about .wb-photo{position:absolute;top:0;left:0;width:100% !important;height:100% !important;object-position:62% 0% !important}#about .wb-card{position:absolute !important;left:16px !important;right:16px !important;bottom:16px !important;top:auto !important;width:auto !important;margin:0 !important;padding:28px 22px !important}#about .wb-card h2{font-size:36px !important}#about .wb-card p{font-size:15px !important;line-height:1.6 !important}#about .wb-card p:first-of-type{margin:12px 0 12px !important;font-size:12px !important;letter-spacing:.2em !important}#about .wb-btn{margin-top:22px !important;padding:16px 28px !important}#about .wb-card{bottom:56px !important}#about .wb-card .wb-usp{font-size:19px !important;line-height:1.35 !important;margin:0 0 10px !important}}
+@media (max-width:760px) and (max-height:720px){#about .wb-card{padding:20px 18px !important;bottom:12px !important}#about .wb-card h2{font-size:28px !important}#about .wb-card p{font-size:14px !important;line-height:1.5 !important}#about .wb-card p:first-of-type{margin:8px 0 8px !important;font-size:11px !important}#about .wb-btn{margin-top:14px !important;padding:13px 22px !important}#about .wb-card{bottom:32px !important}#about .wb-card .wb-usp{font-size:17px !important}#about .wb-photo{object-position:62% 8% !important}}
+@media (max-width:760px){#about .wb-wrap::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(10,9,11,0) 25%,rgba(10,9,11,.55) 50%,#0a090b 78%);pointer-events:none}#about .wb-card{z-index:2;background:none !important;box-shadow:none !important;-webkit-backdrop-filter:none !important;backdrop-filter:none !important;text-align:center}#about .wb-card h2,#about .wb-card p{color:#fff !important}#about .wb-card p:first-of-type{color:rgba(255,255,255,.78) !important}#about .wb-btn{background:#fff !important;color:#1c1c1e !important}}
+@media (max-width:760px){#listings{height:100vh;height:100svh;box-sizing:border-box;padding:0 !important;display:grid !important;grid-template-rows:repeat(4,minmax(0,1fr));scroll-margin-top:-84px !important}#listings .st-head{grid-row:1;align-self:center;margin:0 !important;padding:0 16px}#listings .st-wrap{display:contents}#listings .st-track{grid-row:2 / span 2;min-height:0;height:100%;padding:0 16px;scroll-padding:0 16px;box-sizing:border-box}#listings .st-card{aspect-ratio:auto !important;height:100%}#listings .st-ctrl{grid-row:4;align-self:center;margin:0 !important}}
+@media (max-width:760px){#neighborhoods{scroll-snap-align:start;scroll-snap-stop:always;scroll-margin-top:-84px}#neighborhoods .fixed-d{flex-direction:column !important;flex-wrap:nowrap !important;height:100vh;height:100svh}.nb-card{min-height:0 !important;flex:1 1 0 !important;position:relative}.nb-card .kw-sub{display:none}.nb-card .kw-title{transform:none !important}}
+@media (max-width:760px){#method{height:100vh;height:100svh;box-sizing:border-box;padding:0 16px !important;display:flex;flex-direction:column;scroll-snap-align:start;scroll-snap-stop:always;scroll-margin-top:-84px}#method>div{flex:1;display:flex;flex-direction:column;width:100%;min-height:0}#method .st3-head{flex:1 1 0;min-height:0;display:flex;flex-direction:column;justify-content:center}#method h2{font-size:30px !important;line-height:1.15;margin:10px 0 0 !important}#method .st3{flex:3 1 0;min-height:0;margin:0 !important;row-gap:0 !important;grid-template-rows:repeat(3,minmax(0,1fr))}#method .st3>li{display:flex;flex-direction:column;justify-content:center;padding:8px 0 !important;border-top:1px solid #d6ccbf}#method .st3-p{display:none}#method .st3-n{font-size:60px !important}#method .st3-code{margin:10px 0 8px !important}}
+@media (max-width:760px) and (max-height:720px){#method h2{font-size:26px !important}#method .st3-n{font-size:44px !important}#method .st3-code{margin:6px 0 6px !important}#method .st3-h{font-size:18px !important}}
 .btn-solid:hover{background:#765c36 !important;color:#ffffff !important}
 .btn-ghost:hover{background:rgba(255,255,255,.35) !important}
 .cta-main{transition:background-color .3s ease,color .3s ease}.cta-main:hover{background:#1c1c1e !important;color:#ffffff !important}
@@ -132,7 +140,14 @@ blockquote{font-size:20px !important;line-height:1.5 !important}
 @media (max-width:900px){.ft-grid{grid-template-columns:1fr;gap:36px}}
 @media (max-width:560px){.ft-grid{grid-template-columns:1fr;gap:36px}}
 @media (max-width:760px){.mk2-img{order:-1;min-height:0 !important;aspect-ratio:1/1}}
+@media (max-width:760px){#market{scroll-snap-align:start;scroll-snap-stop:always;scroll-margin-top:-84px}#market .mk2-img{aspect-ratio:auto !important;height:50vh;height:50svh}#market .mk2-txt{min-height:50vh;min-height:50svh;padding:20px 24px !important}#market h2{font-size:32px !important;margin:8px 0 18px !important}#market .mk2-grid{gap:14px 24px}#market .mk2-s{padding-top:10px}#market .mk2-s > div:first-child{font-size:30px !important}#market .mk2-s > div + div{margin-top:4px !important;font-size:11px !important}#market .mk2-txt > p:last-child{margin-top:14px !important;font-size:12px !important;line-height:1.45 !important}}
+@media (max-width:760px) and (max-height:720px){#market h2{font-size:26px !important;margin:6px 0 12px !important}#market .mk2-s > div:first-child{font-size:24px !important}#market .mk2-grid{gap:10px 20px}#market .mk2-s{padding-top:8px}#market .mk2-txt{padding:14px 24px !important}#market .mk2-txt > p:first-child{font-size:11px !important}}
+@media (max-width:760px){#journal{height:100vh;height:100svh;box-sizing:border-box;padding:60px 16px 16px !important;display:flex;flex-direction:column;scroll-snap-align:start;scroll-snap-stop:always;scroll-margin-top:-84px}#journal h2{font-size:28px !important;margin:8px 0 18px !important}#journal > div{flex:1;min-height:0;display:flex !important;flex-direction:column;flex-wrap:nowrap !important;gap:10px !important}#journal .jr-card{flex:0 0 auto !important}#journal .jr-card:first-child{flex:1 1 0 !important;min-height:0;display:flex !important;flex-direction:column}#journal .jr-card:first-child > div:first-child{flex:1 1 0;min-height:90px;height:auto !important}#journal .jr-card:first-child .jr-img{height:100% !important}#journal .jr-card:first-child > div:last-child{padding:16px 18px 18px !important}#journal .jr-card:first-child > div:last-child > p:nth-of-type(2){margin:0 0 10px !important;font-size:14px !important;line-height:1.55 !important}#journal .jr-card:nth-child(n+2){display:grid !important;grid-template-columns:104px minmax(0,1fr);align-items:center;height:88px}#journal .jr-card:nth-child(n+2) > div:first-child{height:88px !important}#journal .jr-card:nth-child(n+2) .jr-img{height:88px !important}#journal .jr-card:nth-child(n+2) > div:last-child{padding:0 16px !important}#journal .jr-card:nth-child(n+2) > div:last-child > p:nth-of-type(2),#journal .jr-card:nth-child(n+2) .jr-more{display:none}#journal .jr-card:nth-child(n+2) > div:last-child > p:first-child{font-size:11px !important}#journal .jr-card:nth-child(n+2) h3{margin:4px 0 0 !important;font-size:16px !important;line-height:1.3}#journal .jr-card:first-child h3{margin:6px 0 8px !important}}
+@media (max-width:760px) and (max-height:720px){#journal{padding-top:48px !important}#journal h2{font-size:24px !important;margin:4px 0 12px !important}#journal .jr-card:first-child > div:last-child > p:nth-of-type(2){display:none}#journal .jr-card:nth-child(n+2),#journal .jr-card:nth-child(n+2) > div:first-child,#journal .jr-card:nth-child(n+2) .jr-img{height:76px !important}}
+@media (max-width:760px){#faq{scroll-snap-align:start;scroll-snap-stop:always;scroll-margin-top:-84px}}
+@media (max-width:760px){.end-screen{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;scroll-snap-align:start;scroll-snap-stop:always;scroll-margin-top:-84px}.end-screen .cta-band{flex:1 1 auto;min-height:0 !important;padding:48px 20px !important}.cta-band-btn{box-sizing:border-box;max-width:100%}}
 @media (max-width:860px){.pg .media{height:auto !important;aspect-ratio:1/1}}
+@media (max-width:760px){#numbers{scroll-snap-align:start;scroll-snap-stop:always;scroll-margin-top:-84px !important}#numbers .media{aspect-ratio:auto !important;height:50vh !important;height:50svh !important}#numbers .body{min-height:50vh;min-height:50svh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .fr-card{box-shadow:0 18px 50px rgba(28,28,30,.10),0 2px 6px rgba(28,28,30,.05);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s ease}
 .fr-card:hover{transform:translateY(-6px);box-shadow:0 30px 70px rgba(28,28,30,.16),0 4px 10px rgba(28,28,30,.06)}
@@ -207,48 +222,38 @@ details[open] summary::after{content:"\2013"}
 @media (max-width:700px){.hero{height:860px !important}}
 @media (prefers-reduced-motion:reduce){video{display:none}.hero{background:url(media/bmb-hero-jardin-poster.jpg) center/cover}}
 
-.st-stage{display:grid;justify-items:center;width:100%;margin:0 auto 56px;touch-action:pan-y;user-select:none;-webkit-user-select:none}
-.st-card{grid-area:1/1;position:relative;width:min(850px,90vw);aspect-ratio:3/2;padding:0;border:0;border-radius:4px;overflow:hidden;background:#ddd;cursor:pointer;transition:transform .7s cubic-bezier(.2,.75,.2,1),filter .7s ease,box-shadow .7s ease,opacity .6s ease}
-.st-card img{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
-.st-info{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:6px;padding:80px 32px 28px;text-align:left;color:#fff;background:linear-gradient(to top,rgba(14,12,18,.78),rgba(14,12,18,.35) 55%,rgba(14,12,18,0));transition:opacity .5s ease}
-.st-area{font-family:Manrope,Arial,sans-serif;font-size:12px;letter-spacing:.26em;text-transform:uppercase;opacity:1}
-.st-name{font-family:Manrope,'Helvetica Neue',Arial,sans-serif;font-size:clamp(28px,3vw,40px);line-height:1.08}
-.st-meta{font-family:Manrope,Arial,sans-serif;font-size:13px;letter-spacing:.06em;opacity:.92}
-.st-card.pos-c{z-index:4;transform:none;filter:none;box-shadow:0 38px 84px rgba(28,28,30,.32),0 8px 18px rgba(28,28,30,.12)}
-.st-card.pos-r{z-index:3;transform:translateX(47%) scale(.656);box-shadow:0 10px 24px rgba(28,28,30,.10)}
-.st-card.pos-l{z-index:3;transform:translateX(-47%) scale(.656);box-shadow:0 10px 24px rgba(28,28,30,.10)}
-.st-card.pos-h{z-index:1;transform:scale(.56);filter:brightness(.5);opacity:0;pointer-events:none}
-.st-card.pos-r .st-info,.st-card.pos-l .st-info{opacity:.0}
-.st-card.pos-c:hover{box-shadow:0 44px 92px rgba(28,28,30,.36),0 9px 20px rgba(28,28,30,.13)}
-.st-intro-txt{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;color:#fff;background:rgba(14,12,18,.42);transition:opacity .5s ease}
-.st-title{font-family:Manrope,'Helvetica Neue',Arial,sans-serif;font-weight:400;font-size:clamp(40px,5vw,72px);line-height:1.02}
-.st-title i{font-weight:400}
-.st-note{font-family:Manrope,Arial,sans-serif;font-size:12px;letter-spacing:.08em;opacity:.85}
-.st-go{margin-top:14px;padding-bottom:4px;border-bottom:1px solid rgba(255,255,255,.7);font-family:Manrope,Arial,sans-serif;font-size:12px;letter-spacing:.22em;text-transform:uppercase}
-.st-card.pos-r .st-intro-txt,.st-card.pos-l .st-intro-txt{opacity:0}
-.st-card::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:#141218;opacity:0;transition:opacity .7s ease;pointer-events:none}
-.st-card.pos-r::after,.st-card.pos-l::after{opacity:.45}
-.st-card.pos-r:hover::after,.st-card.pos-l:hover::after{opacity:.3}
 .st-head{text-align:center;padding:0 16px;margin:0 0 56px}
 .st-kick{margin:0;font-family:Manrope,Arial,sans-serif;font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:#765c36}
-.st-h{margin:14px 0 12px;font-family:Manrope,'Helvetica Neue',Arial,sans-serif;font-weight:400;font-size:clamp(40px,5vw,64px);line-height:1.05;color:#1c1c1e}
+.st-h{margin:14px 0 12px;font-family:Manrope,'Helvetica Neue',Arial,sans-serif;font-weight:400;font-size:clamp(40px,5vw,64px);line-height:1.05;color:#1c1c1e;text-wrap:balance}
 .st-h i{font-weight:400}
 .st-sub{margin:0;font-family:Manrope,Arial,sans-serif;font-size:14px;letter-spacing:.04em;color:#6b665e}
-.st-gal{background:#fff}
-.st-grid{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:6px;background:#fff}
-.st-grid img{width:100%;height:100%;object-fit:cover}
-.st-chip{position:absolute;left:18px;bottom:18px;padding:10px 16px;background:rgba(245,243,239,.92);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-family:Manrope,'Helvetica Neue',Arial,sans-serif;font-size:20px;color:#1c1c1e;text-align:left;transition:opacity .5s ease}
-.st-chip .st-area{display:block;margin-bottom:2px;font-size:10.5px;color:#765c36;opacity:1}
-.st-card.pos-r .st-chip,.st-card.pos-l .st-chip{opacity:0}
-.st-card.pos-c.go-l{cursor:w-resize}.st-card.pos-c.go-r{cursor:e-resize}
-.st-ctrl{display:flex;align-items:center;justify-content:center;gap:22px}
-.st-arrow{width:44px;height:44px;border-radius:50%;border:1px solid rgba(28,28,30,.4);background:none;color:#1c1c1e;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .3s ease,border-color .3s ease}
-.st-arrow:hover{background:#1c1c1e;color:#fff;border-color:#1c1c1e}
-.st-count{font-family:Manrope,'Helvetica Neue',Arial,sans-serif;font-size:20px;color:#1c1c1e;letter-spacing:.08em;min-width:70px;text-align:center}
+.st-wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+.st-track{--gap:28px;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - var(--gap))/2);gap:var(--gap);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;outline:none}
+.st-track::-webkit-scrollbar{display:none}
+.st-card{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:4px;background:#ebe6de;scroll-snap-align:start;outline:none}
+.st-card img{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none;transition:transform 1.2s cubic-bezier(.2,.75,.2,1)}
+.st-info{position:absolute;left:0;right:0;bottom:0;padding:16px 24px;background:rgba(28,26,30,.18);-webkit-backdrop-filter:blur(18px) saturate(1.1);backdrop-filter:blur(18px) saturate(1.1);border-top:1px solid rgba(255,255,255,.18);text-shadow:0 1px 8px rgba(0,0,0,.25);color:#fff;font-family:Manrope,'Helvetica Neue',Arial,sans-serif}
+.st-card .st-name{margin:0;font-size:19px !important;font-weight:500 !important;line-height:1.3;letter-spacing:.01em;white-space:normal}
+.st-more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s cubic-bezier(.2,.75,.2,1)}
+.st-more-in{min-height:0;overflow:hidden;opacity:0;transition:opacity .35s ease}
+.st-more p{margin:0}
+.st-area{padding-top:12px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.st-price{margin-top:8px !important;font-size:22px;font-weight:400;font-variant-numeric:tabular-nums}
+.st-meta{margin-top:4px !important;font-size:14px;letter-spacing:.03em;color:rgba(255,255,255,.88)}
+.st-wa{display:inline-block;margin:14px 0 4px;padding-bottom:3px;border-bottom:1px solid rgba(255,255,255,.7);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#fff;text-decoration:none}
+.st-wa:hover{border-bottom-color:#fff}
+.st-card:hover .st-more,.st-card:focus-within .st-more,.st-card.open .st-more{grid-template-rows:1fr}
+.st-card:hover .st-more-in,.st-card:focus-within .st-more-in,.st-card.open .st-more-in{opacity:1;transition-delay:.12s}
+.st-card:hover img,.st-card.open img{transform:scale(1.03)}
+.st-card:focus-visible{box-shadow:0 0 0 2px #fff,0 0 0 4px #765c36}
+.st-ctrl{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:36px}
+.st-arrow{width:44px;height:44px;border-radius:50%;border:1px solid rgba(28,28,30,.4);background:none;color:#1c1c1e;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .3s ease,border-color .3s ease,opacity .3s ease}
+.st-arrow:hover:not(:disabled){background:#1c1c1e;color:#fff;border-color:#1c1c1e}
+.st-arrow:disabled{opacity:.3;cursor:default}
+.st-count{font-family:Manrope,'Helvetica Neue',Arial,sans-serif;font-size:18px;color:#1c1c1e;letter-spacing:.08em;min-width:96px;text-align:center;font-variant-numeric:tabular-nums}
 .st-count b{font-weight:500}.st-count span{color:#6b665e}
-.st-ask{display:inline-block;padding-top:14px !important}
-@media (max-width:760px){.st-title{font-size:34px}.st-go{margin-top:6px}.st-card{width:92vw}.st-card.pos-r{transform:translateX(60%) scale(.7)}.st-card.pos-l{transform:translateX(-60%) scale(.7)}.st-info{padding:48px 18px 16px}.st-name{font-size:24px}}
-@media (prefers-reduced-motion:reduce){.st-card{transition:none !important}}
+@media (max-width:760px){.st-track{--gap:14px;grid-auto-columns:86%}.st-info{padding:14px 18px}.st-card .st-name{font-size:17px !important}.st-price{font-size:20px}}
+@media (prefers-reduced-motion:reduce){.st-more,.st-more-in,.st-card img{transition:none !important}.st-track{scroll-behavior:auto}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"RealEstateAgent","name":"Bill Barroso","alternateName":"José Martín Barroso Cervantes",
@@ -263,11 +268,11 @@ details[open] summary::after{content:"\2013"}
  {"@type":"Offer","itemOffered":{"@type":"Service","name":"Real estate investment advisory"}}]}}
 </script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why should my broker be an AMPI member in San Miguel de Allende?", "acceptedAnswer": {"@type": "Answer", "text": "AMPI is Mexico's leading professional association for real estate. Every AMPI San Miguel firm holds the real estate license the State of Guanajuato requires, and members share listings in real time through the MLS — so an AMPI listing reaches every member office in the city, not just one. BMB is led by a former President of AMPI San Miguel and the director of its Statistics Committee."}}, {"@type": "Question", "name": "What are the stages of selling a property with BMB?", "acceptedAnswer": {"@type": "Answer", "text": "Three stages: MAPE (market analysis and property evaluation — documents, valuation and a full strategy report), MAP (the marketing and advertising package — MLS integration, professional photo and video, 3D tours, drone aerials, targeted campaigns) and CFU (closing and follow-up — notary procedures, optional third-party inspection and support after the sale)."}}, {"@type": "Question", "name": "How are BMB's commissions and fees set?", "acceptedAnswer": {"@type": "Answer", "text": "Commissions depend on the scope of services and are agreed openly with each client. BMB separates real estate commissions, tied to the transaction, from consulting fees, charged for expert advice."}}, {"@type": "Question", "name": "Can I buy or sell in San Miguel de Allende if I don't speak Spanish?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. BMB works in English and Spanish, guides international buyers through every step of the Mexican property process, and handles notary procedures and paperwork on the client's behalf."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why should my broker be an AMPI member in San Miguel de Allende?", "acceptedAnswer": {"@type": "Answer", "text": "AMPI is Mexico's leading professional association for real estate. Every AMPI San Miguel firm holds the real estate license the State of Guanajuato requires, and members share listings in real time through the MLS — so an AMPI listing reaches every member office in the city, not just one. BMB is led by a former President of AMPI San Miguel and the director of its Statistics Committee."}}, {"@type": "Question", "name": "What are the stages of selling a property with BMB?", "acceptedAnswer": {"@type": "Answer", "text": "Three stages: MAPE (market analysis and property evaluation — documents, valuation and a full strategy report), MAP (the marketing and advertising package — MLS integration, professional photo and video, 3D tours, drone aerials, targeted campaigns) and CFU (closing and follow-up — notary procedures, optional third-party inspection and support after the sale)."}}, {"@type": "Question", "name": "How are BMB's commissions and fees set?", "acceptedAnswer": {"@type": "Answer", "text": "Commissions depend on the scope of services and are agreed openly with each client. BMB separates real estate commissions, tied to the transaction, from consulting fees, charged for expert advice."}}, {"@type": "Question", "name": "Can I buy or sell in San Miguel de Allende if I don't speak Spanish?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. BMB works in English and Spanish, guides international buyers through every step of the Mexican property process, and handles notary procedures and paperwork on the client's behalf."}}, {"@type": "Question", "name": "Can foreigners own property in San Miguel de Allende?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. San Miguel de Allende lies outside Mexico's restricted zone along the borders and coasts, so foreign buyers can generally hold title directly in their own name, without a bank trust (fideicomiso). As part of the purchase, the buyer signs an agreement with Mexico's Ministry of Foreign Affairs (SRE), known as the Calvo clause. The notary confirms the exact requirements for each purchase."}}, {"@type": "Question", "name": "What does the notario público do in a property sale?", "acceptedAnswer": {"@type": "Answer", "text": "Every property sale in Mexico is formalized as a public deed before a notario público, a lawyer appointed by the state. The notary checks the title and any liens, calculates and withholds the taxes that apply to the sale, and sends the deed to the Public Registry of Property."}}, {"@type": "Question", "name": "Can I renovate a house in the historic centre?", "acceptedAnswer": {"@type": "Answer", "text": "Usually yes, with permits. Since 2008, the Protective Town of San Miguel and the Sanctuary of Atotonilco have been a UNESCO World Heritage Site, and the historic centre is protected. Before buying a house you plan to change, check with the municipality and INAH which approvals the work needs."}}]}
 </script>
 </head>
 <body id="top">
-<div style="font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-weight: 400; color: #1c1c1e; background: #f5f3ef; overflow: hidden">
+<div style="font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-weight: 400; color: #1c1c1e; background: #f5f3ef; overflow: hidden; overflow: clip">
 
   <header class="site-hd">
     <a class="hd-mark" href="#top" aria-label="BMB, Bill Barroso — back to top" style="font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: 18px; letter-spacing: .3em; text-transform: uppercase; text-decoration: none">BMB</a>
@@ -323,17 +328,15 @@ details[open] summary::after{content:"\2013"}
     <div class="wb-wrap" style="position: relative; max-width: 1440px; margin: 0 auto; min-height: 1265px">
       <img loading="lazy" decoding="async" class="wb-photo" src="media/bmb-bill-portrait-navy4.webp" alt="Bill Barroso, broker and consultant in San Miguel de Allende" style="display: block; width: 70%; height: 925px; margin-left: auto; object-fit: cover; object-position: 62% 0%">
       <div class="glass wb-card" style="position: absolute; left: clamp(16px, 5vw, 80px); top: 545px; width: 62%; box-sizing: border-box; padding: 76px 84px; background: rgba(255,255,255,.66); box-shadow: 0 30px 70px rgba(28,28,30,.14)">
-        <h2 style="margin: 0; font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: clamp(40px, 4.6vw, 68px); line-height: 1.05; color: #1c1c1e">About BMB</h2>
-        <p style="margin: 26px 0 18px; font-size: 16px; letter-spacing: .26em; text-transform: uppercase; color: #1c1c1e">Broker · Consultant · Former President, AMPI</p>
-        <p style="margin: 0 0 16px; font-size: 18px; line-height: 1.75; color: #2e2c29">More than twenty years of buying, selling and building in San Miguel de Allende — and the leadership of AMPI San Miguel, the association that sets the professional standard for the city's real estate community.</p>
-        <p style="margin: 0; font-size: 18px; line-height: 1.75; color: #2e2c29">Since 2018 the work has been anchored in AMPI's Statistics Committee: San Miguel read from the data up — every listing, every price cut, every closing. Buyers get that context before they offer. Sellers get a price that sells.</p>
-        <blockquote style="margin: 30px 0 0; padding: 4px 0 4px 24px; border-left: 2px solid #765c36; font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-size: 26px; line-height: 1.35; color: #1c1c1e">“At BMB, our primary goal is to help people and make new friends.”<footer style="margin-top: 8px; font-family: Manrope, Arial, sans-serif; font-style: normal; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #6b665e">BMB</footer></blockquote>
-        <a class="btn-solid" href="https://wa.me/524151332002?text=Hi%20Bill%2C%20I%27d%20like%20a%20MAPE%20valuation%20for%20my%20property." style="display: inline-block; margin-top: 40px; background: #1c1c1e; color: #ffffff; text-decoration: none; padding: 20px 48px; font-size: 13px; letter-spacing: .22em; text-transform: uppercase">Request a MAPE valuation</a>
+        <h2 style="margin: 0; font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: clamp(40px, 4.6vw, 68px); line-height: 1.05; color: #1c1c1e">Bill Barroso</h2>
+        <p style="margin: 26px 0 18px; font-size: 16px; letter-spacing: .26em; text-transform: uppercase; color: #1c1c1e">BMB · Former President, AMPI San Miguel</p>
+        <p class="wb-usp" style="margin: 0 0 14px; font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-size: 24px; font-weight: 500; line-height: 1.35; color: #1c1c1e">Director of AMPI San Miguel's market statistics since 2018.</p><p class="wb-txt" style="margin: 0; font-size: 18px; line-height: 1.75; color: #2e2c29">Every sale starts with a MAPE valuation — a price built from every listing, price cut and closing in the AMPI MLS.</p>
+        <a class="btn-solid wb-btn" href="https://wa.me/524151332002?text=Hi%20Bill%2C%20I%27d%20like%20a%20MAPE%20valuation%20for%20my%20property." style="display: block; width: fit-content; text-align: center; margin: 40px auto 0; background: #1c1c1e; color: #ffffff; text-decoration: none; padding: 20px 48px; font-size: 13px; letter-spacing: .22em; text-transform: uppercase">Request a MAPE valuation</a>
       </div>
     </div>
   </section>
 
-  <section aria-label="Buy, sell, market" class="fixed-c" style="display: flex; flex-wrap: wrap">
+  <section aria-label="Buy, sell, market" class="fixed-c kw3" style="display: flex; flex-wrap: wrap">
     <a class="kw-card" href="#listings" style="flex: 1 1 300px; min-height: 720px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 0 24px; color: #ffffff; text-decoration: none; border-right: 1px solid rgba(255,255,255,.55)">
       <span class="kw-title" style="font-family: Manrope, Arial, sans-serif; font-weight: 400; font-size: clamp(22px, 2.3vw, 34px); letter-spacing: .32em; text-transform: uppercase; text-align: center">Buying</span>
       <span class="kw-sub" style="font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-size: 22px">Homes and land in San Miguel</span>
@@ -348,36 +351,65 @@ details[open] summary::after{content:"\2013"}
     </a>
   </section>
 
-  <section id="listings" aria-label="Featured residences" style="background: #ffffff; padding: 120px 0 130px; overflow: hidden">
-    <div class="st-head"><p class="st-kick">Selected properties</p><h2 class="st-h">Featured <i>Residences</i></h2><p class="st-sub">Design examples — names, figures and images are placeholders. Click or swipe to explore.</p></div>
-    <div class="st-stage" role="region" aria-roledescription="carousel" aria-label="Featured residences">
-        <button type="button" class="st-card" data-i="0" data-name="Casa Las Bugambilias" aria-label="Casa Las Bugambilias, $2,950,000 USD">
+  <section id="listings" aria-label="Featured residences" style="background: #ffffff; padding: 120px 0 130px">
+    <div class="st-head"><p class="st-kick">Selected properties</p><h2 class="st-h">Featured <i>Residences</i></h2><p class="st-sub">Design examples — names, figures and images are placeholders.</p></div>
+    <div class="st-wrap">
+      <div class="st-track" role="region" aria-roledescription="carousel" aria-label="Featured residences" tabindex="-1">
+        <article class="st-card" tabindex="0" aria-label="Casa Las Bugambilias">
           <img loading="lazy" decoding="async" src="media/bmb-res-1.jpg" alt="Example residence: colonial courtyard with a pool at dusk" draggable="false">
-          <span class="st-info"><span class="st-area">Centro · Example residence</span><span class="st-name">Casa Las Bugambilias</span><span class="st-meta">$2,950,000 USD &nbsp;·&nbsp; 5 bd · 6 ba · 610 m² built</span></span>
-        </button>
-
-        <button type="button" class="st-card" data-i="1" data-name="Casa del Mirador" aria-label="Casa del Mirador, $1,850,000 USD">
+          <div class="st-info">
+            <h3 class="st-name">Casa Las Bugambilias</h3>
+            <div class="st-more"><div class="st-more-in">
+              <p class="st-area">Centro · Example residence</p>
+              <p class="st-price">$2,950,000 USD</p>
+              <p class="st-meta">5 bd · 6 ba · 610 m² built</p>
+              <a class="st-wa" href="https://wa.me/524151332002?text=Hi%20Bill%2C%20I%27m%20interested%20in%20Casa%20Las%20Bugambilias.">Ask about this home</a>
+            </div></div>
+          </div>
+        </article>
+        <article class="st-card" tabindex="0" aria-label="Casa del Mirador">
           <img loading="lazy" decoding="async" src="media/bmb-res-2.jpg" alt="Example residence: rooftop terrace with a plunge pool at sunset" draggable="false">
-          <span class="st-info"><span class="st-area">San Antonio · Example residence</span><span class="st-name">Casa del Mirador</span><span class="st-meta">$1,850,000 USD &nbsp;·&nbsp; 4 bd · 4.5 ba · 420 m² built</span></span>
-        </button>
-
-        <button type="button" class="st-card" data-i="2" data-name="Hacienda Los Jacarandas" aria-label="Hacienda Los Jacarandas, $4,750,000 USD">
+          <div class="st-info">
+            <h3 class="st-name">Casa del Mirador</h3>
+            <div class="st-more"><div class="st-more-in">
+              <p class="st-area">San Antonio · Example residence</p>
+              <p class="st-price">$1,850,000 USD</p>
+              <p class="st-meta">4 bd · 4.5 ba · 420 m² built</p>
+              <a class="st-wa" href="https://wa.me/524151332002?text=Hi%20Bill%2C%20I%27m%20interested%20in%20Casa%20del%20Mirador.">Ask about this home</a>
+            </div></div>
+          </div>
+        </article>
+        <article class="st-card" tabindex="0" aria-label="Hacienda Los Jacarandas">
           <img loading="lazy" decoding="async" src="media/bmb-res-3.jpg" alt="Example residence: restored hacienda with gardens and a stone fountain" draggable="false">
-          <span class="st-info"><span class="st-area">Countryside · Example residence</span><span class="st-name">Hacienda Los Jacarandas</span><span class="st-meta">$4,750,000 USD &nbsp;·&nbsp; 8 bd · 9 ba · 1,450 m² built</span></span>
-        </button>
-
-        <button type="button" class="st-card" data-i="3" data-name="Casa Bóveda" aria-label="Casa Bóveda, $1,290,000 USD">
+          <div class="st-info">
+            <h3 class="st-name">Hacienda Los Jacarandas</h3>
+            <div class="st-more"><div class="st-more-in">
+              <p class="st-area">Countryside · Example residence</p>
+              <p class="st-price">$4,750,000 USD</p>
+              <p class="st-meta">8 bd · 9 ba · 1,450 m² built</p>
+              <a class="st-wa" href="https://wa.me/524151332002?text=Hi%20Bill%2C%20I%27m%20interested%20in%20Hacienda%20Los%20Jacarandas.">Ask about this home</a>
+            </div></div>
+          </div>
+        </article>
+        <article class="st-card" tabindex="0" aria-label="Casa Bóveda">
           <img loading="lazy" decoding="async" src="media/bmb-res-4.jpg" alt="Example residence: master suite with a brick-vaulted ceiling and fireplace" draggable="false">
-          <span class="st-info"><span class="st-area">Guadiana · Example residence</span><span class="st-name">Casa Bóveda</span><span class="st-meta">$1,290,000 USD &nbsp;·&nbsp; 3 bd · 3 ba · 310 m² built</span></span>
-        </button>
-
+          <div class="st-info">
+            <h3 class="st-name">Casa Bóveda</h3>
+            <div class="st-more"><div class="st-more-in">
+              <p class="st-area">Guadiana · Example residence</p>
+              <p class="st-price">$1,290,000 USD</p>
+              <p class="st-meta">3 bd · 3 ba · 310 m² built</p>
+              <a class="st-wa" href="https://wa.me/524151332002?text=Hi%20Bill%2C%20I%27m%20interested%20in%20Casa%20B%C3%B3veda.">Ask about this home</a>
+            </div></div>
+          </div>
+        </article>
+      </div>
+      <div class="st-ctrl">
+        <button type="button" class="st-arrow st-prev" aria-label="Previous residences"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M15 5l-7 7 7 7"></path></svg></button>
+        <span class="st-count" aria-live="polite"><b>01–02</b> <span>/ 04</span></span>
+        <button type="button" class="st-arrow st-next" aria-label="Next residences"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M9 5l7 7-7 7"></path></svg></button>
+      </div>
     </div>
-    <div class="st-ctrl">
-      <button type="button" class="st-arrow st-prev" aria-label="Previous residence"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M15 5l-7 7 7 7"></path></svg></button>
-      <span class="st-count" aria-live="polite"><b>01</b> <span>/ 04</span></span>
-      <button type="button" class="st-arrow st-next" aria-label="Next residence"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M9 5l7 7-7 7"></path></svg></button>
-    </div>
-    <p style="margin: 22px 0 0; text-align: center"><a class="st-ask fr-link" href="https://wa.me/524151332002" style="padding-bottom: 4px; border-bottom: 1px solid #1c1c1e; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #1c1c1e; text-decoration: none">Ask about a residence</a></p>
   </section>
 
   <section id="neighborhoods" aria-label="Neighborhoods">
@@ -417,8 +449,8 @@ details[open] summary::after{content:"\2013"}
 
   <section id="method" style="background: #ebe6de; padding: 110px clamp(16px, 4vw, 56px)">
     <div style="max-width: 1200px; margin: 0 auto">
-      <p style="margin: 0; font-size: 13px; letter-spacing: .28em; text-transform: uppercase; color: #765c36; text-align: center">How it works</p>
-      <h2 style="margin: 14px 0 14px; font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: clamp(36px, 4vw, 54px); text-align: center">The methodology <i style="font-weight: 400">in three stages</i></h2>
+      <div class="st3-head"><p style="margin: 0; font-size: 13px; letter-spacing: .28em; text-transform: uppercase; color: #765c36; text-align: center">How it works</p>
+      <h2 style="margin: 14px 0 14px; font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-weight: 400; font-size: clamp(36px, 4vw, 54px); text-align: center">The methodology <i style="font-weight: 400">in three stages</i></h2></div>
       <ol class="st3">
         <li><span class="st3-n" aria-hidden="true">1</span><p class="st3-code">Stage 1 · MAPE</p><h3 class="st3-h"><b>M</b>arket <b>A</b>nalysis &amp; <b>P</b>roperty <b>E</b>valuation</h3><p class="st3-p">Market study, document review and a valuation that separates value from price — with a written strategy you decide on.</p></li>
         <li><span class="st3-n" aria-hidden="true">2</span><p class="st3-code">Stage 2 · MAP</p><h3 class="st3-h"><b>M</b>arketing &amp; <b>A</b>dvertising <b>P</b>ackage</h3><p class="st3-p">MLS listing, professional photo, video and drone, a 3D tour, copywriting and digital and print campaigns.</p></li>
@@ -653,9 +685,22 @@ render(false);
         <summary style="cursor: pointer; font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-size: 26px; color: #1c1c1e; list-style: none">Can I buy or sell in San Miguel de Allende if I don't speak Spanish?</summary>
         <p style="margin: 14px 0 0; font-size: 17px; line-height: 1.75; color: #57524b">Yes. BMB works in English and Spanish, guides international buyers through every step of the Mexican property process, and handles notary procedures and paperwork on the client's behalf.</p>
       </details>
+      <details style="border-top: 1px solid #c9bfb2; padding: 26px 0">
+        <summary style="cursor: pointer; font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-size: 26px; color: #1c1c1e; list-style: none">Can foreigners own property in San Miguel de Allende?</summary>
+        <p style="margin: 14px 0 0; font-size: 17px; line-height: 1.75; color: #57524b">Yes. San Miguel de Allende lies outside Mexico's restricted zone along the borders and coasts, so foreign buyers can generally hold title directly in their own name, without a bank trust (fideicomiso). As part of the purchase, the buyer signs an agreement with Mexico's Ministry of Foreign Affairs (SRE), known as the Calvo clause. The notary confirms the exact requirements for each purchase.</p>
+      </details>
+      <details style="border-top: 1px solid #c9bfb2; padding: 26px 0">
+        <summary style="cursor: pointer; font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-size: 26px; color: #1c1c1e; list-style: none">What does the notario público do in a property sale?</summary>
+        <p style="margin: 14px 0 0; font-size: 17px; line-height: 1.75; color: #57524b">Every property sale in Mexico is formalized as a public deed before a notario público, a lawyer appointed by the state. The notary checks the title and any liens, calculates and withholds the taxes that apply to the sale, and sends the deed to the Public Registry of Property.</p>
+      </details>
+      <details style="border-top: 1px solid #c9bfb2; padding: 26px 0">
+        <summary style="cursor: pointer; font-family: Manrope, 'Helvetica Neue', Arial, sans-serif; font-size: 26px; color: #1c1c1e; list-style: none">Can I renovate a house in the historic centre?</summary>
+        <p style="margin: 14px 0 0; font-size: 17px; line-height: 1.75; color: #57524b">Usually yes, with permits. Since 2008, the Protective Town of San Miguel and the Sanctuary of Atotonilco have been a UNESCO World Heritage Site, and the historic centre is protected. Before buying a house you plan to change, check with the municipality and INAH which approvals the work needs.</p>
+      </details>
     </div>
   </section>
 
+  <div class="end-screen">
   <section id="work-with-me" class="cta-band" aria-label="Work with Bill">
     <div class="cta-band-in">
       <h2 class="cta-band-h">Start with the numbers.</h2>
@@ -672,6 +717,7 @@ render(false);
     </div>
     <details class="ft-credits"><summary>Concept by Bernius Consulting · Image credits</summary><p>Hero film: Jean Paul Montanaro via Pexels. Band and journal photos: Wikimedia Commons — Juan Carlos Fonseca Mata, Cvmontuy, Alejandro, Carl Campbell (CC BY / CC BY-SA). Living-room and residence images are AI-generated design placeholders; the residences shown are fictional examples.</p></details>
   </footer>
+  </div>
 </div>
 <script>
 /* Touch screens have no hover: blur the panel that crosses the middle of the screen while scrolling. */
@@ -722,38 +768,27 @@ document.querySelectorAll('.kw-card').forEach(function(c){io.observe(c)});})();
 })();
 </script>
 <script>
-/* Featured residences carousel: centre card in front, neighbours peek left and right. */
+/* Featured residences: two cards side by side, arrows below scroll one card at a time. */
 (function(){
-  var stage=document.querySelector('.st-stage'); if(!stage) return;
-  var cards=[].slice.call(stage.querySelectorAll('.st-card')), n=cards.length, cur=0;
-  var count=document.querySelector('.st-count b'), ask=document.querySelector('.st-ask');
-  function paint(){
-    cards.forEach(function(c,i){
-      var d=(i-cur+n)%n, cls = d===0?'pos-c' : d===1?'pos-r' : d===n-1?'pos-l' : 'pos-h';
-      c.className='st-card'+(c.dataset.g?' st-gal':'')+' '+cls; c.tabIndex = d===0?0:-1;
-      c.setAttribute('aria-hidden', d===0?'false':'true');
-      c.setAttribute('aria-label', c.dataset.name + (c.classList.contains('st-gal')?', more photos':'') + (d===0?'':' (show)'));
-    });
-    var name=cards[cur].dataset.name;
-    count.textContent=('0'+(+cards[cur].dataset.i+1)).slice(-2);
-    ask.textContent='Ask about '+name; ask.href='https://wa.me/524151332002?text='+encodeURIComponent("Hi Bill, I'm interested in "+name+".");
+  var track=document.querySelector('.st-track'); if(!track) return;
+  var cards=[].slice.call(track.querySelectorAll('.st-card')), n=cards.length;
+  var prev=document.querySelector('.st-prev'), next=document.querySelector('.st-next'), count=document.querySelector('.st-count b');
+  function step(){ return cards.length>1 ? cards[1].offsetLeft-cards[0].offsetLeft : track.clientWidth; }
+  function pad(x){ return ('0'+x).slice(-2); }
+  function update(){
+    var s=step(), first=Math.round(track.scrollLeft/s), vis=Math.max(1,Math.round((track.clientWidth+s-cards[0].offsetWidth)/s));
+    var last=Math.min(n,first+vis);
+    count.textContent = vis>1 ? pad(first+1)+'–'+pad(last) : pad(first+1);
+    prev.disabled = first<=0; next.disabled = last>=n;
   }
-  function go(step){ var had=stage.contains(document.activeElement); cur=(cur+step+n)%n; paint(); if(had) cards[cur].focus({preventScroll:true}); }
-  stage.addEventListener('click',function(e){ if(moved) return; var c=e.target.closest('.st-card'); if(!c) return;
-    if(c.classList.contains('pos-c')){ var r=c.getBoundingClientRect(); go(e.clientX < r.left + r.width/2 ? -1 : 1); }
-    else if(c.classList.contains('pos-r')) go(1); else if(c.classList.contains('pos-l')) go(-1); });
-  /* centre card: left half = previous, right half = next — show it with the cursor */
-  stage.addEventListener('mousemove',function(e){ var c=e.target.closest('.st-card.pos-c'); cards.forEach(function(k){k.classList.remove('go-l','go-r');});
-    if(c){ var r=c.getBoundingClientRect(); c.classList.add(e.clientX < r.left + r.width/2 ? 'go-l' : 'go-r'); } });
-  document.querySelector('.st-next').addEventListener('click',function(){go(1);});
-  document.querySelector('.st-prev').addEventListener('click',function(){go(-1);});
-  stage.addEventListener('keydown',function(e){ if(e.key==='ArrowRight'){e.preventDefault();go(1);} if(e.key==='ArrowLeft'){e.preventDefault();go(-1);} });
-  var x0=null, moved=false;
-  stage.addEventListener('pointerdown',function(e){x0=e.clientX; moved=false;});
-  stage.addEventListener('pointermove',function(e){ if(x0!==null && Math.abs(e.clientX-x0)>10) moved=true; });
-  stage.addEventListener('pointerup',function(e){ if(x0===null) return; var dx=e.clientX-x0; x0=null; if(Math.abs(dx)>45) go(dx<0?1:-1); setTimeout(function(){moved=false;},0); });
-  stage.addEventListener('pointercancel',function(){x0=null;});
-  paint();
+  prev.addEventListener('click',function(){ track.scrollBy({left:-step()}); });
+  next.addEventListener('click',function(){ track.scrollBy({left:step()}); });
+  track.addEventListener('scroll',function(){ window.requestAnimationFrame(update); },{passive:true});
+  window.addEventListener('resize',update);
+  /* touch screens have no hover: a tap opens the details, a second tap closes them */
+  cards.forEach(function(c){ c.addEventListener('click',function(e){ if(e.target.closest('a')) return;
+    var o=c.classList.contains('open'); cards.forEach(function(k){k.classList.remove('open');}); if(!o) c.classList.add('open'); }); });
+  update();
 })();
 </script>
 </body>
