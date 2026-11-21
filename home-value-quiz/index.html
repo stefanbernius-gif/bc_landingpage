@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home Value Quiz Demo</title>
+<meta name="description" content="A home value quiz for real estate websites: sellers guess their price, see the market range from MLS data and leave their email. Try the demo.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.berniusconsulting.com/home-value-quiz/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.berniusconsulting.com/home-value-quiz/">
+<meta property="og:title" content="A home value quiz for your real estate website">
+<meta property="og:description" content="Sellers guess what their home is worth, see the market range and leave their email. Try the 1-minute demo.">
+<meta property="og:image" content="https://www.berniusconsulting.com/home-value-quiz/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url(/assets/fonts/inter-latin.woff2) format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:200 800;font-display:swap;src:url(fonts/manrope-latin.woff2) format('woff2')}
+:root{--navy:#002349;--gold:#BC9042;--gold-dk:#7A5C1E;--gold-lt:#E7C874;--cream:#F7EFDD;--ink:#1c1c1e;--body:#3d3a35;--muted:#6b665e;--line:#e3ddd2}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:#fff;color:var(--body);font:400 17px/1.6 Inter,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+::selection{background:rgba(188,144,66,.25)}
+a{color:var(--gold-dk);text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.top{background:var(--navy);color:#fff}
+.top .bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{color:#fff;text-decoration:none;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:13px}
+.brand b{color:var(--gold-lt);font-weight:600}
+.top .try{color:var(--gold-lt);font-size:14px;text-decoration:none}
+.hero{padding-top:72px;padding-bottom:88px}
+.hero h1{margin:0;max-width:760px;color:#fff;font-weight:600;font-size:clamp(34px,5vw,56px);line-height:1.08;letter-spacing:-.02em;text-wrap:balance}
+.hero p{margin:22px 0 0;max-width:620px;color:#c9d2de;font-size:clamp(17px,1.6vw,19px);text-wrap:pretty}
+.cta{display:inline-block;margin-top:34px;padding:16px 28px;background:var(--gold);color:var(--navy);font-weight:600;font-size:15px;text-decoration:none;border-radius:2px;transition:background-color .2s ease}
+.cta:hover{background:var(--gold-lt)}
+.hero small{display:block;margin-top:16px;color:#8fa0b6;font-size:13px}
+section.info{padding:88px 0;border-top:1px solid var(--line)}
+section.info h2{margin:0 0 28px;color:var(--navy);font-weight:600;font-size:clamp(26px,3vw,36px);line-height:1.15;letter-spacing:-.01em;text-wrap:balance}
+.gets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin:0;padding:0;list-style:none}
+.gets h3{margin:0 0 8px;color:var(--ink);font-size:18px;font-weight:600}
+.gets p{margin:0;font-size:16px}
+.gets li{padding-top:18px;border-top:2px solid var(--gold)}
+.data{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:start}
+.data p{margin:0 0 16px;max-width:62ch}
+.permit{margin:0;padding:22px 24px;background:var(--cream);color:var(--ink);font-size:17px;line-height:1.55;border-radius:2px}
+.permit b{color:var(--navy)}
+#get{background:var(--navy);color:#c9d2de;border-top:0}
+#get h2{color:#fff}
+#get p{max-width:620px;margin:0}
+footer{padding:28px 0 36px;color:var(--muted);font-size:13px;line-height:1.6;border-top:1px solid var(--line)}
+footer a{color:var(--muted)}
+@media (max-width:860px){.gets{grid-template-columns:1fr;gap:28px}.data{grid-template-columns:1fr;gap:28px}.hero{padding-top:48px;padding-bottom:60px}section.info{padding:64px 0}}
+@media (max-width:480px){.wrap{padding:0 16px}.top .try{display:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar"><a class="brand" href="/">Bernius <b>Consulting</b></a><a class="try" href="#numbers">Try the quiz</a></div>
+  <div class="wrap hero">
+    <h1>A home value quiz for your real estate website</h1>
+    <p>Sellers guess what their home is worth, see the market range from MLS data, and leave their email to get the result. You get the lead.</p>
+    <a class="cta" href="#numbers">Try the demo</a>
+    <small>Demo for San Miguel de Allende · about one minute · data from 21 Nov 2026</small>
+  </div>
+</header>
+<main>
+<!-- Home value quiz demo (Bernius Consulting). Built by build_demo.py. -->
+<style>
+.pg{box-sizing:border-box;position:relative;background:#ffffff;color:#1c1c1e;font-family:Manrope,'Helvetica Neue',Arial,sans-serif;font-weight:400;padding:0}
+.pg *{box-sizing:border-box}
+.pg .bg{position:absolute;inset:0;background:#d9cfc2 center/cover no-repeat;opacity:0;transform:scale(1.05);transition:opacity .8s ease,transform 6s ease}
+.pg .bg.on{opacity:1;transform:scale(1)}
+.pg .card{position:relative;width:100%;min-height:clamp(640px,100vh,860px);background:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.pg .media{position:relative;overflow:hidden;background:#d9cfc2}
+.pg .body{box-sizing:border-box;width:100%;max-width:760px;padding:clamp(40px,5vw,88px) clamp(24px,5vw,88px);display:flex;flex-direction:column;justify-content:center;align-self:center}
+.pg .start{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.pg .start .kick{margin:0;font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:#765c36}
+.pg .start h2{margin:14px 0 34px;font-family:Manrope,'Helvetica Neue',Arial,sans-serif;font-weight:400;font-size:clamp(38px,4.2vw,60px);line-height:1.05;color:#1c1c1e;text-wrap:balance}
+.pg .start h2 i{font-weight:400}
+.pg .meta{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#6b665e}
+.pg .bar{flex:1 1 auto;height:2px;background:#e3ddd2}
+.pg .bar i{display:block;height:100%;background:#765c36;transition:width .5s ease}
+.pg .fact{display:flex;align-items:baseline;gap:18px;margin:22px 0 0;padding-bottom:20px;border-bottom:1px solid #e3ddd2}
+.pg .num{flex:none;font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1;font-family:Manrope,'Helvetica Neue',Arial,sans-serif;font-weight:400;font-size:clamp(48px,6vw,68px);line-height:.95;color:#765c36;white-space:nowrap}
+.pg .ftxt{margin:0;font-size:15px;line-height:1.55;color:#57524b}
+.pg .q{margin:22px 0 16px;font-family:Manrope,'Helvetica Neue',Arial,sans-serif;font-weight:400;font-size:clamp(26px,2.6vw,32px);line-height:1.15;color:#1c1c1e}
+.pg .chips{display:flex;flex-wrap:wrap;gap:8px}
+.pg .chip{flex:1 1 0;min-width:96px;min-height:54px;padding:0 14px;border:1px solid #d9cfc2;background:#fff;color:#1c1c1e;font:400 13px/1.2 Manrope,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s}
+.pg .chip:hover{border-color:#1c1c1e}
+.pg .chip.on{background:#1c1c1e;border-color:#1c1c1e;color:#fff}
+.pg .stars{display:flex;gap:6px}
+.pg .stars button{width:52px;height:52px;padding:0;border:0;background:none;font-size:40px;line-height:52px;color:#d9cfc2;cursor:pointer;transition:color .15s,transform .15s}
+.pg .stars button.on{color:#9a7b4f}
+.pg .stars button:hover{transform:scale(1.12)}
+.pg .stars button:focus-visible,.pg .chip:focus-visible{outline:2px solid #765c36;outline-offset:2px}
+.pg .field{display:flex;align-items:stretch;border:1px solid #d9cfc2;background:#fff}
+.pg .field:focus-within{border-color:#765c36;box-shadow:0 0 0 1px #765c36}
+.pg .field input{flex:1 1 auto;min-width:0;height:60px;padding:0 16px;border:0;background:none;font:400 26px Manrope,'Helvetica Neue',Arial,sans-serif;color:#1c1c1e;outline:none}
+.pg .field span{display:flex;align-items:center;padding:0 16px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#6b665e;border-left:1px solid #e3ddd2}
+.pg .help{margin:8px 0 0;min-height:20px;font-size:13px;color:#6b665e}
+.pg .help.err{color:#8a4a4a}
+.pg .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:22px}
+.pg .back{min-height:44px;padding:12px 6px;border:0;background:none;font:300 13px Manrope,Arial,sans-serif;color:#57524b;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.pg .back[hidden]{display:inline-block !important;visibility:hidden}
+.pg .btn{display:inline-block;padding:17px 30px;border:0;background:#1c1c1e;color:#fff;text-align:center;text-decoration:none;font:400 12.5px/1.2 Manrope,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background-color .25s}
+.pg .btn:hover{background:#765c36;color:#fff}
+.pg .btn.wide{display:block;width:100%}
+.pg .score{margin:20px 0 0;font-size:54px;letter-spacing:6px;line-height:1;color:#9a7b4f}
+.pg .score i{font-style:normal;color:#e3ddd2}
+.pg .verdict{margin:8px 0 0;font-family:Manrope,'Helvetica Neue',Arial,sans-serif;font-size:28px;line-height:1.15;color:#1c1c1e}
+.pg .locked{margin:18px 0 0;padding:14px 18px;background:#ebe6de}
+.pg .locked b{display:block;filter:blur(9px);user-select:none;font-family:Manrope,'Helvetica Neue',Arial,sans-serif;font-weight:400;font-size:40px;line-height:1;color:#1c1c1e}
+.pg .locked small{display:block;margin-top:8px;font-size:13px;color:#57524b}
+.pg .mail{display:flex;gap:8px;margin-top:16px}
+.pg .mail input{flex:1 1 auto;min-width:0;height:54px;padding:0 14px;border:1px solid #d9cfc2;background:#fff;font:300 15px Manrope,Arial,sans-serif;color:#1c1c1e}
+.pg .mail input:focus{outline:2px solid #765c36;outline-offset:-1px}
+.pg .demo{margin:10px 0 0;font-size:12px;line-height:1.5;color:#6b665e}
+.pg .range{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1;margin:20px 0 0;font-family:Manrope,'Helvetica Neue',Arial,sans-serif;font-weight:400;font-size:clamp(46px,6vw,66px);line-height:1;color:#1c1c1e;white-space:nowrap}
+.pg .rsub{margin:8px 0 0;font-size:14.5px;color:#57524b;line-height:1.5}
+.pg .rsub b{font-weight:500;color:#765c36}
+.pg .facts{margin:16px 0 0;padding:14px 0 0;border-top:1px solid #e3ddd2;font-size:14px;line-height:1.6;color:#57524b}
+.pg .facts p{margin:0}
+.pg .facts p+p{margin-top:6px}
+.pg .facts b{font-weight:500;color:#1c1c1e}
+#pg-asof{white-space:nowrap}
+@media (max-width:700px){.pg #pg-src{padding:10px 16px 12px}}
+.pg .facts .src{font-size:12.5px;color:#6b665e;text-align:left;margin:10px 0 0;padding:0}
+.pg .src{position:relative;max-width:900px;margin:0 auto;padding:18px 16px 28px;text-align:center;font-size:12px;line-height:1.5;color:#6b665e}
+.pg .sr{position:absolute;left:-9999px}
+@media (hover:none){.pg .chip:hover{border-color:#d9cfc2}.pg .chip.on:hover{border-color:#1c1c1e}.pg .stars button:hover{transform:none}}
+@media (max-width:860px){.pg .card{grid-template-columns:minmax(0,1fr);min-height:0}.pg .media{height:220px}}
+@media (max-width:560px){.pg{padding:0}.pg .body{padding:22px 20px 24px}.pg .media{height:180px}.pg .fact{flex-direction:column;gap:6px}.pg .chip{min-width:calc(50% - 4px);flex:1 1 calc(50% - 4px)}.pg .stars button{width:46px;font-size:34px}.pg .mail{flex-direction:column}.pg .range{white-space:normal}.pg .nav .btn{flex:1 1 auto}}
+@media (prefers-reduced-motion:reduce){.pg .bg{transition:none;transform:none}}
+
+.pg .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.pg .demo a{color:inherit}
+.pg .num{font-size:clamp(40px,4.4vw,54px);font-weight:500;letter-spacing:-.02em}
+.pg .q{font-size:clamp(20px,1.9vw,25px);font-weight:500;letter-spacing:-.01em}
+.pg .verdict{font-size:21px;font-weight:500}
+.pg .range{font-size:clamp(34px,4vw,50px);font-weight:500;letter-spacing:-.02em}
+.pg .field input{font-size:20px;font-weight:500}
+.pg .locked b{font-size:30px}
+@media (max-width:760px){#numbers .media{height:50vh;height:50svh}#numbers .body{min-height:50vh;min-height:50svh;display:flex;flex-direction:column;justify-content:center}}
+</style>
+<section id="numbers" class="pg" style="scroll-margin-top:0" aria-label="Guess what your home is worth">
+  <div class="card"><div class="media" id="pg-bgs" aria-hidden="true"></div><div class="body" id="pg-card" aria-live="polite"></div></div>
+  <p class="src" id="pg-src">Demo data: AMPI San Miguel MLS asking prices, pulled <span id="pg-asof">21 Nov 2026</span> (fixed snapshot).</p>
+</section>
+<script>
+(function(){
+var root=document.getElementById('numbers'); if(!root) return;
+var SEG={"res-USD-d1":{"n":144,"cut":35,"q":[1181.8,2167.7,2304.7,2472.5,2627.7,2917.7,3014.9,3214.5,3303.4,3374.4,3502.5,3691.6,4135.9,4270.6,4442.7,4821.5,5232.1,5765.2,6044.9,7750.6,13687.2]},"res-USD-d2":{"n":86,"cut":30,"q":[979.6,1263.0,1418.6,1532.0,1586.5,1697.1,1724.6,1931.8,2018.7,2102.4,2259.8,2365.1,2496.8,2601.7,2658.2,2940.4,3172.0,3316.7,3772.6,4358.4,6412.6]},"res-USD-d3":{"n":57,"cut":14,"q":[1132.0,1417.9,1529.1,1594.8,1677.5,1772.6,1785.2,1822.1,1879.1,1948.4,2006.4,2118.6,2140.1,2269.1,2497.3,2558.6,2788.2,2999.0,3341.4,4497.4,5235.3]},"res-USD-d4":{"n":86,"cut":29,"q":[600.0,1022.7,1190.9,1290.6,1379.5,1438.2,1574.9,1683.4,1790.9,2107.5,2208.8,2393.2,2478.9,2513.8,2752.4,3020.9,3256.5,3489.6,3876.4,4683.0,6462.2]},"res-MXN-d1":{"n":49,"cut":20,"q":[7000.0,16759.6,22597.9,25607.9,31897.5,35714.3,38772.3,40349.0,43383.7,45073.8,48571.4,49189.8,55331.1,58991.6,60290.2,63801.2,67126.4,68353.8,77581.2,82470.2,217391.3]},"res-MXN-d2":{"n":126,"cut":22,"q":[11538.5,17880.9,20565.6,22444.4,23206.9,24968.2,26666.7,28488.2,29191.0,30460.2,32550.2,34327.3,36141.8,36890.1,38777.6,40352.4,43571.5,46692.4,52388.3,71454.6,118833.3]},"res-MXN-d3":{"n":187,"cut":19,"q":[8421.1,18347.4,21030.1,22914.9,25046.0,25720.1,26882.6,28249.9,29527.2,30616.5,31862.7,34294.1,35540.1,37105.9,38254.1,40540.4,41979.0,44481.2,46709.7,51409.1,82875.0]},"res-MXN-d4":{"n":162,"cut":19,"q":[10483.9,14693.1,18373.3,20740.5,22127.7,23994.6,24890.8,25476.5,27539.4,28707.3,29729.9,31051.6,33139.5,35474.1,38743.3,39911.8,43734.8,45413.6,49617.2,59765.4,105000.0]},"land-USD-all":{"n":86,"cut":22,"q":[4.5,16.9,29.9,39.1,44.4,61.1,73.3,87.5,97.6,129.8,158.3,193.1,268.5,287.3,356.0,420.1,831.0,1180.0,1300.0,1476.3,3750.8]},"land-USD-s2":{"n":46,"cut":33,"q":[40.0,44.8,54.9,65.9,68.8,80.0,95.9,122.8,140.0,158.3,192.8,237.7,268.5,280.6,292.8,338.7,393.0,586.1,1249.6,1300.3,1501.7]},"land-MXN-s1":{"n":151,"cut":11,"q":[741.5,2113.1,3000.0,3500.0,3896.7,5173.4,5800.0,6139.5,6535.8,6920.0,7297.2,7628.6,8333.3,9001.4,9787.2,10613.4,11274.3,12504.3,17671.7,23769.4,105820.1]},"land-MXN-s2":{"n":244,"cut":16,"q":[233.3,771.5,974.9,1184.7,1374.3,1650.0,1800.0,2000.2,2261.8,2480.2,2619.2,2946.5,3213.5,3595.2,3998.0,4200.0,4999.1,5478.8,6279.2,9312.5,40968.6]},"land-MXN-s3":{"n":120,"cut":7,"q":[30.4,169.8,220.8,299.8,400.0,470.0,620.8,711.7,846.7,921.6,1000.0,1096.5,1153.2,1381.0,1392.0,1424.6,1588.3,1711.7,1800.0,2421.5,7998.6]}}, ASOF='21 Nov 2026', HOOK='https://n8n.srv840520.hstgr.cloud/webhook/bc-quiz-demo';
+var FX=18.92, DN=['under 1 km','1–2 km','2–4 km','over 4 km'], STR_USD=[7100,12000,17200,39700];
+var s={unit:'m2',warned:false,type:null,dist:null,size:null,beds:null,pool:null,terrace:null,comfort:null,newb:null,view:null,cur:'USD',guess:null,i:0,unlocked:false};
+function $(id){return document.getElementById(id)}
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function short(v){if(v>=1e6)return '$'+(v/1e6).toFixed(v>=1e7?1:2).replace(/\.?0+$/,'')+'M';if(v>=1e4)return '$'+Math.round(v/1000)+'K';return '$'+Math.round(v).toLocaleString('en-US')}
+function nice(v){var st=Math.pow(10,Math.floor(Math.log10(v))-2)*5;return Math.round(v/st)*st}
+function qAt(q,p){p=Math.max(0,Math.min(100,p));var x=p/5,i=Math.min(19,Math.floor(x));return q[i]+(q[i+1]-q[i])*(x-i)}
+function key(){if(s.type==='res')return 'res-'+s.cur+'-d'+(s.dist||2);var z=s.size||1000;if(s.cur==='MXN')return 'land-MXN-'+(z<500?'s1':z<5000?'s2':'s3');return (z>=500&&z<5000)?'land-USD-s2':'land-USD-all'}
+function calc(){var seg=SEG[key()],q=seg.q,pts=0;
+  if(s.type==='res'){pts+=[0,2,2.5][s.pool||0]+[0,.5,1][s.terrace||0]+[0,.5,1][s.comfort||0]+[0,.5][s.newb||0]}
+  var mid=Math.max(15,Math.min(85,50+pts*5));return {seg:seg,q:q,lo:nice(qAt(q,mid-12)*s.size),hi:nice(qAt(q,mid+12)*s.size),c:qAt(q,mid)*s.size}}
+function scoreOf(c){var g=s.guess;if(g>=c.lo&&g<=c.hi)return Math.abs(g-c.c)/c.c<=0.06?5:4;var e=Math.min(Math.abs(g-c.lo),Math.abs(g-c.hi))/c.c;return e<=0.12?3:e<=0.3?2:1}
+var VERD=['','','','Close. You know your neighborhood.','Very close — you are inside the range.','Bullseye. You read this market like a pro.'];
+function verdict(sc,c){if(sc>=3)return VERD[sc];return s.guess>c.hi?'Most owners guess high. '+c.seg.cut+'% of similar listings have already cut their price — here is what the market says.':'You may be underselling. The market sees more in homes like yours.'}
+function parseMoney(t){t=String(t).toLowerCase().replace(/\s|\$|usd|mxn|pesos?/g,'');var m=t.match(/^([\d.,]+)(k|mil|mm|m|millones|mill[oó]n)?$/);if(!m)return null;var n=m[1],suf=m[2],v;if(suf){n=n.replace(',','.');if((n.match(/\./g)||[]).length>1)return null;v=parseFloat(n)*((suf==='k'||suf==='mil')?1e3:1e6)}else if(/^\d{1,3}([.,]\d{3})+$/.test(n)){v=parseFloat(n.replace(/[.,]/g,''))}else if(/^\d+([.,]\d{1,2})?$/.test(n)){v=parseFloat(n.replace(',','.'))}else return null;return v>0?v:null}
+var M='media/';
+var STEPS={
+ start:{img:'quiz-jardin.jpg',kind:'start'},
+ type:{img:'quiz-panorama.webp',fact:function(){return ['1,640','properties are for sale in San Miguel right now — 997 homes, 610 lots and 33 commercial spaces. Let\'s see where yours fits.']},q:'What do you own?',kind:'chips',k:'type',opts:[['Home','res'],['Land','land']]},
+ dist:{img:'quiz-jardin.jpg',fact:function(){return ['+32%','price per m² for homes within 1 km of the Parroquia, compared with the city middle. Location comes first.']},q:'How far is it from the Jardín?',kind:'chips',k:'dist',opts:[['Under 1 km',1],['1–2 km',2],['2–4 km',3],['Over 4 km',4]]},
+ size:{img:function(){return s.type==='land'?'quiz-home-3.jpg':'quiz-livingroom.webp'},fact:function(){return s.type==='land'?['7×','more per m² for small lots (under 500 m²) than for large ones. Size changes everything for land.']:['311 m²','is the typical built area of a home listed in dollars. Peso-priced homes are smaller: 222 m².']},q:function(){return s.type==='land'?'How big is the lot?':'How big is the house (built area)?'},kind:'number',k:'size',unit:'m²',min:function(){return s.type==='land'?50:40},max:function(){return s.type==='land'?500000:2000},ph:function(){return s.type==='land'?'e.g. 1,000':'e.g. 250'}},
+ beds:{img:'quiz-home-4.jpg',fact:function(){return ['$17K','a year — roughly what a 3-bedroom holiday rental earns here before costs. A 1-bedroom earns about $7K, a 4-bedroom+ about $40K.']},q:'How many bedrooms?',kind:'chips',k:'beds',opts:[['1',1],['2',2],['3',3],['4+',4]]},
+ pool:{img:'quiz-home-1.jpg',fact:function(){return ['+35%','price per m² for homes with a pool. Only 1 in 8 homes for sale has one.']},q:'Does it have a pool?',kind:'chips',k:'pool',opts:[['No pool',0],['Pool',1],['Heated pool',2]]},
+ terrace:{img:'quiz-courtyard.webp',fact:function(){return ['+10%','price per m² for homes with a covered terrace or portal — an outdoor room for most of the year.']},q:'Is there a covered terrace?',kind:'chips',k:'terrace',opts:[['No',0],['Small',1],['Large',2]]},
+ comfort:{img:'quiz-night.webp',fact:function(){return ['+11%','price per m² for homes with air conditioning; a security system adds about 10%.']},q:'Air conditioning or a security system?',kind:'chips',k:'comfort',opts:[['Neither',0],['One of them',1],['Both',2]]},
+ newb:{img:'quiz-home-3.jpg',fact:function(){return ['+5%','for homes built or fully renovated since 2016. Age matters less than you think — good bones matter more.']},q:'Built or renovated since 2016?',kind:'chips',k:'newb',opts:[['No',0],['Yes',1]]},
+ view:{img:'quiz-home-2.jpg',fact:function(){return ['+1%','That\'s all. A Parroquia view wins hearts, but MLS prices barely move. Rate yours anyway.']},q:'How good is the view?',kind:'stars',k:'view'},
+ guess:{img:'quiz-professor.jpg',fact:function(){var c=SEG[key()];return [c.cut+'%','of similar listings have already cut their price. Most sellers start too high. Will you?']},q:'Your guess: what would it list for today?',kind:'guess'},
+ gate:{img:'quiz-livingroom.webp',kind:'gate'},
+ reveal:{img:'quiz-home-2.jpg',kind:'reveal'}
+};
+function order(){if(s.type==='land')return ['start','type','size','view','guess','gate','reveal'];return ['start','type','dist','size','beds','pool','terrace','comfort','newb','view','guess','gate','reveal']}
+var bgs={},bgWrap=$('pg-bgs');
+function img(id){var st=STEPS[id],f=typeof st.img==='function'?st.img():st.img;return f}
+function showBg(f){if(!bgs[f]){var d=document.createElement('div');d.className='bg';d.style.backgroundImage="url('"+M+f+"')";if(f.indexOf('professor')>=0)d.style.backgroundPosition='center 24%';bgWrap.appendChild(d);bgs[f]=d;void d.offsetWidth}
+  for(var k in bgs)bgs[k].classList.toggle('on',k===f)}
+function preload(id){if(!id)return;var f=img(id);var im=new Image();im.src=M+f}
+function stars(n){return '★★★★★'.slice(0,n)+'<i>'+'★★★★★'.slice(n)+'</i>'}
+function render(focus){
+  var ord=order(),id=ord[s.i],st=STEPS[id],qn=ord.length-3,h='';
+  if(st.kind==='start'){showBg(img(id));preload(ord[1]);$('pg-card').innerHTML='<div class="start"><p class="kick">Demo · home value quiz</p><h2>Guess what your home <i>is worth</i></h2><button type="button" class="btn" data-start>Start</button></div>';if(focus){var sb0=$('pg-card').querySelector('[data-start]');if(sb0)sb0.focus({preventScroll:true})}return}
+  showBg(img(id));preload(ord[s.i+1]);
+  var stepNo=Math.min(s.i,qn);
+  h+='<div class="meta"><span>'+(id==='gate'||id==='reveal'?'Your result':(id==='type'?'Question 1':'Question '+stepNo+' of '+qn))+'</span><span class="bar"><i style="width:'+Math.round(Math.min(s.i,ord.length-1)/(ord.length-1)*100)+'%"></i></span></div>';
+  if(st.fact){var f=st.fact();h+='<div class="fact"><span class="num">'+f[0]+'</span><p class="ftxt">'+f[1]+'</p></div>'}
+  var q=typeof st.q==='function'?st.q():st.q;
+  if(st.kind==='chips'){h+='<p class="q">'+q+'</p><div class="chips">';st.opts.forEach(function(o){h+='<button type="button" class="chip'+(s[st.k]===o[1]?' on':'')+'" aria-pressed="'+(s[st.k]===o[1])+'" data-v="'+o[1]+'">'+o[0]+'</button>'});h+='</div>'+nav(false)}
+  else if(st.kind==='stars'){var v=s.view||0;h+='<p class="q">'+q+'</p><div class="stars" role="radiogroup" aria-label="View rating">';for(var i=1;i<=5;i++)h+='<button type="button" role="radio" aria-checked="'+(i===v)+'" aria-label="'+i+' star'+(i>1?'s':'')+'" data-star="'+i+'" class="'+(i<=v?'on':'')+'">★</button>';h+='</div>'+nav(false)}
+  else if(st.kind==='number'){var ft=s.unit==='ft2';h+='<p class="q"><label for="pg-in">'+q+'</label></p><div class="chips" style="margin-bottom:10px">'+[['m2','Square metres'],['ft2','Square feet']].map(function(u){return '<button type="button" class="chip'+(s.unit===u[0]?' on':'')+'" data-unit="'+u[0]+'" aria-pressed="'+(s.unit===u[0])+'" style="min-height:44px">'+u[1]+'</button>'}).join('')+'</div><div class="field"><input id="pg-in" inputmode="numeric" autocomplete="off" placeholder="'+(ft?(s.type==='land'?'e.g. 10,000':'e.g. 2,700'):st.ph())+'" value="'+(s.size?Math.round(ft?s.size*10.764:s.size):'')+'"><span>'+(ft?'sq ft':'m²')+'</span></div><p class="help" id="pg-help"></p>'+nav(true)}
+  else if(st.kind==='guess'){h+='<p class="q"><label for="pg-in">'+q+'</label></p><div class="chips" style="margin-bottom:10px">'+['USD','MXN'].map(function(c){return '<button type="button" class="chip'+(s.cur===c?' on':'')+'" data-cur="'+c+'" aria-pressed="'+(s.cur===c)+'" style="min-height:40px">'+(c==='USD'?'In US dollars':'In pesos')+'</button>'}).join('')+'</div><div class="field"><input id="pg-in" inputmode="decimal" autocomplete="off" placeholder="'+(s.cur==='USD'?'e.g. 850,000 or 850k':'e.g. 12,000,000 or 12m')+'" value="'+(s.guess?Math.round(s.guess).toLocaleString('en-US'):'')+'"><span>'+s.cur+'</span></div><p class="help" id="pg-help"></p>'+nav(true,'Lock in my guess')}
+  else if(st.kind==='gate'){var c=calc(),sc=scoreOf(c);h+='<div class="score" aria-label="'+sc+' of 5 stars">'+stars(sc)+'</div><p class="verdict">'+verdict(sc,c)+'</p><div class="locked"><b aria-hidden="true">$000K – 0.00M</b><small>Your real market range is ready.</small></div><form class="mail" id="pg-mail" novalidate><label for="pg-email" class="sr">Email</label><input id="pg-email" type="email" placeholder="Your email" autocomplete="email"><input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><button type="submit" class="btn">Email me the result</button></form><p class="help err" id="pg-help" hidden>Please enter a valid email.</p><p class="demo">I email you the result from stefan@berniusconsulting.com and may follow up once about a quiz for your own website. <a href="/privacy">Privacy</a></p><div class="nav"><button type="button" class="back" data-back>Change my guess</button></div>'}
+  else if(st.kind==='reveal'){var c2=calc(),sc2=scoreOf(c2),cur=s.cur==='USD'?' USD':' MXN',dir=s.guess>c2.hi?'above':s.guess<c2.lo?'below':'in',pct=Math.round(Math.abs(s.guess-(dir==='above'?c2.hi:c2.lo))/c2.c*100);
+    h+='<div class="score" style="font-size:30px;letter-spacing:3px;margin-top:16px" aria-label="Your score: '+sc2+' of 5 stars">'+stars(sc2)+'</div><p class="range">'+short(c2.lo)+' – '+short(c2.hi).replace('$','')+'<span style="font-size:.4em;color:#6b665e">'+cur+'</span></p>';
+    h+='<p class="rsub">Your guess <b>'+short(s.guess)+'</b> is '+(dir==='in'?'<b>inside</b> the range.':'<b>'+pct+'% '+dir+'</b> it.')+' '+(s.type==='res'?s.size+' m², '+DN[s.dist-1]+' from the Jardín.':Math.round(s.size).toLocaleString('en-US')+' m² lot.')+'</p>';
+    h+='<div class="facts"><p>Similar listings ask a median <b>'+short(c2.q[10])+' per m²</b>; <b>'+c2.seg.cut+'%</b> of these <b>'+c2.seg.n+'</b> listings have already cut their price.'+(s.type==='res'?' The median '+(s.cur==='USD'?'dollar':'peso')+' home actually <b>sold for '+(s.cur==='USD'?'$516K':'$3.75M MXN')+'</b> in 2026.':'')+'</p>';
+    if(s.type==='res'){var str=STR_USD[s.beds-1],mU=s.cur==='USD'?c2.c:c2.c/FX;h+='<p><b>Rent it out?</b> Holiday rentals here are booked 31–42% of nights; '+(s.beds===4?'4+':s.beds)+(s.beds===1?' bedroom earns about':' bedrooms earn about')+' <b>'+(s.cur==='USD'?short(str):short(str*FX)+' MXN')+'</b> a year before costs ('+(str/mU*100).toFixed(1)+'% of the price).</p>'}
+    h+='<p class="src">Sold medians: AMPI sales via Live in San Miguel, Jan–Sep 2026.</p>';
+    h+='</div><div class="nav"><button type="button" class="back" data-again>Play again</button><a class="btn" id="pg-cta" href="'+wa(c2,cur)+'">Get one for your site</a></div>'}
+  $('pg-card').innerHTML=h;
+  if(focus){var el=$('pg-in')||$('pg-email')||$('pg-card').querySelector('.chip.on')||$('pg-card').querySelector('.chip,.stars button,.btn');if(el)el.focus({preventScroll:true})}
+}
+function nav(next,label){return '<div class="nav"><button type="button" class="back" data-back'+(s.i<=1?' hidden':'')+'>Back</button>'+(next?'<button type="button" class="btn" data-next>'+(label||'Next')+'</button>':'')+'</div>'}
+function wa(){return '#get'}
+function go(d){var ord=order();s.i=Math.max(0,Math.min(ord.length-1,s.i+d));if(ord[s.i]==='gate'&&s.unlocked&&d>0)s.i++;if(ord[s.i]==='gate'&&s.unlocked&&d<0)s.i--;render(true)}
+function submitInput(){var id=order()[s.i],st=STEPS[id],inp=$('pg-in'),hp=$('pg-help');if(!inp)return;
+  if(id==='size'){var ft=s.unit==='ft2',raw=parseFloat(inp.value.replace(/[^\d.]/g,'')),v=ft?raw/10.764:raw,u=ft?' sq ft':' m²',k=ft?10.764:1;if(!(v>=st.min()&&v<=st.max())){hp.textContent='Please enter a size between '+Math.round(st.min()*k).toLocaleString('en-US')+' and '+Math.round(st.max()*k).toLocaleString('en-US')+u+'.';hp.className='help err';return}if(!ft&&s.type==='res'&&v>1000&&!s.warned){s.warned=true;hp.textContent='That is a very large house. If you measured in square feet, switch to Square feet above. Press Next again to keep '+Math.round(v).toLocaleString('en-US')+' m².';hp.className='help err';return}s.size=Math.round(v);go(1);return}
+  if(id==='guess'){var g=parseMoney(inp.value);if(!g||g<1000){hp.textContent='Please enter a price, e.g. '+(s.cur==='USD'?'850,000 or 850k':'12m')+'.';hp.className='help err';return}s.guess=g;go(1)}}
+root.addEventListener('click',function(e){var t=e.target;
+  var ch=t.closest('.chip');if(ch){if(ch.hasAttribute('data-unit')){var iu=$('pg-in'),kv=iu?iu.value:'';s.unit=ch.getAttribute('data-unit');s.warned=false;var sz0=s.size;s.size=null;render(false);s.size=sz0;$('pg-in').value=kv;$('pg-in').focus();return}if(ch.hasAttribute('data-cur')){var inp=$('pg-in'),keep=inp?inp.value:'';s.cur=ch.getAttribute('data-cur');render(false);$('pg-in').value=keep;$('pg-in').focus();return}
+    var st=STEPS[order()[s.i]],raw=ch.getAttribute('data-v'),v=(st.k==='type')?raw:+raw;if(st.k==='type'&&s.type!==v){s.size=null;s.guess=null}s[st.k]=v;
+    ch.parentNode.querySelectorAll('.chip').forEach(function(b){b.classList.toggle('on',b===ch);b.setAttribute('aria-pressed',b===ch)});setTimeout(function(){go(1)},260);return}
+  var sb=t.closest('.stars button');if(sb){s.view=+sb.getAttribute('data-star');sb.parentNode.querySelectorAll('button').forEach(function(b,i){b.classList.toggle('on',i<s.view);b.setAttribute('aria-checked',i+1===s.view)});setTimeout(function(){go(1)},320);return}
+  if(t.closest('[data-start]')){go(1);return}
+  if(t.closest('[data-next]')){submitInput();return}
+  if(t.closest('[data-back]')){go(-1);return}
+  if(t.closest('[data-again]')){s.i=order().indexOf('guess');s.guess=null;render(true);return}
+});
+root.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.id==='pg-in'){e.preventDefault();submitInput()}});
+root.addEventListener('input',function(e){if(e.target.id!=='pg-in')return;var id=order()[s.i],hp=$('pg-help');hp.className='help';
+  if(id==='size'){s.warned=false}
+  if(id==='guess'){var g=parseMoney(e.target.value);hp.textContent=g?'= $'+Math.round(g).toLocaleString('en-US')+' '+s.cur+' — right?':''}else hp.textContent=''});
+root.addEventListener('submit',function(e){if(e.target.id!=='pg-mail')return;e.preventDefault();var v=$('pg-email').value.trim(),ok=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);$('pg-help').hidden=ok;if(!ok)return;
+  var c=calc();try{fetch(HOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:v,website:(document.querySelector('#pg-mail .hp')||{}).value||'',type:s.type,cur:s.cur,size:s.size,dist:s.dist,beds:s.beds,pool:s.pool,terrace:s.terrace,comfort:s.comfort,newb:s.newb,view:s.view,guess:s.guess,lo:c.lo,hi:c.hi,med:c.q[10],n:c.seg.n,cut:c.seg.cut,asof:ASOF,page:location.pathname})}).catch(function(){})}catch(err){}
+  s.unlocked=true;go(1)});
+render(false);
+})();
+</script>
+
+<section class="info" aria-labelledby="h-get">
+  <div class="wrap">
+    <h2 id="h-get">What you get</h2>
+    <ul class="gets">
+      <li><h3>Your brand, your market</h3><p>Your colours, your photos and the price ranges of the towns you sell in. It sits on your own website.</p></li>
+      <li><h3>Every quiz is a lead</h3><p>The result goes out from your email address. The contact lands in your CRM with the property details, ready for a follow-up call.</p></li>
+      <li><h3>Numbers that stay current</h3><p>The ranges update from the MLS on a fixed schedule, and the quiz always shows the date of the last pull.</p></li>
+    </ul>
+  </div>
+</section>
+<section class="info" aria-labelledby="h-data">
+  <div class="wrap data">
+    <div>
+      <h2 id="h-data">Where the numbers come from</h2>
+      <p>This demo runs on one fixed snapshot: AMPI San Miguel MLS asking prices, pulled on 21 Nov 2026 and summarised into price-per-m² ranges by area and size. No single listing is shown or stored.</p>
+      <p>They are asking prices, not sale prices. A quiz result starts a conversation. It is not an appraisal.</p>
+    </div>
+    <p class="permit"><b>A live pull needs the permission of the API key holder.</b> That is usually the office whose MLS or IDX key is used. With that permission, the pull runs on a regular schedule, for example every Monday, and your quiz stays current without any manual work.</p>
+  </div>
+</section>
+<section class="info" id="get" aria-labelledby="h-want">
+  <div class="wrap">
+    <h2 id="h-want">Want one for your site?</h2>
+    <p>Take the quiz and leave your email at the end. You get your result from me, and I follow up once to show you how your own version would work.</p>
+    <a class="cta" href="#numbers">Take the quiz</a>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">Bernius Consulting · <a href="/">berniusconsulting.com</a> · <a href="/privacy">Privacy</a><br>
+  Image credits: street film still by Jean Paul Montanaro via Pexels. Town photos via Wikimedia Commons: Juan Carlos Fonseca Mata, Cvmontuy, Alejandro, Carl Campbell (CC BY / CC BY-SA). Interiors, homes and the portrait are AI-generated placeholders.</div>
+</footer>
+</body>
+</html>
