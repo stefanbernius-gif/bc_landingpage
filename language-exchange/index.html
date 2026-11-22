@@ -1,0 +1,139 @@
+<!doctype html>
+<!-- The Winter Bowl — standalone snow-globe toy. Source of truth. Built to
+     winter-bowl/ by build_globe.py (vendor + fonts copied alongside). -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Queretaro Language Exchange</title>
+<meta name="description" content="A glass bowl full of snow. Swipe it, and see what the snow has kept hidden.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a1526">
+<style>
+@font-face{font-family:'Manrope';font-style:normal;font-weight:200 800;font-display:swap;src:url(fonts/manrope-latin.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300 700;font-display:swap;src:url(fonts/cormorant-garamond-italic-latin.woff2) format('woff2')}
+:root{--night:#0a1526;--ice:#f4f8ff;--ice-soft:#c9d6ea;--gold:#d8a743;--gold-lt:#f1d48a}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--night);overflow:hidden;overscroll-behavior:none}
+body{color:var(--ice);font:400 16px/1.6 Manrope,system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+#stage{position:fixed;inset:0;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
+#stage canvas{display:block;width:100%;height:100%;touch-action:none}
+.fade{position:fixed;left:0;right:0;bottom:0;height:min(260px,36vh);z-index:4;pointer-events:none;background:linear-gradient(to bottom,rgba(10,21,38,0),rgba(10,21,38,.55) 45%,rgba(10,21,38,.85))}
+.ftr{position:fixed;z-index:5;bottom:0;left:0;right:0;display:flex;justify-content:center;padding:0 16px calc(14px + env(safe-area-inset-bottom));pointer-events:none}
+.mark{display:flex;align-items:center;gap:12px;color:var(--ice);text-decoration:none;font-size:12px;letter-spacing:.28em;text-transform:uppercase;text-shadow:0 1px 8px rgba(10,21,38,.8);pointer-events:auto;padding:6px 10px;border-radius:10px;transition:background .3s ease}
+.mark:hover,.mark:focus-visible{background:rgba(10,21,38,.45)}
+.mark .txt{display:flex;flex-direction:column;gap:3px;text-align:center}
+.mark .pl{color:var(--gold-lt);font-size:11px;letter-spacing:.24em;font-weight:600}
+.mark svg{width:32px;height:32px}
+h1{position:fixed;z-index:5;top:calc(30px + env(safe-area-inset-top));left:0;right:0;text-align:center;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(26px,3.4vw,40px);line-height:1.1;color:var(--ice);text-shadow:0 2px 18px rgba(10,21,38,.9);pointer-events:none;margin:0}
+.when{position:fixed;z-index:5;top:calc(42px + clamp(26px,3.4vw,40px)*1.1 + env(safe-area-inset-top));left:0;right:0;text-align:center;color:var(--gold-lt);font-size:12.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;pointer-events:none;text-shadow:0 1px 10px rgba(10,21,38,.9);margin:0}
+/* the signup popup (after the 3rd shake) */
+.pop{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:20px;background:rgba(6,12,24,.55);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .5s ease}
+.pop.on{opacity:1;pointer-events:auto}
+.card{position:relative;width:min(400px,100%);background:rgba(14,28,51,.94);border:1px solid rgba(216,167,67,.55);border-radius:14px;padding:30px 26px 22px;box-shadow:0 24px 60px rgba(0,0,0,.45);transform:translateY(14px);transition:transform .5s ease;text-align:center}
+.pop.on .card{transform:none}
+.when .t2::before{content:' · '}
+@media (max-width:640px){body #cap{bottom:calc(74px + env(safe-area-inset-bottom));line-height:1.25;font-size:18px}.when{line-height:1.8}.when .t2{display:block}.when .t2::before{content:none}}
+.card .eyebrow{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-lt);font-weight:600;margin:0 0 8px}
+.card h2{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;font-size:30px;line-height:1.15;margin:0 0 8px;color:var(--ice)}
+.card p.lead{margin:0 0 18px;color:var(--ice-soft);font-size:15px;line-height:1.5}
+.card label{display:block;text-align:left;font-size:12.5px;color:var(--ice-soft);margin:0 0 5px;letter-spacing:.04em}
+.card input{display:block;width:100%;font:inherit;font-size:16px;color:var(--ice);background:rgba(244,248,255,.07);border:1px solid rgba(201,214,234,.35);border-radius:8px;padding:11px 12px;margin:0 0 14px;outline:none}
+.card input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(216,167,67,.25)}
+.card .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.card button[type=submit]{width:100%;font:inherit;font-weight:700;font-size:15px;letter-spacing:.04em;color:#1a1206;background:linear-gradient(180deg,var(--gold-lt),var(--gold));border:0;border-radius:8px;padding:13px 14px;cursor:pointer;margin-top:4px}
+.card button[type=submit][disabled]{opacity:.6;cursor:wait}
+.card .x{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:50%;border:1px solid rgba(201,214,234,.3);background:transparent;color:var(--ice-soft);font-size:20px;line-height:1;cursor:pointer}
+.card .fine{margin:12px 0 0;font-size:12px;line-height:1.45;color:rgba(201,214,234,.75)}
+.card .msg{min-height:1.2em;margin:10px 0 0;font-size:13.5px;color:#f3b3a6}
+.card .done{display:none;font-size:16px;line-height:1.55;color:var(--ice)}
+.card.sent form{display:none}
+.card.sent .done{display:block}
+#cap{position:fixed;z-index:5;left:0;right:0;bottom:calc(112px + env(safe-area-inset-bottom));padding:0 16px;text-align:center;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:clamp(19px,2.4vw,26px);color:var(--gold-lt);opacity:0;transform:translateY(10px);transition:opacity .8s ease,transform .8s ease;pointer-events:none;text-shadow:0 2px 14px rgba(10,21,38,.9)}
+#cap.on{opacity:1;transform:none}
+#hint{position:fixed;z-index:5;left:0;right:0;bottom:calc(78px + env(safe-area-inset-bottom));padding:0 16px;text-align:center;color:var(--ice-soft);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;opacity:0;transition:opacity 1s ease;pointer-events:none}
+#hint.show{opacity:.85}
+#cap.on ~ #hint.show{opacity:0}
+.na{position:fixed;inset:0;display:none;place-items:center;color:var(--ice-soft);text-align:center;padding:20px}
+body.no3d .na{display:grid}
+@media (prefers-reduced-motion:reduce){#cap,#hint{transition:none}}
+</style>
+</head>
+<body>
+<div id="stage" aria-label="A glass bowl full of snow"></div>
+<h1>Queretaro Language Exchange</h1>
+<p class="when">Saturday · 28.11.2026<span class="t2">From 18:00 · Centro</span></p>
+<div id="cap" aria-live="polite"></div>
+<div id="load" style="position:fixed;z-index:6;left:0;right:0;top:50%;text-align:center;color:var(--ice-soft);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase">Loading the snow…</div>
+<div id="hint">Swipe across the bowl — the snow remembers</div>
+<div class="fade" aria-hidden="true"></div>
+<footer class="ftr">
+  <a class="mark" href="https://www.berniusconsulting.com/" aria-label="Bernius Consulting — Audit, Systems, Growth">
+    <span class="txt"><span class="nm">Bernius Consulting</span><span class="pl">Audit · Systems · Growth</span></span></a>
+</footer>
+<div class="pop" id="pop" role="dialog" aria-modal="true" aria-labelledby="popT" aria-hidden="true">
+  <div class="card" id="card">
+    <button class="x" type="button" id="popX" aria-label="Close">×</button>
+    <p class="eyebrow">Saturday · 28.11.2026</p>
+    <h2 id="popT">Want the details?</h2>
+    <form id="popF" novalidate>
+      <p class="lead">Queretaro Language Exchange, from 18:00 in Centro. Leave your email and we send you the exact place and how it works.</p>
+      <label for="popN">First name</label>
+      <input id="popN" name="name" type="text" autocomplete="given-name" maxlength="60">
+      <label for="popE">Email</label>
+      <input id="popE" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="254">
+      <div class="hp" aria-hidden="true"><label for="popW">Website</label><input id="popW" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+      <button type="submit" id="popS">Send me the details</button>
+      <p class="msg" id="popM" role="status"></p>
+      <p class="fine">We use your email only to send event details. Unsubscribe anytime.</p>
+    </form>
+    <p class="done" id="popD">Thank you! We will email you the details before 28.11.</p>
+  </div>
+</div>
+<div class="na">This page needs WebGL.<br>Your browser or settings have it turned off.</div>
+<script type="module">
+const stage=document.getElementById('stage');
+const gl=(()=>{try{const c=document.createElement('canvas');return !!(c.getContext('webgl2')||c.getContext('webgl'))}catch(e){return false}})();
+if(gl){   // the bowl only moves when the visitor swipes it, so it also runs with reduced motion on
+  import('./scene/globe.js').then(m=>m.mount(stage)).then(()=>{document.getElementById('hint').classList.add('show');document.getElementById('load').style.display='none'}).catch(e=>{console.error(e);document.getElementById('load').textContent='This page needs WebGL.';document.body.classList.add('no3d')});
+}else document.body.classList.add('no3d');
+</script>
+<script>
+// signup popup: opens once, a few seconds after the 3rd shake (castle → pretzel → axolotl)
+(() => {
+  const HOOK = 'https://n8n.srv840520.hstgr.cloud/webhook/qle-subscribe';
+  const pop = document.getElementById('pop'), card = document.getElementById('card'), f = document.getElementById('popF');
+  const em = document.getElementById('popE'), nm = document.getElementById('popN'), msg = document.getElementById('popM'), btn = document.getElementById('popS');
+  let shown = false, lastFocus = null;
+  const store = (k, v) => { try { v === undefined ? 0 : localStorage.setItem(k, v); return localStorage.getItem(k); } catch (e) { return null; } };
+  const open = () => {
+    if (shown || store('qle-signed') === '1') return;
+    shown = true; lastFocus = document.activeElement;
+    pop.classList.add('on'); pop.setAttribute('aria-hidden', 'false');
+    setTimeout(() => em.focus({ preventScroll: true }), 400);
+  };
+  const close = () => { pop.classList.remove('on'); pop.setAttribute('aria-hidden', 'true'); if (lastFocus && lastFocus.focus) lastFocus.focus(); };
+  addEventListener('bowl:reveal', e => { if (e.detail === 2) setTimeout(open, 4500); });
+  document.getElementById('popX').addEventListener('click', close);
+  pop.addEventListener('click', e => { if (e.target === pop) close(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && pop.classList.contains('on')) close(); });
+  f.addEventListener('submit', async e => {
+    e.preventDefault(); msg.textContent = '';
+    const email = em.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { msg.textContent = 'Please check your email address.'; em.focus(); return; }
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try {
+      const r = await fetch(HOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: nm.value.trim(), email, website: document.getElementById('popW').value }) });
+      if (!r.ok) throw new Error(r.status);
+      card.classList.add('sent'); store('qle-signed', '1');
+      setTimeout(close, 3500);
+    } catch (err) {
+      msg.textContent = 'That did not work. Please try again in a moment.';
+      btn.disabled = false; btn.textContent = 'Send me the details';
+    }
+  });
+})();
+</script>
+</body>
+</html>
