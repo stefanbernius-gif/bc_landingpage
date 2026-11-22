@@ -93,11 +93,18 @@ footer a{color:#b9ab93}
 .gilt #pg-src{flex:none;padding:6px 12px 7px;font-size:12.5px}
 .gilt .orn{width:44px;height:44px}.gilt .o0,.gilt .o1{top:-4px}.gilt .o2,.gilt .o3{bottom:-4px}.gilt .o0,.gilt .o2{left:-4px}.gilt .o1,.gilt .o3{right:-4px}
 .gilt::before{inset:3px}
+.gilt #numbers{scroll-margin-top:16px !important}
 html.qmode,html.qmode body{overflow:hidden;overscroll-behavior:none}
 html.qmode .gilt{position:fixed;z-index:60;left:8px;right:8px;margin:0;box-shadow:0 0 0 100vmax rgba(11,8,5,.97)}
 html.qmode .gilt #numbers .body{overscroll-behavior:contain}
 html.qmode .qx{display:flex;position:absolute;z-index:3;top:10px;right:10px;width:44px;height:44px;align-items:center;justify-content:center;border:0;border-radius:50%;background:rgba(11,8,5,.55);color:#f4ecdc;font-size:26px;line-height:1;cursor:pointer}}
 @media (max-width:760px) and (max-height:740px){.gilt #numbers .card{grid-template-rows:minmax(96px,27%) minmax(0,1fr)}.gilt #numbers .body{padding-top:14px}}
+@media (min-width:761px){
+.nave{padding:32px clamp(16px,3vw,40px)}
+.gilt{display:flex;flex-direction:column;height:calc(100vh - 64px);height:calc(100svh - 64px);min-height:540px;max-height:920px}
+.gilt #numbers{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;scroll-margin-top:calc(32px + clamp(10px,1.6vw,20px)) !important}
+.gilt #numbers .card{flex:1 1 auto;min-height:0;height:100%}
+.gilt #numbers .body{max-height:100%;overflow-y:auto}}
 @media (prefers-reduced-motion:reduce){.r-ph,.gbtn,.hbtn{transition:none}.cue i{animation:none}}
 </style>
 </head>
@@ -204,10 +211,11 @@ html.qmode .qx{display:flex;position:absolute;z-index:3;top:10px;right:10px;widt
 .pg .btn{background:#1a120a}
 .pg .btn:hover{background:#3b2a14}
 .pg .src{color:#6b6356;font-size:12.5px}
+.pg .eyebrow{margin:0 0 14px;font-size:11.5px;line-height:1.4;letter-spacing:.16em;text-transform:uppercase;color:#6b6356}
 </style>
 <section id="numbers" class="pg" style="scroll-margin-top:0" aria-label="Guess what your home is worth">
   <div class="card"><div class="media" id="pg-bgs" aria-hidden="true"></div><div class="body" id="pg-card" aria-live="polite"></div></div>
-  <p class="src" id="pg-src">Recent example data. Not an appraisal.</p>
+  
 </section>
 <script>
 (function(){
@@ -253,7 +261,7 @@ function preload(id){if(!id)return;var f=img(id);var im=new Image();im.src=M+f}
 function stars(n){return '★★★★★'.slice(0,n)+'<i>'+'★★★★★'.slice(n)+'</i>'}
 function render(focus){
   var ord=order(),id=ord[s.i],st=STEPS[id],qn=ord.length-3,h='';
-  if(st.kind==='start'){showBg(img(id));preload(ord[1]);$('pg-card').innerHTML='<div class="start"><h2>Guess what your home <i>is worth</i></h2><button type="button" class="btn" data-start>Start</button></div>';if(focus){var sb0=$('pg-card').querySelector('[data-start]');if(sb0)sb0.focus({preventScroll:true})}return}
+  if(st.kind==='start'){showBg(img(id));preload(ord[1]);$('pg-card').innerHTML='<div class="start"><p class="eyebrow">Recent example data. Not an appraisal.</p><h2>Guess what your home <i>is worth</i></h2><button type="button" class="btn" data-start>Start</button></div>';if(focus){var sb0=$('pg-card').querySelector('[data-start]');if(sb0)sb0.focus({preventScroll:true})}return}
   showBg(img(id));preload(ord[s.i+1]);
   var stepNo=Math.min(s.i,qn);
   h+='<div class="meta"><span>'+(id==='gate'||id==='reveal'?'Your result':(id==='type'?'Question 1':'Question '+stepNo+' of '+qn))+'</span><span class="bar"><i style="width:'+Math.round(Math.min(s.i,ord.length-1)/(ord.length-1)*100)+'%"></i></span></div>';
@@ -270,7 +278,7 @@ function render(focus){
     h+='<div class="facts"><p>Similar listings ask a median <b>'+short(c2.q[10])+' per m²</b>; <b>'+c2.seg.cut+'%</b> of these <b>'+c2.seg.n+'</b> listings have already cut their price.'+(s.type==='res'?' The median '+(s.cur==='USD'?'dollar':'peso')+' home actually <b>sold for '+(s.cur==='USD'?'$516K':'$3.75M MXN')+'</b> in 2026.':'')+'</p>';
     if(s.type==='res'){var str=STR_USD[s.beds-1],mU=s.cur==='USD'?c2.c:c2.c/FX;h+='<p><b>Rent it out?</b> Holiday rentals here are booked 31–42% of nights; '+(s.beds===4?'4+':s.beds)+(s.beds===1?' bedroom earns about':' bedrooms earn about')+' <b>'+(s.cur==='USD'?short(str):short(str*FX)+' MXN')+'</b> a year before costs ('+(str/mU*100).toFixed(1)+'% of the price).</p>'}
     h+='</div><div class="nav"><button type="button" class="back" data-again>Play again</button><a class="btn" id="pg-cta" href="'+wa(c2,cur)+'">Talk to an agent</a></div>'}
-  $('pg-card').innerHTML=h;qmode();if(focus){var bd=$('pg-card');if(bd)bd.scrollTop=0}
+  $('pg-card').innerHTML=h;$('pg-card').insertAdjacentHTML('afterbegin','<p class="eyebrow">Recent example data. Not an appraisal.</p>');qmode();if(focus){var bd=$('pg-card');if(bd)bd.scrollTop=0}
   if(focus){var el=$('pg-in')||$('pg-email')||$('pg-card').querySelector('.chip.on')||$('pg-card').querySelector('.chip,.stars button,.btn');if(el)el.focus({preventScroll:true})}
 }
 function nav(next,label){return '<div class="nav"><button type="button" class="back" data-back'+(s.i<=1?' hidden':'')+'>Back</button>'+(next?'<button type="button" class="btn" data-next>'+(label||'Next')+'</button>':'')+'</div>'}
